@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="목포 2박 3일 여행 일정 — 일별 타임라인, 항목별 메모와 카카오맵 링크, 플랜 B, 맛집·카페·명소 목록, 비용과 체크리스트.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="목포 2박 3일 — 원도심과 노을">
+<meta property="og:description" content="10/8~10/10 목포 일정. 항목을 누르면 메모·대안·카카오맵 링크가 열립니다.">
+<meta property="og:locale" content="ko_KR">
+<title>목포 2박 3일</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap">
+<style>
+/* 단일 라이트 테마 — 뷰어 테마와 무관하게 흰 배경으로 렌더 */
+:root{
+  --paper:#FFFFFF;
+  --tint:#F7F7F5;
+  --tint-2:#EFEFED;
+  --ink:#191919;
+  --ink-1:#37352F;
+  --ink-2:#5F5E5A;
+  --ink-3:#908F8B;
+  --line:#E9E9E7;
+  --line-2:#D6D5D1;
+  --accent:#AE3B25;
+  --c-move:#36627E;   --c-move-bg:#EDF3F7;
+  --c-food:#A03B2E;   --c-food-bg:#FAEFEC;
+  --c-sight:#2F6E57;  --c-sight-bg:#EBF4F0;
+  --c-cafe:#80601F;   --c-cafe-bg:#F8F2E4;
+  --c-stay:#5B5F6B;   --c-stay-bg:#F0F0F2;
+  --c-buy:#83396A;    --c-buy-bg:#F9EDF5;
+  --c-purple:#63459B; --c-purple-bg:#F1EDFA;
+  --warn:#8A5A12; --warn-bg:#FBF5E8; --warn-line:#E9DCBE; --warn-ink:#6B4409;
+  --sun:#B8601F; --sun-bg:#FBF1E7;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink-1);
+  font-family:"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI","Malgun Gothic",sans-serif;
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;
+  font-feature-settings:"tnum" 0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px 120px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:6px}
+.num{font-variant-numeric:tabular-nums}
+
+/* header */
+header.top{padding:56px 0 28px}
+.eyebrow{margin:0;font-size:12.5px;font-weight:600;letter-spacing:.14em;color:var(--ink-3)}
+h1{font-weight:900;font-size:clamp(38px,7.4vw,60px);line-height:1.1;color:var(--ink);
+   margin:14px 0 0;letter-spacing:-.035em;text-wrap:balance}
+.lede{margin:18px 0 0;font-size:16.5px;color:var(--ink-2);max-width:60ch;line-height:1.75}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.fact{border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:13.5px;color:var(--ink-2)}
+.fact b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
+
+/* tabs */
+nav.tabs{position:sticky;top:0;z-index:40;background:var(--paper);padding:14px 0;border-bottom:1px solid var(--line)}
+.tabrow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.tabrow::-webkit-scrollbar{display:none}
+.tab{flex:none;appearance:none;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:8px 16px;
+     font:inherit;font-size:14.5px;font-weight:500;color:var(--ink-2);cursor:pointer;white-space:nowrap}
+.tab:hover{color:var(--ink);background:var(--tint);border-color:var(--line-2)}
+.tab[aria-selected="true"]{background:var(--ink);color:#fff;font-weight:600;border-color:var(--ink)}
+
+/* day chips */
+.days{display:flex;gap:8px;overflow-x:auto;padding:30px 0 20px;scrollbar-width:none}
+.days::-webkit-scrollbar{display:none}
+.chip{flex:none;appearance:none;text-align:left;background:var(--paper);border:1px solid var(--line);
+      border-radius:10px;padding:12px 18px;font:inherit;cursor:pointer;color:var(--ink-2)}
+.chip:hover{border-color:var(--line-2);background:var(--tint)}
+.chip .dn{display:block;font-weight:700;font-size:15.5px;color:var(--ink);letter-spacing:-.01em}
+.chip .dd{display:block;font-size:12.5px;font-weight:500;margin-top:2px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.chip[aria-selected="true"]{border-color:var(--ink);background:var(--ink)}
+.chip[aria-selected="true"] .dn,.chip[aria-selected="true"] .dd{color:#fff}
+.daynote{margin:0 0 24px;font-size:15px;color:var(--ink-2);max-width:74ch;line-height:1.75}
+
+/* timeline */
+.split{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start}
+@media(min-width:960px){.split{grid-template-columns:minmax(0,1fr) 372px}}
+.tl{display:flex;flex-direction:column;gap:8px}
+.row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px}
+.rowtime{padding-top:16px;text-align:right;font-size:14px;font-weight:600;
+         color:var(--ink-3);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.card-btn{appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;color:var(--ink-1);
+  background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--cc);border-radius:10px;padding:15px 18px}
+.card-btn:hover{background:var(--tint);border-color:var(--line-2);border-left-color:var(--cc)}
+.card-btn[aria-current="true"]{background:var(--bg);border-color:var(--cc);box-shadow:inset 0 0 0 1px var(--cc)}
+.ttl{display:flex;align-items:center;flex-wrap:wrap;gap:9px}
+.ttl .name{font-weight:700;font-size:17px;letter-spacing:-.015em;line-height:1.4;color:var(--ink)}
+.kind{font-size:11.5px;font-weight:600;color:var(--cc);background:var(--bg);border-radius:5px;padding:2px 8px;line-height:1.6}
+.memo{margin:5px 0 0;font-size:14.5px;color:var(--ink-2);line-height:1.6}
+.flags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.flag{font-size:12px;font-weight:500;color:var(--ink-2);background:var(--tint-2);border-radius:5px;padding:3px 9px;line-height:1.5}
+.flag.w{color:var(--warn);background:var(--warn-bg);font-weight:600}
+.flag.s{color:var(--sun);background:var(--sun-bg);font-weight:600}
+.flag.n{color:var(--c-move);background:var(--c-move-bg);font-weight:600}
+
+/* detail */
+.detail{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:26px}
+@media(min-width:960px){.detail{position:sticky;top:88px;max-height:calc(100vh - 112px);overflow:auto}}
+.d-hint{color:var(--ink-3);font-size:14.5px;margin:0}
+.d-badge{display:inline-block;font-size:12px;font-weight:600;color:var(--cc);background:var(--bg);border-radius:6px;padding:4px 11px}
+.d-title{font-weight:900;font-size:24px;line-height:1.3;margin:14px 0 0;letter-spacing:-.03em;color:var(--ink)}
+.d-when{margin:16px 0 0;padding:13px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+        font-size:14px;font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.d-h{margin:22px 0 9px;font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-3)}
+.d-p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.75}
+dl.kv{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:15px}
+dl.kv dt{color:var(--ink-3);white-space:nowrap}
+dl.kv dd{margin:0;color:var(--ink-1);font-weight:500}
+ul.bul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+ul.bul li{position:relative;padding-left:16px;font-size:15px;color:var(--ink-2);line-height:1.6}
+ul.bul li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--cc)}
+.warnbox{margin-top:18px;border:1px solid var(--warn-line);background:var(--warn-bg);border-radius:9px;padding:14px 16px;
+         font-size:14.5px;color:var(--warn-ink);line-height:1.7}
+.warnbox b{color:var(--warn);font-weight:700}
+.links{display:flex;flex-direction:column;gap:8px;margin-top:22px}
+.lnk{display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;
+     border:1px solid var(--line);border-radius:9px;padding:12px 16px;font-size:14.5px;font-weight:500;color:var(--ink-1)}
+.lnk:hover{border-color:var(--cc);background:var(--bg);color:var(--cc)}
+.lnk .arw{color:var(--ink-3);font-size:13px}
+.lnk:hover .arw{color:var(--cc)}
+.d-close{display:none}
+@media(max-width:959px){
+  .detail{position:fixed;left:0;right:0;bottom:0;z-index:60;border-radius:16px 16px 0 0;border-bottom:none;
+    max-height:82vh;overflow:auto;box-shadow:0 -8px 40px rgba(25,25,25,.16);
+    transform:translateY(103%);transition:transform .25s cubic-bezier(.3,.8,.3,1)}
+  .detail.open{transform:none}
+  .detail.idle{display:none}
+  .d-close{display:block;position:absolute;top:18px;right:18px;appearance:none;background:var(--tint-2);border:none;
+    border-radius:8px;width:32px;height:32px;font-size:17px;line-height:1;color:var(--ink-2);cursor:pointer}
+  .scrim{position:fixed;inset:0;background:rgba(25,25,25,.38);z-index:50;opacity:0;pointer-events:none;transition:opacity .2s}
+  .scrim.open{opacity:1;pointer-events:auto}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* panels */
+.panel{padding-top:34px}
+h2{font-weight:900;font-size:30px;letter-spacing:-.035em;margin:0 0 8px;color:var(--ink);line-height:1.2}
+.h2sub{margin:0 0 28px;font-size:15.5px;color:var(--ink-2);max-width:64ch;line-height:1.75}
+h3.sec{font-weight:700;font-size:18px;margin:40px 0 16px;letter-spacing:-.02em;color:var(--ink);
+       padding-bottom:10px;border-bottom:1px solid var(--line-2)}
+h3.sec:first-child{margin-top:0}
+.cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.tipcard{border:1px solid var(--line);border-radius:11px;padding:18px 20px}
+.tipcard h4{margin:0 0 8px;font-weight:700;font-size:16px;letter-spacing:-.015em;color:var(--ink)}
+.tipcard p{margin:0;font-size:15px;color:var(--ink-2);line-height:1.7}
+.tipcard p+p{margin-top:9px}
+.tipcard.hi{background:var(--warn-bg);border-color:var(--warn-line)}
+.tipcard.hi p{color:var(--warn-ink)}
+
+/* place rows */
+.plist{display:flex;flex-direction:column}
+.prow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:15px 4px;border-top:1px solid var(--line)}
+.prow:first-child{border-top:none}
+.prow .pnm{font-weight:700;font-size:16px;flex:none;letter-spacing:-.015em;color:var(--ink)}
+.prow .pmn{font-size:14.5px;color:var(--ink-2);flex:none}
+.prow .pmm{font-size:14px;color:var(--ink-3);flex:1 1 180px;min-width:0}
+.prow .pmap{flex:none;font-size:13px;font-weight:500;color:var(--ink-2);text-decoration:none;
+            border:1px solid var(--line);border-radius:7px;padding:5px 12px;white-space:nowrap}
+.prow .pmap:hover{border-color:var(--ink);background:var(--tint);color:var(--ink)}
+
+/* tables */
+.btable,.ctable{width:100%;border-collapse:collapse;font-size:15px}
+.btable th,.ctable th{text-align:left;font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--ink-3);
+           padding:0 12px 10px 0;border-bottom:1px solid var(--line-2)}
+.btable td{padding:13px 12px 13px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.btable td.t{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;color:var(--ink-3)}
+.btable td.n{font-weight:700;color:var(--ink)}
+.btable td.m{color:var(--ink-2);font-size:14.5px}
+.tscroll{overflow-x:auto}
+.ctable th.r,.ctable td.r{text-align:right}
+.ctable td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line)}
+.ctable td.r{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
+.ctable td.m{color:var(--ink-3);font-size:14px}
+.ctable td:first-child,.ctable th:first-child{width:34%}
+.ctable .r{width:130px;padding-right:28px}
+.ctable tr.tot td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;padding-top:15px;color:var(--ink)}
+.money{display:flex;align-items:baseline;gap:5px;font-weight:900;
+       font-size:40px;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--ink)}
+.money small{font-size:19px;font-weight:700}
+
+/* checklist */
+.prog{display:flex;align-items:center;gap:16px;margin:6px 0 22px}
+.bar{flex:1;height:6px;background:var(--tint-2);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink);border-radius:99px;transition:width .3s}
+.pct{font-size:13.5px;font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.clist{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.citem{display:flex;align-items:flex-start;gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:9px;
+  padding:14px 16px;font:inherit;font-size:15px;text-align:left;cursor:pointer;color:var(--ink-1);width:100%;line-height:1.55}
+.citem:hover{border-color:var(--line-2);background:var(--tint)}
+.box{flex:none;width:18px;height:18px;margin-top:3px;border:1.5px solid var(--line-2);border-radius:5px;
+     display:grid;place-items:center;color:transparent;font-size:11px}
+.citem[aria-pressed="true"]{color:var(--ink-3);background:var(--tint)}
+.citem[aria-pressed="true"] .cn{text-decoration:line-through}
+.citem[aria-pressed="true"] .box{background:var(--ink);border-color:var(--ink);color:#fff}
+.reset{background:none;border:none;font:inherit;font-size:13.5px;color:var(--ink-3);cursor:pointer;text-decoration:underline;padding:0}
+.note{font-size:14px;color:var(--ink-3);margin-top:22px;padding-top:18px;border-top:1px solid var(--line);line-height:1.75}
+footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-3);line-height:1.8}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow">MOKPO · 2026.10.08 – 10.10</p>
+    <h1>목포 2박 3일<br><span class="hl">원도심</span>과 <span class="hl">노을</span></h1>
+    <p class="lede">항목을 누르면 메모·대안·확인 사항과 카카오맵 링크가 열립니다. 일몰 두 번과 술 마시는 저녁 두 번을 축으로 짠 일정입니다.</p>
+    <div class="facts">
+      <span class="fact">인원 <b>2명</b></span>
+      <span class="fact">KTX <b>10.08 10:00 / 10.10 15:30</b></span>
+      <span class="fact">렌트 <b>목포역 픽업·반납</b></span>
+      <span class="fact">일몰 <b>18:10 전후</b></span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <div class="tabrow" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-panel="p-sched">일정</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="p-b">플랜 B</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="p-eat">맛집 · 카페</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="p-see">명소</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="p-prep">비용 · 준비</button>
+    </div>
+  </nav>
+
+  <section id="p-sched">
+    <div class="days" role="tablist" id="days"></div>
+    <p class="daynote" id="daynote"></p>
+    <div class="split">
+      <div class="tl" id="tl"></div>
+      <aside class="detail idle" id="detail" style="--cc:var(--ink-2);--bg:var(--tint)">
+        <button class="d-close" aria-label="닫기">✕</button>
+        <p class="d-hint">항목을 선택하면 메모·대안·지도 링크가 여기에 열립니다.</p>
+      </aside>
+    </div>
+  </section>
+  <div class="scrim" id="scrim"></div>
+
+  <section id="p-b" class="panel" hidden>
+    <h2>플랜 B</h2>
+    <p class="h2sub">비, 강풍, 대기, 체력 — 네 가지로 갈라지는 경우의 수입니다.</p>
+    <div id="planb"></div>
+  </section>
+
+  <section id="p-eat" class="panel" hidden>
+    <h2>맛집 · 카페</h2>
+    <p class="h2sub">권역별로 묶었습니다. 이름 옆 버튼을 누르면 카카오맵으로 바로 넘어갑니다.</p>
+    <div id="eatbody"></div>
+  </section>
+
+  <section id="p-see" class="panel" hidden>
+    <h2>명소</h2>
+    <p class="h2sub">일정에 넣은 곳과 넣지 않은 곳을 함께 두었습니다.</p>
+    <div id="seebody"></div>
+  </section>
+
+  <section id="p-prep" class="panel" hidden>
+    <h2>비용 · 준비</h2>
+    <p class="h2sub">2인 기준 추정치와 출발 전 체크리스트입니다.</p>
+    <h3 class="sec">체크리스트</h3>
+    <div class="prog"><div class="bar"><i id="pbar" style="width:0%"></i></div><span class="pct" id="ppct">0 / 0</span></div>
+    <div class="clist" id="clist"></div>
+    <p style="margin:14px 0 0"><button class="reset" id="creset">체크 전체 해제</button></p>
+    <h3 class="sec">예상 비용 (2인, 숙소 제외)</h3>
+    <div class="tscroll"><table class="ctable" id="costtable"></table></div>
+    <h3 class="sec">할인 · 먹거리 쇼핑</h3>
+    <div class="cards" id="prepcards"></div>
+    <p class="note">체크 상태는 이 브라우저에만 저장돼서, 같이 보는 사람마다 각자의 체크가 유지됩니다. 금액은 정가 기준 추정이라 실제 예약가와 다를 수 있습니다.</p>
+  </section>
+
+  <footer>
+    일정·메모·대안·비용은 원본 계획 그대로이고, 케이블카 요금과 바다분수 공연 시간, 포미아구찜 영업 정보는 따로 확인해 붙였습니다.<br>
+    식당 휴무와 영업시간은 자주 바뀌니 방문 직전에 지도 링크로 한 번 더 확인하세요. 확인하지 못한 항목은 상세에 그렇게 적어 두었습니다.
+  </footer>
+</div>
+
+<script>
+const CATS={
+  move:{label:"이동",cc:"--c-move",bg:"--c-move-bg"},
+  food:{label:"식사",cc:"--c-food",bg:"--c-food-bg"},
+  sight:{label:"명소",cc:"--c-sight",bg:"--c-sight-bg"},
+  cafe:{label:"카페",cc:"--c-cafe",bg:"--c-cafe-bg"},
+  stay:{label:"숙소",cc:"--c-stay",bg:"--c-stay-bg"},
+  buy:{label:"먹거리",cc:"--c-buy",bg:"--c-buy-bg"},
+  purple:{label:"명소",cc:"--c-purple",bg:"--c-purple-bg"}
+};
+const K=q=>"https://map.kakao.com/?q="+encodeURIComponent(q);
+
+const DAYS=[
+{n:"1일차",date:"10.8 (목)",title:"원도심 + 케이블카 + 북항",
+ note:"케이블카를 평일인 이 날에 붙인 게 핵심입니다. 17시에 차를 호텔에 두고부터는 끝까지 택시라, 저녁에 마음 놓고 한잔할 수 있습니다.",
+ items:[
+ {t:"10:00",c:"move",name:"용산역 KTX",memo:"목포역 12:40 도착",
+  map:"용산역"},
+ {t:"12:40",c:"move",name:"목포역 도착, 렌트 픽업",
+  tip:"운전자 2명 등록을 픽업 현장에서 한 번 더 확인하세요. 반납은 10일 14:30입니다.",map:"목포역"},
+ {t:"13:00",c:"food",name:"초원음식점",memo:"목포역 도보 7분",
+  info:{"갈치찜":"2인 이상 · 1인 15,000원","꽃게살비빔밥":"1인 15,000원"},
+  alt:["사계절 — 백반, 갈치조림. 일요일 휴무"],map:"목포 초원음식점"},
+ {t:"14:00",c:"stay",name:"목포오션호텔",memo:"주차하고 짐 보관",
+  info:{"위치":"원도심 · 해안로279번길 3","주차":"무료","객실":"욕조"},map:"목포오션호텔"},
+ {t:"14:15",c:"move",name:"케이블카 북항승강장",memo:"차로 10분, 주차 넓음",map:"목포해상케이블카 북항승강장"},
+ {t:"14:30",c:"sight",name:"목포해상케이블카",memo:"북항 → 유달산 → 고하도 3.23km, 왕복 40분",
+  info:{"일반 왕복":"성인 22,000원 (2인 44,000원)","크리스탈 왕복":"성인 27,000원 (2인 54,000원)","운영":"일~목 09:00~19:00 / 금~토 09:00~20:00"},
+  tip:"크리스탈 캐빈은 55대 중 15대뿐이라 대기가 깁니다. 바닥이 투명한 값이 1인 5,000원인데, 대기 시간까지 감안하면 일반으로 타고 고하도에서 시간을 더 쓰는 쪽이 나을 수 있습니다.",
+  links:[{l:"목포해상케이블카 공식 요금",u:"http://www.mmcablecar.com/utilize/fee.html"},{l:"카카오맵에서 찾기",u:K("목포해상케이블카 북항승강장")}]},
+ {t:"15:30",c:"sight",name:"고하도 해안데크, 고하도전망대",memo:"고하도에서 하차 후 산책",
+  alt:["고하도 용머리"],map:"고하도전망대"},
+ {t:"17:00",c:"stay",name:"목포오션호텔 체크인",memo:"차는 호텔에 두기",
+  tip:"여기서부터 다음 날 아침까지 운전 없음. 원칙대로 저녁은 택시로 움직입니다.",nodrive:true,map:"목포오션호텔"},
+ {t:"17:40",c:"move",name:"택시로 북항 노을공원",nodrive:true,map:"목포 북항 노을공원"},
+ {t:"18:10",c:"sight",name:"북항 노을공원 일몰",sunset:true,
+  tip:"일몰 18:10 전후. 30분 전에 자리를 잡으면 해 떨어지는 과정부터 봅니다. 바로 옆이 저녁 먹을 북항회센타라 이동이 없습니다.",
+  map:"목포 북항 노을공원"},
+ {t:"18:40",c:"food",name:"북항회센타",memo:"회, 산낙지, 한잔",nodrive:true,
+  alt:["굴다리쉼터 북항점 — 짱뚱어탕, 간장게장 반찬"],map:"목포 북항회센타"},
+ {t:"20:30",c:"cafe",name:"커피창고로 북항 노을공원점",memo:"씨푸드타운 안, 에그타르트",map:"커피창고로 북항노을공원점"},
+ {t:"21:00",c:"stay",name:"택시로 복귀, 욕조 휴식",nodrive:true,map:"목포오션호텔"}
+]},
+
+{n:"2일차",date:"10.9 (금)",title:"퍼플섬 + 원도심 + 평화광장",
+ note:"한글날입니다. 퍼플섬을 이른 아침에 넣어 사람을 피했고, 오후는 원도심에 몰아 놓았습니다. 저녁은 호텔에서 걸어 다니는 거리라 이 날도 운전 없음.",
+ items:[
+ {t:"07:00",c:"food",name:"호텔 조식",memo:"07:00~09:00, 유료"},
+ {t:"08:00",c:"move",name:"체크아웃, 퍼플섬 출발",memo:"압해도, 천사대교 경유 1시간 안팎",
+  tip:"천사대교를 건너는 구간이라 드라이브 자체가 볼거리입니다. 09:00 도착이면 개장 직후라 한산합니다.",map:"천사대교"},
+ {t:"09:00",c:"purple",name:"신안 퍼플섬",memo:"퍼플교 1.5km, 박지도·반월도, 10월 아스타국화",
+  info:{"입장료":"성인 5,000원","무료 조건":"보라색 아이템 착용 시 무료"},
+  tip:"보라색은 옷이 아니어도 됩니다. 모자, 우산, 스카프 하나면 2인 10,000원이 굳습니다. 출발 전날 밤에 개화 상황을 한 번 확인하세요.",
+  alt:["비가 오거나 생략할 경우 → 플랜 B1"],map:"신안 퍼플섬"},
+ {t:"11:15",c:"move",name:"목포 복귀"},
+ {t:"12:30",c:"food",name:"장터식당",memo:"목포 5미 꽃게무침, 전남 별미집 1호, 유달산 근처",
+  alt:["영란횟집 — 민어 (제철은 여름)","덕인집 — 홍어삼합","독천식당 — 낙지"],map:"목포 장터식당"},
+ {t:"13:40",c:"buy",name:"코롬방제과",memo:"새우바게트, 크림치즈바게트",
+  tip:"목화솜빵은 오전에 품절됩니다. 13:40이면 이미 없을 가능성이 높아서, 없으면 10일 오후에 다시 들르는 것으로 잡아 두었습니다.",
+  map:"목포 코롬방제과"},
+ {t:"14:00",c:"cafe",name:"행복이가득한집",memo:"적산가옥 정원 카페, 팥빙수",
+  info:{"영업":"08:00~19:00"},
+  alt:["오거리숭커피 — 100년 목조건물, 화요일 휴무","무가보 — 대형, 스카이라인 뷰"],map:"목포 행복이가득한집"},
+ {t:"15:00",c:"sight",name:"목포근대역사관 1관 + 골목",memo:"구 일본영사관, 영산로29번길 6",
+  alt:["목포진지"],map:"목포근대역사관 1관"},
+ {t:"16:00",c:"stay",name:"ZARA HOTEL 평화광장점 체크인",memo:"욕조 휴식",
+  info:{"위치":"평화광장 도보 1분","객실":"오션뷰, 욕조"},map:"자라호텔 평화광장점"},
+ {t:"17:40",c:"move",name:"걸어서 갓바위 해상보행교",nodrive:true,map:"목포 갓바위 해상보행교"},
+ {t:"18:10",c:"sight",name:"갓바위 일몰",sunset:true,
+  tip:"해상보행교 위에서 보는 일몰입니다. 호텔에서 걸어갈 수 있어 차를 세워둔 채로 움직입니다.",map:"목포 갓바위"},
+ {t:"19:00",c:"food",name:"장모님밥상",memo:"보리굴비, 소고기, 전복, 낙지탕탕이, 한잔",nodrive:true,
+  alt:["하당먹거리 — 산낙지","인동주마을 — 홍어삼합, 꽃게장정식","포미아구찜 — 아귀찜"],map:"목포 장모님밥상"},
+ {t:"20:40",c:"cafe",name:"커피창고로 평화광장 본점",memo:"2층 오션뷰, 에그타르트 포장(귀가용)",
+  warn:"바다분수 마지막 공연이 21:00입니다. 카페를 먼저 오래 앉으면 공연을 놓칩니다. 저녁 → 20:30 분수쇼 → 21:00 카페 순으로 바꾸는 걸 권합니다.",
+  alt:["페어링 — 평화광장 근처 대형 베이커리, 바다뷰"],map:"커피창고로 평화광장점"},
+ {t:"21:30",c:"sight",name:"평화광장 밤 산책",memo:"춤추는 바다분수",
+  info:{"운영 기간":"2026년 4월 1일 ~ 11월 30일","금·토 공연":"20:00 / 20:30 / 21:00 (3회)","휴무":"매주 월요일"},
+  warn:"10월 9일은 금요일이라 20:00, 20:30, 21:00 세 번 공연하고 끝납니다. 계획한 21:30에 가면 이미 끝난 뒤입니다. 20:30이나 21:00 회차에 맞춰 광장으로 나가세요.",
+  links:[{l:"춤추는 바다분수 공연시간 (목포시)",u:"https://youth.mokpo.go.kr/seafountain/perform"},{l:"카카오맵에서 찾기",u:K("목포 평화광장")}]}
+]},
+
+{n:"3일차",date:"10.10 (토)",title:"원도심 서쪽 + 오션뷰 + 귀가",
+ note:"중화루 오픈런과 KTX 시간, 두 개의 고정점 사이를 채우는 날입니다. 앞뒤가 빠듯해서 여유가 가장 적습니다.",
+ items:[
+ {t:"09:30",c:"stay",name:"체크아웃",map:"자라호텔 평화광장점"},
+ {t:"10:00",c:"sight",name:"서산동 시화골목, 연희네슈퍼, 보리마당",memo:"영화 1987 촬영지 · 해안로127번길 14-2",
+  warn:"10:00 시작인데 중화루에 10:30 도착을 권하고 있어서, 시화골목에 쓸 시간이 30분뿐입니다. 보리마당까지 올라가는 언덕길이라 30분은 빠듯합니다. 체크아웃을 09:20으로 당겨 09:40에 도착하는 쪽이 안전합니다.",
+  alt:["유달산 노적봉"],map:"목포 서산동 시화골목"},
+ {t:"10:40",c:"food",name:"중화루 줄 서기",memo:"11시 오픈, 10:30 도착 권장",
+  info:{"중깐":"9,000원","삼선짬뽕":"16,000원","휴무":"월요일"},
+  tip:"중깐의 원조입니다. 토요일 오픈런이라 10:30에는 붙어 있어야 첫 타임에 들어갑니다.",
+  alt:["독천식당 — 낙지비빔밥 15,000원"],map:"목포 중화루"},
+ {t:"12:00",c:"sight",name:"목포 스카이워크",memo:"목포대교 뷰",map:"목포 스카이워크"},
+ {t:"12:20",c:"cafe",name:"대반동201",memo:"160평 통유리 오션뷰, 유달유원지",
+  alt:["테라스201 — 오션뷰, 야자수","카페 델마르 — 스카이워크 근처"],map:"목포 대반동201"},
+ {t:"13:20",c:"buy",name:"코롬방제과 추가 구매",memo:"전날 품절분",
+  alt:["요굴뚝 — 굴뚝빵","소프트앤텐더 — 소금빵"],map:"목포 코롬방제과"},
+ {t:"13:50",c:"cafe",name:"화신연쇄점",memo:"레트로 감성, 평점 높음",
+  alt:["인디파사드","오거리숭커피"],map:"목포 화신연쇄점"},
+ {t:"14:30",c:"move",name:"목포역 렌트 반납",memo:"주유 후 반납",
+  warn:"13:50 카페에서 14:30 반납까지 40분인데 그 사이에 주유가 들어갑니다. 마지막 카페는 짧게 끊고 14:10에는 주유소로 움직이세요. KTX 1시간 전 반납 원칙에 딱 맞춘 시간이라 여유가 없습니다.",
+  map:"목포역"},
+ {t:"15:30",c:"move",name:"KTX 서울",map:"목포역"}
+]}];
+
+const PLANB=[
+{h:"B1. 9일 비 오거나 퍼플섬 생략",d:"실내 위주로 갈아타고, 이동을 평화광장 쪽으로 몰아 최소화합니다.",
+ rows:[["09:30","목포근대역사관 1관, 2관","실내"],["10:30","무가보","원도심 대형 카페, 스카이라인 뷰"],
+       ["12:30","장터식당","동일"],["14:00","국립해양유물전시관","실물 크기 난파선, 미디어아트 · 갓바위 쪽"],
+       ["15:30","목포자연사박물관","실내 · 갓바위 쪽"],["16:30","ZARA 체크인 후 저녁 동일","평화광장 옆이라 이동 최소"]]},
+{h:"B2. 8일 강풍으로 케이블카 운휴",d:"케이블카를 10일 오전으로 미루고, 3일차 서쪽 코스와 맞바꿉니다. 토요일은 09:00 오픈입니다.",
+ rows:[["8일 오후","유달산 노적봉 드라이브 → 스카이워크 → 대반동201",""],
+       ["10일 오전","케이블카로 교체","토 09:00 오픈, 3일차 서쪽 코스와 맞교환"]]},
+{h:"B3. 식당 대기 길 때",d:"대기가 길면 같은 권역 안에서 갈아탑니다.",
+ rows:[["초원음식점","사계절, 미락식당","미락식당은 11시 오픈 · 15:30~17:00 브레이크 · 월 휴무"],
+       ["장터식당","독천식당, 덕인집",""],
+       ["장모님밥상","하당먹거리, 포미아구찜","포미아구찜 본점 10:30~21:30 · 수 휴무 · 14:50~16:00 브레이크"],
+       ["중화루","독천식당",""]],
+ head:["원래","대체","메모"]},
+{h:"B4. 피곤할 때 느슨 버전",d:"퍼플섬을 빼고 9일 오전을 통째로 비웁니다.",
+ rows:[["오전","호텔 늦잠","퍼플섬 생략"],["11:00","고하도 차로 이동","해안데크 여유 산책"],
+       ["오후","원도심 카페 2곳만",""]]}
+];
+
+const EAT=[
+{h:"원도심 · 목포역",items:[
+ ["초원음식점","갈치찜, 꽃게살비빔밥","목포역 도보 7분","목포 초원음식점"],
+ ["중화루","중깐, 삼선짬뽕","중깐 원조, 오픈 전 대기, 월 휴무","목포 중화루"],
+ ["독천식당","낙지비빔밥, 연포탕","11:00~20:50","목포 독천식당"],
+ ["덕인집","홍어삼합","흑산도 홍어","목포 덕인집"],
+ ["사계절","백반, 갈치조림","현지인 백반, 일 휴무","목포 사계절 식당"]]},
+{h:"유달산 · 민어의 거리",items:[
+ ["장터식당","꽃게무침","전남 별미집 1호","목포 장터식당"],
+ ["영란횟집","민어 코스","1961년 개업, 제철은 여름, 전국 택배","목포 영란횟집"]]},
+{h:"북항",items:[
+ ["북항회센타","회, 산낙지","노을공원 근처","목포 북항회센타"],
+ ["굴다리쉼터 북항점","짱뚱어탕","간장게장 반찬","목포 굴다리쉼터 북항점"]]},
+{h:"평화광장 · 하당",items:[
+ ["장모님밥상","보리굴비, 갈치조림, 낙지탕탕이","룸 있음","목포 장모님밥상"],
+ ["미락식당","꽃게살비빔밥","블루리본, 음식명인의 집","목포 미락식당"],
+ ["하당먹거리","산낙지","평점 높음","목포 하당먹거리"],
+ ["인동주마을","홍어삼합, 꽃게장정식","위치 확인 필요 — 검색으로 확정 못 했습니다","목포 인동주마을"],
+ ["포미아구찜","아귀찜","본점 용당로331번길 8 · 10:30~21:30 · 수 휴무 · 브레이크 14:50~16:00. 평화광장점·하당점도 있음","목포 포미아구찜"]]},
+{h:"카페 — 원도심 레트로",items:[
+ ["행복이가득한집","적산가옥, 정원, 팥빙수","08:00~19:00","목포 행복이가득한집"],
+ ["오거리숭커피","100년 목조건물, 유달산케이크","화 휴무","목포 오거리숭커피"],
+ ["무가보","대형, 스카이라인 뷰","케이크 다양","목포 무가보"],
+ ["화신연쇄점","레트로 감성","평점 높음","목포 화신연쇄점"],
+ ["인디파사드","목포역 근처","평점 높음","목포 인디파사드"],
+ ["런디드오프","목포역 근처 미디어아트 카페","","목포 런디드오프"],
+ ["유달산장","유달산 풍경 감성 카페","","목포 유달산장"]]},
+{h:"카페 — 오션뷰",items:[
+ ["대반동201","160평 통유리","저녁엔 피자와 맥주","목포 대반동201"],
+ ["테라스201","오션뷰, 야자수 감성","","목포 테라스201"],
+ ["카페 델마르","스카이워크 근처","","목포 카페 델마르"],
+ ["카페 석산","바다뷰","","목포 카페 석산"],
+ ["커피창고로 본점","평화광장, 2층 오션뷰","에그타르트","커피창고로 평화광장점"],
+ ["페어링","평화광장 근처 대형 베이커리","바다뷰","목포 페어링 카페"]]},
+{h:"베이커리 · 디저트 · 브런치",items:[
+ ["코롬방제과","새우바게트, 크림치즈바게트","목화솜빵은 오전 품절","목포 코롬방제과"],
+ ["커피창고로","에그타르트","개당 2,000원","커피창고로 평화광장점"],
+ ["프랑스베이커리","잠봉뵈르","","목포 프랑스베이커리"],
+ ["요굴뚝","굴뚝빵","","목포 요굴뚝"],
+ ["소프트앤텐더","소금빵","테이크아웃","목포 소프트앤텐더"],
+ ["머피닝","버터떡","","목포 머피닝"],
+ ["카페푸르미르","수제초콜릿, 쌍화차","","목포 카페푸르미르"],
+ ["레이디벅스","브런치","여객선터미널","목포 레이디벅스"],
+ ["마이누크","브런치","","목포 마이누크"],
+ ["만나공원","브런치","","목포 만나공원"]]}
+];
+
+const SEE=[
+{h:"원도심",items:[
+ ["목포근대역사관 1관","구 일본영사관 · 영산로29번길 6","2일차 15:00","목포근대역사관 1관"],
+ ["목포근대역사관 2관","실내 · 플랜 B1","","목포근대역사관 2관"],
+ ["서산동 시화골목 · 연희네슈퍼 · 보리마당","영화 1987 촬영지 · 해안로127번길 14-2","3일차 10:00","목포 서산동 시화골목"],
+ ["목포진지","원도심 · 대안","","목포진"],
+ ["삼학도공원","","","목포 삼학도"],
+ ["낭만열차1953","옛 동목포역 전시장과 카페","","목포 낭만열차1953"]]},
+{h:"유달산 · 고하도",items:[
+ ["목포해상케이블카","북항 → 유달산 → 고하도 3.23km · 왕복 40분","1일차 14:30","목포해상케이블카 북항승강장"],
+ ["유달산 노적봉, 일등바위","","플랜 B2","목포 유달산 노적봉"],
+ ["고하도 해안데크 · 전망대","","1일차 15:30","고하도전망대"],
+ ["고하도 용머리","대안","","고하도 용머리"],
+ ["목포 스카이워크 · 유달유원지","목포대교 뷰","3일차 12:00","목포 스카이워크"]]},
+{h:"평화광장 · 갓바위",items:[
+ ["평화광장 · 춤추는 바다분수","4/1~11/30 · 금토 20:00·20:30·21:00 · 월 휴무","2일차 밤","목포 평화광장"],
+ ["갓바위 해상보행교","","2일차 18:10 일몰","목포 갓바위 해상보행교"],
+ ["국립해양유물전시관","실물 크기 난파선, 미디어아트","플랜 B1","국립해양유물전시관"],
+ ["목포자연사박물관","실내","플랜 B1","목포자연사박물관"]]},
+{h:"근교 · 드라이브",items:[
+ ["신안 퍼플섬","천사대교 경유 1시간 안팎 · 보라색 착용 시 무료","2일차 09:00","신안 퍼플섬"],
+ ["북항 노을공원","","1일차 18:10 일몰","목포 북항 노을공원"]]}
+];
+
+const CHECK=[
+ "10일 15:30 KTX 예매",
+ "렌트 예약 — 목포역 픽업·반납, 운전자 2명 등록",
+ "보라색 아이템 (모자·우산·스카프 아무거나)",
+ "전날 밤 확인 — 퍼플섬 개화 상황",
+ "전날 밤 확인 — 케이블카 운행 여부 (강풍)",
+ "전날 밤 확인 — 날씨",
+ "식당 한글날(10/9) 영업 여부",
+ "8일·9일 저녁은 운전 없음 — 택시·도보로",
+ "렌트 반납은 KTX 1시간 전 (14:30)",
+ "케이블카 네이버 사전 구매 (구매 1시간 후 사용 가능)",
+ "9일 밤 커피창고로에서 에그타르트 포장 (귀가용)",
+ "바다분수 관람은 21:00 회차까지 — 21:30 아님"
+];
+
+const COST=[
+ ["KTX 왕복","약 20만","정가 추정"],
+ ["렌트 3일","약 15~25만","연휴, 보험 별도"],
+ ["주유","약 2~3만","퍼플섬 포함"],
+ ["택시","약 2만","8일 저녁"],
+ ["케이블카","4.4만 / 5.4만","일반 왕복 2인 / 크리스탈 2인"],
+ ["퍼플섬","0~1만","보라색 착용 시 무료"],
+ ["8일 점심 초원","3~4.5만","확인가"],
+ ["8일 저녁 북항","8~12만",""],
+ ["9일 조식","3~4만",""],
+ ["9일 점심 장터식당","6~8만",""],
+ ["9일 저녁 장모님밥상","8~12만",""],
+ ["10일 점심 중화루","2.5~4.5만","확인가"],
+ ["카페 4~5곳","7~10만",""],
+ ["빵, 에그타르트","4~6만",""]
+];
+
+const PREP=[
+ {h:"케이블카 할인",p:"전남사랑도민증을 온라인으로 발급받으면 할인이 됩니다. 네이버 사전 구매 할인도 있는데, 구매 후 1시간이 지나야 쓸 수 있으니 목포역 도착 직후나 점심 먹으면서 끊어두세요."},
+ {h:"퍼플섬 무료",p:"보라색 옷, 모자, 우산 중 하나만 걸쳐도 입장료가 면제됩니다. 2인이면 10,000원입니다. 우산이 제일 부피가 작고 10월 날씨에 쓸모도 있습니다."},
+ {h:"사올 것",p:"코롬방제과 새우바게트·크림치즈바게트, 커피창고로 에그타르트(개당 2,000원), 요굴뚝 굴뚝빵, 소프트앤텐더 소금빵. 영란횟집은 민어회·민어전을 전국 택배로 보냅니다."},
+ {h:"목화솜빵",p:"코롬방제과 목화솜빵은 오전에 품절됩니다. 9일 13:40에 갔다가 없으면 10일 13:20에 다시 들르는 것으로 일정에 이미 두 번 넣어 두었습니다."}
+];
+
+/* tabs */
+const tabs=[...document.querySelectorAll('.tab')];
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(o=>{o.setAttribute('aria-selected',String(o===t));
+    document.getElementById(o.dataset.panel).hidden=o!==t;});
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+
+/* schedule */
+const tl=document.getElementById('tl'),daysEl=document.getElementById('days'),daynote=document.getElementById('daynote');
+let dayIdx=0,sel=null;
+DAYS.forEach((d,i)=>{
+  const b=document.createElement('button');
+  b.className='chip';b.setAttribute('role','tab');b.setAttribute('aria-selected',String(i===0));
+  b.innerHTML=`<span class="dn">${d.n}</span><span class="dd">${d.date}</span>`;
+  b.onclick=()=>{dayIdx=i;sel=null;[...daysEl.children].forEach((c,j)=>c.setAttribute('aria-selected',String(i===j)));renderDay();};
+  daysEl.appendChild(b);
+});
+
+function renderDay(){
+  const d=DAYS[dayIdx];
+  daynote.innerHTML=`<b style="color:var(--ink)">${d.title}</b> — ${d.note}`;
+  tl.innerHTML='';
+  d.items.forEach((it,i)=>{
+    const cat=CATS[it.c];
+    const row=document.createElement('div');row.className='row';
+    const time=document.createElement('div');time.className='rowtime';time.textContent=it.t;
+    const b=document.createElement('button');
+    b.className='card-btn';
+    b.style.setProperty('--cc',`var(${cat.cc})`);
+    b.style.setProperty('--bg',`var(${cat.bg})`);
+    const flags=[];
+    if(it.warn) flags.push('<span class="flag w">확인 필요</span>');
+    if(it.sunset) flags.push('<span class="flag s">일몰</span>');
+    if(it.nodrive) flags.push('<span class="flag n">운전 없음</span>');
+    if(it.alt) flags.push(`<span class="flag">대안 ${it.alt.length}</span>`);
+    if(it.info) Object.entries(it.info).slice(0,1).forEach(([k,v])=>flags.push(`<span class="flag">${k} ${v}</span>`));
+    b.innerHTML=`<span class="ttl"><span class="name">${it.name}</span><span class="kind">${cat.label}</span></span>
+      ${it.memo?`<p class="memo">${it.memo}</p>`:''}
+      ${flags.length?`<span class="flags">${flags.join('')}</span>`:''}`;
+    b.onclick=()=>{sel=i;renderDay();showDetail(it);};
+    if(sel===i) b.setAttribute('aria-current','true');
+    row.append(time,b);tl.appendChild(row);
+  });
+}
+
+const detail=document.getElementById('detail'),scrim=document.getElementById('scrim');
+function showDetail(it){
+  const cat=CATS[it.c];
+  detail.style.setProperty('--cc',`var(${cat.cc})`);
+  detail.style.setProperty('--bg',`var(${cat.bg})`);
+  let h=`<button class="d-close" aria-label="닫기">✕</button>
+    <span class="d-badge">${cat.label}</span>
+    <h3 class="d-title">${it.name}</h3>
+    <p class="d-when">${DAYS[dayIdx].n} ${DAYS[dayIdx].date} · ${it.t}${it.sunset?' · 일몰':''}${it.nodrive?' · 운전 없음':''}</p>`;
+  if(it.memo) h+=`<p class="d-h">메모</p><p class="d-p">${it.memo}</p>`;
+  if(it.info) h+=`<p class="d-h">확인한 정보</p><dl class="kv">${Object.entries(it.info).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`;
+  if(it.warn) h+=`<div class="warnbox"><b>확인 필요 —</b> ${it.warn}</div>`;
+  if(it.tip) h+=`<p class="d-h">참고</p><p class="d-p">${it.tip}</p>`;
+  if(it.alt) h+=`<p class="d-h">대안</p><ul class="bul">${it.alt.map(a=>`<li>${a}</li>`).join('')}</ul>`;
+  const links=it.links||(it.map?[{l:"카카오맵에서 찾기",u:K(it.map)}]:null);
+  if(links) h+=`<div class="links">${links.map(l=>`<a class="lnk" href="${l.u}" target="_blank" rel="noopener">${l.l}<span class="arw">↗</span></a>`).join('')}</div>`;
+  if(!it.info&&!it.tip&&!it.warn&&!it.alt&&!it.memo) h+=`<p class="d-h">참고</p><p class="d-p" style="color:var(--ink-3)">계획에 적힌 것 외에 따로 붙인 정보가 없습니다.</p>`;
+  detail.innerHTML=h;
+  detail.classList.remove('idle');detail.classList.add('open');scrim.classList.add('open');
+  detail.querySelector('.d-close').onclick=closeDetail;
+  if(window.innerWidth>=960) detail.scrollTop=0;
+}
+function closeDetail(){detail.classList.remove('open');scrim.classList.remove('open');
+  setTimeout(()=>{if(!detail.classList.contains('open'))detail.classList.add('idle');},250);}
+scrim.onclick=closeDetail;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail();});
+renderDay();
+
+/* plan B */
+document.getElementById('planb').innerHTML=PLANB.map(b=>{
+  const head=b.head||["시간","장소","메모"];
+  return `<h3 class="sec">${b.h}</h3><p class="h2sub" style="margin-bottom:12px">${b.d}</p>
+  <div class="tscroll"><table class="btable"><thead><tr>${head.map(x=>`<th>${x}</th>`).join('')}</tr></thead>
+  <tbody>${b.rows.map(r=>`<tr><td class="t">${r[0]}</td><td class="n">${r[1]}</td><td class="m">${r[2]||''}</td></tr>`).join('')}</tbody></table></div>`;
+}).join('');
+
+/* lists */
+const listHTML=groups=>groups.map(g=>`<h3 class="sec">${g.h}</h3><div class="plist">${
+  g.items.map(([nm,mn,mm,q])=>`<div class="prow"><span class="pnm">${nm}</span>
+    ${mn?`<span class="pmn">${mn}</span>`:''}${mm?`<span class="pmm">${mm}</span>`:'<span class="pmm"></span>'}
+    <a class="pmap" href="${K(q)}" target="_blank" rel="noopener">지도 ↗</a></div>`).join('')}</div>`).join('');
+document.getElementById('eatbody').innerHTML=listHTML(EAT);
+document.getElementById('seebody').innerHTML=listHTML(SEE);
+
+/* checklist */
+const KEY='mokpo.check.v1';let checked=new Set();
+try{checked=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify([...checked]));}catch(e){}};
+function renderCheck(){
+  const host=document.getElementById('clist');host.innerHTML='';
+  CHECK.forEach(c=>{
+    const b=document.createElement('button');
+    b.className='citem';b.setAttribute('aria-pressed',String(checked.has(c)));
+    b.innerHTML=`<span class="box">✓</span><span class="cn">${c}</span>`;
+    b.onclick=()=>{checked.has(c)?checked.delete(c):checked.add(c);save();renderCheck();};
+    host.appendChild(b);
+  });
+  const done=CHECK.filter(c=>checked.has(c)).length;
+  document.getElementById('pbar').style.width=(done/CHECK.length*100)+'%';
+  document.getElementById('ppct').textContent=`${done} / ${CHECK.length}`;
+}
+document.getElementById('creset').onclick=()=>{checked.clear();save();renderCheck();};
+renderCheck();
+
+/* cost */
+document.getElementById('costtable').innerHTML=
+ `<thead><tr><th>항목</th><th class="r">금액</th><th>비고</th></tr></thead><tbody>
+  ${COST.map(([k,v,m])=>`<tr><td>${k}</td><td class="r">${v}</td><td class="m">${m}</td></tr>`).join('')}
+  <tr class="tot"><td>합계 (숙소 제외)</td><td class="r">약 95~135만</td><td class="m">1인 약 48~68만</td></tr>
+  </tbody>`;
+document.getElementById('prepcards').innerHTML=PREP.map(c=>`<div class="tipcard"><h4>${c.h}</h4><p>${c.p}</p></div>`).join('');
+</script>
+
+</body>
+</html>

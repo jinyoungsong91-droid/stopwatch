@@ -58,6 +58,17 @@ h1{font-weight:900;font-size:clamp(38px,7.4vw,60px);line-height:1.1;color:var(--
 .fact{border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:13.5px;color:var(--ink-2)}
 .fact b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
 
+/* 출발 전 확인 배너 */
+.alert{margin-top:26px;border:1px solid var(--warn-line);background:var(--warn-bg);border-radius:12px;padding:18px 20px}
+.alert-h{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--warn)}
+.alert-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.alert-l li{position:relative;padding-left:16px;font-size:14.5px;line-height:1.6;color:var(--warn-ink)}
+.alert-l li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--warn)}
+.alert-l b{font-weight:700;color:#5A3806}
+.alert-tel{display:inline-block;margin-left:4px;font-weight:700;color:var(--warn);text-decoration:none;
+  border-bottom:1.5px solid currentColor;white-space:nowrap}
+.alert-tel:hover{opacity:.7}
+
 /* tabs */
 nav.tabs{position:sticky;top:0;z-index:40;background:var(--paper);padding:14px 0;border-bottom:1px solid var(--line)}
 .tabrow{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
@@ -233,6 +244,16 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
     <p class="eyebrow">MOKPO · 2026.10.08 – 10.10</p>
     <h1>목포 2박 3일<br><span class="hl">원도심</span>과 <span class="hl">노을</span></h1>
     <p class="lede">목포 안에서만 도는 일정입니다. 일몰 두 번과 술 마시는 저녁 두 번을 축으로 짜고, 방짱꾸 요청을 2일차에 몰아 넣었습니다. 항목을 누르면 영업시간·요금·주의사항과 카카오맵·네이버 지도·블로그 후기 링크가 열립니다.</p>
+    <section class="alert" aria-label="출발 전 확인">
+      <p class="alert-h">출발 전 전화 확인</p>
+      <ul class="alert-l">
+        <li><b>목포오션호텔 야외 수영장</b> — 10월 8일에 운영하는지. 야외 시즌풀이라 9월 말에 닫는 곳이 많습니다.
+          안 열면 1일차 16:25 자리가 비고, 그 시간은 고하도로 돌립니다.
+          <a class="alert-tel" href="tel:+82612869000">061-286-9000</a></li>
+        <li><b>초원음식점</b> — 비정기 휴무입니다. 1일차 점심이라 전날 확인해 두세요.</li>
+        <li><b>목포해상케이블카</b> — 강풍이면 운휴합니다. 1일차 오후가 통째로 바뀌니 당일 아침에 한 번.</li>
+      </ul>
+    </section>
     <div class="facts">
       <span class="fact">인원 <b>2명</b></span>
       <span class="fact">KTX <b>10.08 10:00 / 10.10 15:30</b></span>
@@ -304,7 +325,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <footer>
     일정·메모·대안·비용은 원본 계획 그대로이고, 케이블카 요금과 바다분수 공연 시간, 포미아구찜 영업 정보는 따로 확인해 붙였습니다.<br>
     식당 휴무와 영업시간은 자주 바뀌니 방문 직전에 지도 링크로 한 번 더 확인하세요. 확인하지 못한 항목은 상세에 그렇게 적어 두었습니다.<br>
-    <span style="color:var(--line-2)">빌드 v9 · 2026-09-28 · 1일차 수영 추가</span>
+    <span style="color:var(--line-2)">빌드 v10 · 2026-09-28 · 전수 점검</span>
   </footer>
 </div>
 
@@ -585,13 +606,13 @@ const EAT=[
 
 const SEE=[
 {h:"원도심",items:[
- ["목포근대역사관 1관","구 일본영사관 · 영산로29번길 6","2일차 15:00","목포근대역사관 1관",
+ ["목포근대역사관 1관","구 일본영사관 · 영산로29번길 6","2일차 09:20","목포근대역사관 1관",
   {info:{"관람":"09:00~18:00 (입장 마감 17:00)","휴관":"매주 월요일","요금":"어른 2,000원 · 청소년 1,000원","해설":"10:30 / 11:30 / 13:30 / 15:00","문의":"061-242-0340"},
    refs:[{l:"목포문화관광 공식 안내",u:"https://www.mokpo.go.kr/tour/attraction/area?mode=view&idx=7449"}]}],
  ["목포근대역사관 2관","구 동양척식주식회사 · 전남기념물 174호","2일차 11:10","목포근대역사관 2관",
   {info:{"관람":"09:00~18:00","휴관":"매주 월요일","문의":"061-270-8728"},
    tip:"1관이 일본영사관이었다면 2관은 조선 농민 수탈기관이던 동양척식주식회사 목포지점입니다."}],
- ["서산동 시화골목 · 연희네슈퍼 · 보리마당","영화 1987 촬영지 · 무료","3일차 10:00","목포 서산동 시화골목",
+ ["서산동 시화골목 · 연희네슈퍼 · 보리마당","영화 1987 촬영지 · 무료","3일차 09:30","목포 서산동 시화골목",
   {info:{"요금":"무료 · 상시 개방","주소":"해안로127번길 14-2","보리마당":"골목 맨 위 공터 · 항구와 유달산 조망","안내":"목포역관광안내소 061-270-8599"}}],
  ["목포진지","원도심 · 대안","","목포진"],
  ["삼학도공원","","","목포 삼학도"],
@@ -599,10 +620,10 @@ const SEE=[
 {h:"유달산 · 고하도",items:[
  ["목포해상케이블카","북항 → 유달산 → 고하도 3.23km · 왕복 40분","1일차 14:30","목포해상케이블카 북항승강장"],
  ["유달산 노적봉, 일등바위","","플랜 B2","목포 유달산 노적봉"],
- ["고하도 해안데크 · 전망대","전망대 09:00~22:00","1일차 15:30","고하도전망대",
+ ["고하도 해안데크 · 전망대","전망대 09:00~22:00","1일차 14:55","고하도전망대",
   {info:{"전망대":"09:00~22:00 (계절별 변동)","해안데크":"1,080m 전 구간 해상","구성":"1층 휴게 · 2~5층 전망·전시","문의":"061-270-8217"}}],
  ["고하도 용머리","대안","","고하도 용머리"],
- ["목포 스카이워크 · 유달유원지","목포대교 뷰 · 무료","3일차 12:00","목포 스카이워크",
+ ["목포 스카이워크 · 유달유원지","목포대교 뷰 · 무료","3일차 12:15","목포 스카이워크",
   {info:{"요금":"무료 · 연중무휴","운영":"하절기 21:00까지 / 동절기 20:00까지","규모":"길이 120m · 높이 15m · 바닥 2/3 강화유리"}}]]},
 {h:"평화광장 · 갓바위",items:[
  ["평화광장 · 춤추는 바다분수","4/1~11/30 · 금토 20:00·20:30·21:00 · 월 휴무","2일차 밤","목포 평화광장"],
@@ -666,12 +687,12 @@ const COST=[
  ["8일 저녁 북항","8~12만",""],
  ["9일 조식","3~4만",""],
  ["9일 점심 소래기냉면","5.6~7만","수육무침 28,000원 + 냉면"],
- ["9일 근대역사관 2관","확인 필요","1관과 같은 체계로 추정"],
- ["9일 저녁 독천골","8~12만","낙지호롱구이 · 낙지탕탕이"],
- ["쑥굴레 · 소품샵","3~5만","디저트 + 엽서·굿즈"],
  ["9일 근대역사관 1관","0.4만","어른 2,000원 ×2"],
+ ["9일 근대역사관 2관","확인 필요","1관과 같은 체계로 추정"],
+ ["9일 쑥굴레 · 소품샵","3~5만","디저트 + 엽서·굿즈"],
+ ["9일 저녁 독천골","8~12만","낙지호롱구이 · 낙지탕탕이"],
  ["10일 점심 중화루","2.5~4.5만","확인가"],
- ["카페 4~5곳","7~10만",""],
+ ["카페 3곳","4~6만","커피창고로 ×2, 대반동201"],
  ["빵, 에그타르트","4~6만",""]
 ];
 

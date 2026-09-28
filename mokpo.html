@@ -10,6 +10,19 @@
 <meta property="og:title" content="목포 2박 3일 — 원도심과 노을">
 <meta property="og:description" content="10/8~10/10 목포 일정. 항목을 누르면 영업시간·요금·주의사항과 카카오맵·네이버 지도·블로그 후기 링크가 열립니다.">
 <meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://jinyoungsong91-droid.github.io/stopwatch/mokpo.html">
+<meta property="og:image" content="https://jinyoungsong91-droid.github.io/stopwatch/mokpo-og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="manifest" href="mokpo.webmanifest">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" href="mokpo-icon-192.png">
+<link rel="apple-touch-icon" href="mokpo-icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="목포">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>목포 2박 3일</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,9 +71,92 @@ h1{font-weight:900;font-size:clamp(38px,7.4vw,60px);line-height:1.1;color:var(--
 .fact{border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:13.5px;color:var(--ink-2)}
 .fact b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums}
 
+/* 지금 바 */
+.nowbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 18px;padding:15px 18px;border-radius:12px;background:var(--ink);color:#fff}
+.nowbar[hidden]{display:none}
+.nb-tag{flex:none;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:5px;background:var(--accent);color:#fff}
+.nb-main{flex:1 1 240px;min-width:0;font-size:15.5px;line-height:1.55}
+.nb-main b{font-weight:700}
+.nb-sub{display:block;font-size:13.5px;color:#C9C8C4}
+.nb-acts{display:flex;gap:8px;flex-wrap:wrap}
+.nb-btn{appearance:none;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;border-radius:8px;padding:8px 13px;
+  font:inherit;font-size:13.5px;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap}
+.nb-btn:hover{background:rgba(255,255,255,.1)}
+.nowbar.before{background:var(--tint);color:var(--ink-1);border:1px solid var(--line)}
+.nowbar.before .nb-sub{color:var(--ink-3)}
+.chip .today{display:inline-block;margin-left:6px;font-size:10.5px;font-weight:700;color:#fff;background:var(--accent);
+  border-radius:4px;padding:1px 6px;vertical-align:2px}
+.chip[aria-selected="true"] .today{background:#fff;color:var(--ink)}
+/* 행 상태: 다녀옴 · 지금 · 다음 */
+.rowtime{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.done-btn{appearance:none;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line-2);background:var(--paper);
+  color:transparent;font-size:13px;font-weight:700;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0}
+.done-btn:hover{border-color:var(--ink-3);color:var(--ink-3)}
+.done-btn[aria-pressed="true"]{background:var(--c-sight);border-color:var(--c-sight);color:#fff}
+.row.is-done .card-btn{opacity:.5}
+.row.is-done .card-btn .name{text-decoration:line-through;text-decoration-thickness:1.5px}
+.row.is-now .card-btn{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.row.is-now .rowtime>span{color:var(--accent)}
+.st-tag{font-size:11px;font-weight:700;border-radius:5px;padding:2px 8px;line-height:1.6}
+.st-tag.now{color:#fff;background:var(--accent)}
+.st-tag.next{color:var(--accent);background:#FBEDE9}
+.day-share{appearance:none;border:none;background:none;font:inherit;font-size:13.5px;color:var(--ink-3);
+  text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0;margin-left:4px;white-space:nowrap}
+.day-share:hover{color:var(--ink)}
+a.tel{color:inherit;text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.fact-link{text-decoration:none;color:var(--ink-2)}
+.fact-link:hover{border-color:var(--line-2);background:var(--tint)}
+/* 가계부 */
+.spend-f{display:grid;gap:8px;margin-bottom:6px}
+.spend-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.spend-f input{font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line-2);border-radius:9px;background:var(--paper);
+  color:var(--ink);min-width:0;width:100%}
+.spend-f input:focus{outline:2px solid var(--ink);outline-offset:0;border-color:var(--ink)}
+.seg{display:flex;border:1px solid var(--line-2);border-radius:9px;overflow:hidden}
+.seg-b{flex:1;appearance:none;border:none;background:var(--paper);font:inherit;font-size:14.5px;font-weight:500;color:var(--ink-2);
+  padding:11px 8px;cursor:pointer}
+.seg-b+.seg-b{border-left:1px solid var(--line-2)}
+.seg-b[aria-pressed="true"]{background:var(--ink);color:#fff;font-weight:600}
+.btn-ink{appearance:none;border:none;background:var(--ink);color:#fff;border-radius:9px;font:inherit;font-size:15px;font-weight:600;
+  padding:12px 20px;cursor:pointer;white-space:nowrap}
+.btn-ink.sm{font-size:13.5px;padding:8px 14px;border-radius:8px}
+.spend-sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:16px 0 10px}
+.ss{border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.ss dt{font-size:12px;color:var(--ink-3);font-weight:600}
+.ss dd{margin:3px 0 0;font-size:18px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.settle{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-radius:10px;
+  background:var(--tint);font-size:15px;color:var(--ink-1)}
+.settle b{font-weight:800;color:var(--ink)}
+.spend-l{list-style:none;margin:10px 0 0;padding:0}
+.spend-l li{display:flex;align-items:center;gap:12px;padding:12px 2px;border-top:1px solid var(--line);font-size:15px}
+.spend-l .si{flex:1;min-width:0}
+.spend-l .sw{display:block;font-size:12.5px;color:var(--ink-3)}
+.spend-l .sa{font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink)}
+.spend-l .sx{appearance:none;border:1px solid transparent;background:none;color:var(--ink-3);font:inherit;font-size:13px;
+  cursor:pointer;padding:5px 9px;border-radius:7px;white-space:nowrap}
+.spend-l .sx.arm{border-color:var(--warn-line);background:var(--warn-bg);color:var(--warn);font-weight:600}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:11px 18px;
+  border-radius:10px;font-size:14.5px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:95;
+  box-shadow:0 8px 24px rgba(25,25,25,.2);max-width:calc(100vw - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
 /* 출발 전 확인 배너 */
 .alert{margin-top:26px;border:1px solid var(--warn-line);background:var(--warn-bg);border-radius:12px;padding:18px 20px}
-.alert-h{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.06em;color:var(--warn)}
+.alert-h{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--warn);
+  display:flex;align-items:center;justify-content:space-between;gap:10px}
+.alert-count{font-weight:600;opacity:.8;margin-left:4px}
+.alert-chk{appearance:none;margin-left:6px;border:1px solid var(--warn-line);background:var(--paper);color:var(--warn);border-radius:6px;
+  padding:3px 10px;font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;vertical-align:1px;white-space:nowrap}
+.alert-chk[aria-pressed="true"]{background:var(--c-sight);border-color:var(--c-sight);color:#fff}
+.alert-l li.ok{opacity:.55}
+.alert-toggle{display:none;appearance:none;border:none;background:none;font:inherit;font-size:13px;font-weight:600;
+  text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0;color:inherit}
+.alert.all-ok{background:var(--c-sight-bg);border-color:#CFE3DA}
+.alert.all-ok .alert-h{color:var(--c-sight);margin:0}
+.alert.all-ok .alert-toggle{display:inline}
+.alert.all-ok .alert-l{display:none}
+.alert.all-ok.open .alert-h{margin-bottom:10px}
+.alert.all-ok.open .alert-l{display:flex}
 .alert-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .alert-l li{position:relative;padding-left:16px;font-size:14.5px;line-height:1.6;color:var(--warn-ink)}
 .alert-l li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--warn)}
@@ -205,6 +301,12 @@ h3.sec:first-child{margin-top:0}
 .btable td.n{font-weight:700;color:var(--ink)}
 .btable td.m{color:var(--ink-2);font-size:14.5px}
 .tscroll{overflow-x:auto}
+@media(max-width:640px){
+  #wishtable thead{display:none}
+  #wishtable tr{display:block;padding:14px 0;border-bottom:1px solid var(--line)}
+  #wishtable td{display:block;border:none;padding:0}
+  #wishtable td.t{white-space:normal;margin:4px 0 3px;font-size:14px}
+}
 .pill{display:inline-block;font-size:11.5px;font-weight:600;border-radius:5px;padding:2px 9px;white-space:nowrap}
 .pill.ok{color:var(--c-sight);background:var(--c-sight-bg)}
 .pill.swap{color:var(--warn);background:var(--warn-bg)}
@@ -243,15 +345,15 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <header class="top">
     <p class="eyebrow">MOKPO · 2026.10.08 – 10.10</p>
     <h1>목포 2박 3일<br><span class="hl">원도심</span>과 <span class="hl">노을</span></h1>
-    <p class="lede">목포 안에서만 도는 일정입니다. 일몰 두 번과 술 마시는 저녁 두 번을 축으로 짜고, 방짱꾸 요청을 2일차에 몰아 넣었습니다. 항목을 누르면 영업시간·요금·주의사항과 카카오맵·네이버 지도·블로그 후기 링크가 열립니다.</p>
+    <p class="lede">목포 안에서만 도는 2박 3일입니다. 항목을 누르면 영업시간·주의사항과 지도·후기 링크가 열리고, 여행 당일에는 지금 할 일과 다음 일정이 맨 위에 뜹니다.</p>
     <section class="alert" aria-label="출발 전 확인">
-      <p class="alert-h">출발 전 전화 확인</p>
+      <p class="alert-h"><span><span class="alert-title">출발 전 전화 확인</span><span class="alert-count"></span></span><button class="alert-toggle" type="button">펼치기</button></p>
       <ul class="alert-l">
-        <li><b>목포오션호텔 야외 수영장</b> — 10월 8일에 운영하는지. 야외 시즌풀이라 9월 말에 닫는 곳이 많습니다.
+        <li data-k="pool"><b>목포오션호텔 야외 수영장</b> — 10월 8일에 운영하는지. 야외 시즌풀이라 9월 말에 닫는 곳이 많습니다.
           안 열면 1일차 16:25 자리가 비고, 그 시간은 고하도로 돌립니다.
-          <a class="alert-tel" href="tel:+82612869000">061-286-9000</a></li>
-        <li><b>초원음식점</b> — 비정기 휴무입니다. 1일차 점심이라 전날 확인해 두세요.</li>
-        <li><b>목포해상케이블카</b> — 강풍이면 운휴합니다. 1일차 오후가 통째로 바뀌니 당일 아침에 한 번.</li>
+          <a class="alert-tel" href="tel:0612869000">061-286-9000</a><button class="alert-chk" type="button">확인</button></li>
+        <li data-k="chowon"><b>초원음식점</b> — 비정기 휴무입니다. 1일차 점심이라 전날 확인해 두세요.<button class="alert-chk" type="button">확인</button></li>
+        <li data-k="cable"><b>목포해상케이블카</b> — 강풍이면 운휴합니다. 1일차 오후가 통째로 바뀌니 당일 아침에 한 번.<button class="alert-chk" type="button">확인</button></li>
       </ul>
     </section>
     <div class="facts">
@@ -260,6 +362,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
       <span class="fact">렌트 <b>목포역 픽업·반납</b></span>
       <span class="fact">일몰 <b>18:10 전후</b></span>
       <span class="fact">숙소 <b>목포오션 → 이음</b></span>
+      <a class="fact fact-link" href="https://search.naver.com/search.naver?query=%EB%AA%A9%ED%8F%AC+%EB%82%A0%EC%94%A8" target="_blank" rel="noopener">날씨 <b>목포 ↗</b></a>
     </div>
   </header>
 
@@ -269,12 +372,13 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
       <button class="tab" role="tab" aria-selected="false" data-panel="p-b">플랜 B</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="p-eat">맛집 · 카페</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="p-see">명소</button>
-      <button class="tab" role="tab" aria-selected="false" data-panel="p-prep">비용 · 준비</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="p-prep">준비 · 정산</button>
     </div>
   </nav>
 
   <section id="p-sched">
     <div class="days" role="tablist" id="days"></div>
+    <div class="nowbar" id="nowbar" hidden></div>
     <p class="daynote" id="daynote"></p>
     <div class="split">
       <div class="tl" id="tl"></div>
@@ -287,6 +391,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <div class="scrim" id="scrim"></div>
   <div class="mscrim" id="mscrim"></div>
   <aside class="detail modal idle" id="modal" style="--cc:var(--ink-2);--bg:var(--tint)"></aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <section id="p-b" class="panel" hidden>
     <h2>플랜 B</h2>
@@ -307,14 +412,29 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   </section>
 
   <section id="p-prep" class="panel" hidden>
-    <h2>비용 · 준비</h2>
-    <p class="h2sub">방짱꾸 요청이 어디에 들어갔는지, 2인 기준 추정 비용과 출발 전 체크리스트입니다.</p>
-    <h3 class="sec">방짱꾸 요청 반영</h3>
-    <div class="tscroll"><table class="btable" id="wishtable"></table></div>
+    <h2>준비 · 정산</h2>
+    <p class="h2sub">여행 중엔 쓴 돈을 적어 1/N로 나누고, 출발 전엔 체크리스트와 예상 비용을 봅니다.</p>
+    <h3 class="sec">실제 지출 · 1/N 정산</h3>
+    <form class="spend-f" id="spendform" autocomplete="off">
+      <input id="sp-item" placeholder="어디서 무엇 (예: 초원음식점 점심)" maxlength="40" required>
+      <div class="seg" role="group" aria-label="낸 사람">
+        <button type="button" class="seg-b" data-who="진영" aria-pressed="true">진영이 냄</button>
+        <button type="button" class="seg-b" data-who="방짱꾸" aria-pressed="false">방짱꾸가 냄</button>
+      </div>
+      <div class="spend-row">
+        <input id="sp-amt" type="number" inputmode="numeric" placeholder="금액 (원)" min="1" step="1" required>
+        <button class="btn-ink" type="submit">추가</button>
+      </div>
+    </form>
+    <div id="spendsum"></div>
+    <ul class="spend-l" id="spendlist"></ul>
+    <p class="note" style="margin-top:14px">이 폰에만 저장됩니다. 한 사람이 몰아서 적고, 끝나면 '정산 복사'로 카톡에 붙여 넣으세요.</p>
     <h3 class="sec">체크리스트</h3>
     <div class="prog"><div class="bar"><i id="pbar" style="width:0%"></i></div><span class="pct" id="ppct">0 / 0</span></div>
     <div class="clist" id="clist"></div>
     <p style="margin:14px 0 0"><button class="reset" id="creset">체크 전체 해제</button></p>
+    <h3 class="sec">방짱꾸 요청 반영</h3>
+    <div class="tscroll"><table class="btable" id="wishtable"></table></div>
     <h3 class="sec">예상 비용 (2인, 숙소 제외)</h3>
     <div class="tscroll"><table class="ctable" id="costtable"></table></div>
     <h3 class="sec">할인 · 먹거리 쇼핑</h3>
@@ -325,7 +445,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <footer>
     일정·메모·대안·비용은 원본 계획 그대로이고, 케이블카 요금과 바다분수 공연 시간, 포미아구찜 영업 정보는 따로 확인해 붙였습니다.<br>
     식당 휴무와 영업시간은 자주 바뀌니 방문 직전에 지도 링크로 한 번 더 확인하세요. 확인하지 못한 항목은 상세에 그렇게 적어 두었습니다.<br>
-    <span style="color:var(--line-2)">빌드 v11 · 2026-09-28 · 씨엘비베이커리 추가</span>
+    <span style="color:var(--line-2)">빌드 v12 · 2026-09-28 · 여행 중 기능</span>
   </footer>
 </div>
 
@@ -344,13 +464,16 @@ const K=q=>"https://map.kakao.com/?q="+enc(q);
 const NMAP=q=>"https://map.naver.com/p/search/"+enc(q);
 const NALL=q=>"https://search.naver.com/search.naver?query="+enc(q);
 const NBLOG=q=>"https://search.naver.com/search.naver?where=blog&query="+enc(q+" 후기");
+const PH=/0\d{1,2}-\d{3,4}-\d{4}/g;
+const telify=v=>String(v).replace(PH,m=>`<a class="tel" href="tel:${m.replace(/-/g,'')}">${m}</a>`);
 function buildLinks(it){
-  const q=it.map; if(!q&&!it.refs) return null;
-  const out=[];
+  const q=it.map,out=[];
   if(q) out.push({l:"카카오맵",u:K(q)},{l:"네이버 지도",u:NMAP(q)},
                  {l:"영업시간 · 메뉴",u:NALL(q)},{l:"블로그 후기",u:NBLOG(q)});
   (it.refs||[]).forEach(r=>out.push({...r,wide:true}));
-  return out;
+  const ph=it.info&&Object.values(it.info).join(' ').match(PH);
+  if(ph) out.push({l:'전화 걸기 '+ph[0],u:'tel:'+ph[0].replace(/-/g,''),wide:true,tel:true});
+  return out.length?out:null;
 }
 
 const DAYS=[
@@ -685,42 +808,41 @@ const CHECK=[
  "근대역사관 1관 10:30 해설 시간 맞추기"
 ];
 
-const COST=[
- ["KTX 왕복","약 20만","정가 추정"],
- ["렌트 3일","약 15~25만","연휴, 보험 별도"],
- ["주유","약 1~2만","목포 시내만 · 퍼플섬 뺀 만큼 줄었습니다"],
- ["택시","약 2만","8일 저녁"],
- ["케이블카","4.4만 / 5.4만","일반 왕복 2인 / 크리스탈 2인"],
- ["국립해양유물전시관","0원","무료"],
- ["호텔 수영장","확인 필요","투숙객 무료인지 별도인지 전화로"],
- ["8일 점심 초원","3~4.5만","확인가"],
- ["8일 저녁 북항","8~12만",""],
- ["9일 조식","3~4만",""],
- ["9일 점심 소래기냉면","5.6~7만","수육무침 28,000원 + 냉면"],
- ["9일 근대역사관 1관","0.4만","어른 2,000원 ×2"],
- ["9일 근대역사관 2관","확인 필요","1관과 같은 체계로 추정"],
- ["9일 쑥굴레 · 소품샵","3~5만","디저트 + 엽서·굿즈"],
- ["9일 저녁 독천골","8~12만","낙지호롱구이 · 낙지탕탕이"],
- ["10일 점심 중화루","2.5~4.5만","확인가"],
- ["카페 3곳","4~6만","커피창고로 ×2, 대반동201"],
- ["빵, 에그타르트","4~6만",""]
+const COST=[ /* [항목, 표시 금액, 비고, 최소(만원), 최대(만원)] — 합계는 아래에서 계산 */
+ ["KTX 왕복","약 20만","정가 추정",20,20],
+ ["렌트 3일","약 15~25만","연휴, 보험 별도",15,25],
+ ["주유","약 1~2만","목포 시내만",1,2],
+ ["택시","약 3~4만","8일·9일 저녁 (운전 없는 구간)",3,4],
+ ["케이블카","4.4만 / 5.4만","일반 왕복 2인 / 크리스탈 2인",4.4,5.4],
+ ["호텔 수영장","확인 필요","투숙객 무료인지 별도인지 전화로",0,0],
+ ["8일 점심 초원","3~4.5만","확인가",3,4.5],
+ ["8일 저녁 북항","8~12만","",8,12],
+ ["9일 조식","3~4만","",3,4],
+ ["9일 근대역사관 1·2관","0.4~0.8만","1관 어른 2,000원 ×2 · 2관 요금 확인 필요",0.4,0.8],
+ ["9일 쑥굴레 · 소품샵","3~5만","디저트 + 엽서·굿즈",3,5],
+ ["9일 점심 소래기냉면","5.6~7만","수육무침 28,000원 + 냉면",5.6,7],
+ ["9일 국립해양유물전시관","0원","무료",0,0],
+ ["9일 저녁 독천골","8~12만","낙지호롱구이 · 낙지탕탕이",8,12],
+ ["10일 점심 중화루","2.5~4.5만","확인가",2.5,4.5],
+ ["카페 3곳","4~6만","커피창고로 ×2, 대반동201",4,6],
+ ["빵","4~6만","코롬방 · 씨엘비 · 에그타르트",4,6]
 ];
 
 const PREP=[
  {h:"케이블카 할인",p:"전남사랑도민증을 온라인으로 발급받으면 할인이 됩니다. 네이버 사전 구매 할인도 있는데, 구매 후 1시간이 지나야 쓸 수 있으니 목포역 도착 직후나 점심 먹으면서 끊어두세요."},
- {h:"퍼플섬 무료",p:"보라색 옷, 모자, 우산 중 하나만 걸쳐도 입장료가 면제됩니다. 2인이면 10,000원입니다. 우산이 제일 부피가 작고 10월 날씨에 쓸모도 있습니다."},
+ {h:"수영 준비물",p:"1일차 16:25 인피니티풀용 수영복·수모를 캐리어 맨 위에 넣어 두세요. 체크인 직후 바로 올라가야 한 시간이 나옵니다. 운영 여부는 맨 위 전화 확인부터."},
  {h:"사올 것",p:"코롬방제과 새우바게트·크림치즈바게트, 커피창고로 에그타르트(개당 2,000원), 요굴뚝 굴뚝빵, 소프트앤텐더 소금빵. 영란횟집은 민어회·민어전을 전국 택배로 보냅니다."},
- {h:"목화솜빵",p:"코롬방제과 목화솜빵은 오전에 품절됩니다. 9일 16:10에 갔다가 없으면 10일 13:20에 다시 들르는 것으로 일정에 두 번 넣어 두었습니다."}
+ {h:"목화솜빵",p:"코롬방제과 목화솜빵은 오전에 품절됩니다. 9일 13:00에 갔다가 없으면 10일 13:40에 다시 들르는 것으로 일정에 두 번 넣어 두었습니다."}
 ];
 
 const WISH=[
- ["쑥굴레","2일차 12:20","퍼플섬을 빼면서 브레이크 걱정 없는 시간대로 옮겼습니다","ok"],
+ ["쑥굴레","2일차 11:40","퍼플섬을 빼면서 브레이크 걱정 없는 시간대로 옮겼습니다","ok"],
  ["낙지탕탕이 · 낙지호롱구이","2일차 19:10 독천골","한 집에서 둘 다 됩니다","ok"],
  ["아귀찜","대안으로만","끼니가 6번뿐이라 여전히 못 넣었습니다. 2일차 점심을 포미아구찜 평화광장점으로, 또는 저녁 독천골을 하당점으로 바꾸면 들어갑니다","swap"],
- ["예쁜 카페","1일차 20:30 · 2일차 20:40 · 3일차 12:20, 13:50","오션뷰(대반동201)와 레트로(화신연쇄점) 둘 다 넣었습니다","ok"],
+ ["예쁜 카페","1일차 20:30 · 2일차 20:40 · 3일차 12:40","3일차는 오션뷰 대반동201 한 곳입니다. 레트로 쪽이 끌리면 화신연쇄점으로 바꾸면 됩니다","ok"],
  ["케이블카","1일차 14:30","평일이라 대기가 짧습니다","ok"],
- ["소품샵 · 엽서","2일차 11:40 마음길상점 · 담을꿈","근대역사관 거리 안이라 걸어서 이어집니다","ok"],
- ["수육무침","2일차 13:40 소래기냉면","17시 마감이라 이 점심이 유일한 자리였습니다","ok"],
+ ["소품샵 · 엽서","2일차 12:20 마음길상점 · 담을꿈","근대역사관 거리 안이라 걸어서 이어집니다","ok"],
+ ["수육무침","2일차 13:50 소래기냉면","17시 마감이라 이 점심이 유일한 자리였습니다","ok"],
  ["근대문화박물관","2일차 09:20 1관 + 11:10 2관","퍼플섬을 빼면서 2관까지 넣었습니다. 10:30 해설에 붙도록 맞췄습니다","ok"],
  ["유명한 빵집","2일차 13:00 코롬방 + 13:15 씨엘비","같은 영산로에 붙은 두 집. 대표 메뉴가 똑같아서 하나씩 사 비교하는 구성입니다","ok"],
  ["(요청에 없던) 퍼플섬","일정에서 뺐습니다","목포가 아니라 신안군이라 제외했습니다. 그 시간에 근대역사관 2관과 국립해양유물전시관이 들어갔습니다","swap"]
@@ -742,18 +864,95 @@ DAYS.forEach((d,i)=>{
   const b=document.createElement('button');
   b.className='chip';b.setAttribute('role','tab');b.setAttribute('aria-selected',String(i===0));
   b.innerHTML=`<span class="dn">${d.n}</span><span class="dd">${d.date}</span>`;
-  b.onclick=()=>{dayIdx=i;sel=null;[...daysEl.children].forEach((c,j)=>c.setAttribute('aria-selected',String(i===j)));renderDay();};
+  b.onclick=()=>selectDay(i);
   daysEl.appendChild(b);
 });
 
+function selectDay(i,keepSel){
+  dayIdx=i;if(!keepSel)sel=null;
+  [...daysEl.children].forEach((c,j)=>c.setAttribute('aria-selected',String(i===j)));
+  try{history.replaceState(null,'','#d'+(i+1));}catch(e){}
+  renderDay();
+}
+
+/* trip clock — ?now=2026-10-08T14:20 로 시각을 바꿔 미리 볼 수 있습니다 */
+const TRIP_DATES=['2026-10-08','2026-10-09','2026-10-10'];
+function getNow(){
+  const q=new URLSearchParams(location.search).get('now');
+  if(q){const d=new Date(q);if(!isNaN(d))return d;}
+  return new Date();
+}
+const ymd=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const toMin=t=>{const [h,m]=t.split(':').map(Number);return h*60+m;};
+function tripState(){
+  const now=getNow(),day=TRIP_DATES.indexOf(ymd(now));
+  if(day<0){
+    const start=new Date(TRIP_DATES[0]+'T00:00');
+    if(now<start) return {mode:'before',dday:Math.ceil((start-new Date(ymd(now)+'T00:00'))/864e5)};
+    return {mode:'after'};
+  }
+  const m=now.getHours()*60+now.getMinutes(),its=DAYS[day].items;
+  let cur=-1;its.forEach((it,i)=>{if(toMin(it.t)<=m)cur=i;});
+  const nxt=cur+1<its.length?cur+1:-1;
+  if(day===TRIP_DATES.length-1&&cur===its.length-1&&m>toMin(its[cur].t)+180) return {mode:'after'};
+  return {mode:'live',day,cur,nxt,m};
+}
+function fmtGap(min){
+  if(min<1) return '곧';
+  const h=Math.floor(min/60),m=min%60;
+  return (h?h+'시간 ':'')+(m?m+'분':'')+' 뒤';
+}
+const nowbar=document.getElementById('nowbar');
+function renderNowbar(){
+  const st=tripState();
+  if(st.mode==='after'){nowbar.hidden=true;return st;}
+  nowbar.hidden=false;
+  if(st.mode==='before'){
+    nowbar.className='nowbar before';
+    nowbar.innerHTML=`<span class="nb-tag">D-${st.dday}</span>
+      <span class="nb-main"><b>10월 8일 10:00 용산역 KTX</b>에서 시작합니다.
+      <span class="nb-sub">여행 당일에는 이 자리에 지금 할 일과 다음 일정, 남은 시간이 뜹니다.</span></span>`;
+    return st;
+  }
+  nowbar.className='nowbar';
+  const its=DAYS[st.day].items,c=its[st.cur],n=st.nxt>=0?its[st.nxt]:null;
+  const main=c?`지금 <b>${c.name}</b>`:`오늘 첫 일정 전입니다`;
+  const sub=n?`다음 ${n.t} ${n.name} · ${fmtGap(toMin(n.t)-st.m)}`:'오늘 일정은 여기까지입니다';
+  const go=n&&n.map?n:(c&&c.map?c:null);
+  const hm=String(Math.floor(st.m/60)).padStart(2,'0')+':'+String(st.m%60).padStart(2,'0');
+  nowbar.innerHTML=`<span class="nb-tag">${DAYS[st.day].n} · ${hm}</span>
+    <span class="nb-main">${main}<span class="nb-sub">${sub}</span></span>
+    <span class="nb-acts">${n?'<button class="nb-btn" type="button" data-act="next">다음 일정 보기</button>':''}
+    ${go?`<a class="nb-btn" href="${K(go.map)}" target="_blank" rel="noopener">${go===n?'다음 장소':'여기'} 길찾기 ↗</a>`:''}</span>`;
+  const nb=nowbar.querySelector('[data-act="next"]');
+  if(nb) nb.onclick=()=>{if(dayIdx!==st.day)selectDay(st.day);sel=st.nxt;renderDay();showDetail(its[st.nxt]);
+    tl.querySelector(`[data-i="${st.nxt}"]`)?.scrollIntoView({block:'center',behavior:'smooth'});};
+  return st;
+}
+
+/* 다녀온 곳 체크 */
+const DKEY='mokpo.done.v1';let done=new Set();
+try{done=new Set(JSON.parse(localStorage.getItem(DKEY)||'[]'));}catch(e){}
+const saveDone=()=>{try{localStorage.setItem(DKEY,JSON.stringify([...done]));}catch(e){}};
+
 function renderDay(){
-  const d=DAYS[dayIdx];
-  daynote.innerHTML=`<b style="color:var(--ink)">${d.title}</b> — ${d.note}`;
+  const d=DAYS[dayIdx],st=tripState(),live=st.mode==='live'&&st.day===dayIdx;
+  daynote.innerHTML=`<b style="color:var(--ink)">${d.title}</b> — ${d.note} <button class="day-share" id="dayshare" type="button">이 날 공유 ↗</button>`;
+  document.getElementById('dayshare').onclick=()=>shareDay(dayIdx);
   tl.innerHTML='';
   d.items.forEach((it,i)=>{
-    const cat=CATS[it.c];
-    const row=document.createElement('div');row.className='row';
-    const time=document.createElement('div');time.className='rowtime';time.textContent=it.t;
+    const cat=CATS[it.c],dk=`${dayIdx}|${it.t}|${it.name}`,isDone=done.has(dk);
+    const row=document.createElement('div');row.className='row';row.dataset.i=i;
+    if(isDone) row.classList.add('is-done');
+    if(live&&i===st.cur) row.classList.add('is-now');
+    if(live&&i===st.nxt) row.classList.add('is-next');
+    const time=document.createElement('div');time.className='rowtime';
+    time.innerHTML=`<span>${it.t}</span>`;
+    const db=document.createElement('button');db.type='button';db.className='done-btn';db.textContent='✓';
+    db.setAttribute('aria-pressed',String(isDone));db.setAttribute('aria-label',`${it.name} 다녀옴 표시`);
+    db.title='다녀왔으면 체크';
+    db.onclick=()=>{isDone?done.delete(dk):done.add(dk);saveDone();renderDay();};
+    time.appendChild(db);
     const b=document.createElement('button');
     b.className='card-btn';
     b.style.setProperty('--cc',`var(${cat.cc})`);
@@ -764,7 +963,8 @@ function renderDay(){
     if(it.nodrive) flags.push('<span class="flag n">운전 없음</span>');
     if(it.alt) flags.push(`<span class="flag">대안 ${it.alt.length}</span>`);
     if(it.info) Object.entries(it.info).slice(0,1).forEach(([k,v])=>flags.push(`<span class="flag">${k} ${v}</span>`));
-    b.innerHTML=`<span class="ttl"><span class="name">${it.name}</span><span class="kind">${cat.label}</span></span>
+    const tag=live&&i===st.cur?'<span class="st-tag now">지금</span>':live&&i===st.nxt?'<span class="st-tag next">다음</span>':'';
+    b.innerHTML=`<span class="ttl"><span class="name">${it.name}</span><span class="kind">${cat.label}</span>${tag}</span>
       ${it.memo?`<p class="memo">${it.memo}</p>`:''}
       ${flags.length?`<span class="flags">${flags.join('')}</span>`:''}`;
     b.onclick=()=>{sel=i;renderDay();showDetail(it);};
@@ -782,14 +982,14 @@ function detailHTML(it,when){
     <h3 class="d-title">${it.name}</h3>
     <p class="d-when">${when||(DAYS[dayIdx].n+' '+DAYS[dayIdx].date+' · '+it.t+(it.sunset?' · 일몰':'')+(it.nodrive?' · 운전 없음':''))}</p>`;
   if(it.memo) h+=`<p class="d-h">메모</p><p class="d-p">${it.memo}</p>`;
-  if(it.info) h+=`<p class="d-h">확인한 정보</p><dl class="kv">${Object.entries(it.info).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`;
+  if(it.info) h+=`<p class="d-h">확인한 정보</p><dl class="kv">${Object.entries(it.info).map(([k,v])=>`<dt>${k}</dt><dd>${telify(v)}</dd>`).join('')}</dl>`;
   if(it.warn) h+=`<div class="warnbox"><b>확인 필요 —</b> ${it.warn}</div>`;
   if(it.tip) h+=`<p class="d-h">참고</p><p class="d-p">${it.tip}</p>`;
   if(it.alt) h+=`<p class="d-h">대안</p><ul class="bul">${it.alt.map(a=>`<li>${a}</li>`).join('')}</ul>`;
   if(!it.info&&!it.tip&&!it.warn&&!it.alt&&!it.memo) h+=`<p class="d-h">참고</p><p class="d-p" style="color:var(--ink-3)">계획에 적힌 것 외에 따로 붙인 정보가 없습니다.</p>`;
   const links=buildLinks(it);
   if(links) h+=`<p class="d-h">더 알아보기</p><div class="links">${links.map(l=>
-    `<a class="lnk${l.wide?' wide':''}" href="${l.u}" target="_blank" rel="noopener">${l.l}<span class="arw">↗</span></a>`).join('')}</div>`;
+    `<a class="lnk${l.wide?' wide':''}" href="${l.u}"${l.tel?'':' target="_blank" rel="noopener"'}>${l.l}<span class="arw">${l.tel?'☎':'↗'}</span></a>`).join('')}</div>`;
   return h;
 }
 function paint(el,it,when){
@@ -811,7 +1011,36 @@ function closeDetail(){hide(detail,scrim);}
 function closeModal(){hide(modal,mscrim);}
 scrim.onclick=closeDetail;mscrim.onclick=closeModal;
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDetail();closeModal();}});
-renderDay();
+
+/* toast · copy · share */
+const toastEl=document.getElementById('toast');let toastT;
+function toast(msg){toastEl.textContent=msg;toastEl.classList.add('show');clearTimeout(toastT);
+  toastT=setTimeout(()=>toastEl.classList.remove('show'),2200);}
+function copyText(t){
+  const fb=()=>{const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');
+    ta.style.cssText='position:fixed;top:-1000px;opacity:0';document.body.appendChild(ta);ta.select();
+    let ok=false;try{ok=document.execCommand('copy');}catch(e){}ta.remove();return ok;};
+  if(navigator.clipboard&&window.isSecureContext)
+    return navigator.clipboard.writeText(t).then(()=>true,()=>fb());
+  return Promise.resolve(fb());
+}
+const PAGE_URL='https://jinyoungsong91-droid.github.io/stopwatch/mokpo.html';
+function shareDay(i){
+  const d=DAYS[i],url=PAGE_URL+'#d'+(i+1);
+  const text=`목포 ${d.n} ${d.date} — ${d.title}\n`+d.items.map(it=>`${it.t} ${it.name}`).join('\n');
+  if(navigator.share){navigator.share({title:`목포 ${d.n}`,text,url}).catch(()=>{});return;}
+  copyText(text+'\n'+url).then(ok=>toast(ok?`${d.n} 일정과 링크를 복사했습니다`:'복사하지 못했습니다'));
+}
+
+/* 첫 화면: #d2 같은 주소 → 여행 당일이면 오늘 → 1일차 */
+(function init(){
+  const st=renderNowbar();
+  const h=/^#d([1-3])$/.exec(location.hash);
+  if(st.mode==='live') daysEl.children[st.day].querySelector('.dd').insertAdjacentHTML('afterend','<span class="today">오늘</span>');
+  selectDay(h?+h[1]-1:(st.mode==='live'?st.day:0));
+  setInterval(()=>{const s2=renderNowbar();if(s2.mode==='live'&&s2.day===dayIdx&&!detail.classList.contains('open'))renderDay();},60000);
+  window.addEventListener('hashchange',()=>{const m=/^#d([1-3])$/.exec(location.hash);if(m)selectDay(+m[1]-1);});
+})();
 
 /* plan B */
 document.getElementById('planb').innerHTML=PLANB.map(b=>{
@@ -868,10 +1097,14 @@ document.getElementById('creset').onclick=()=>{checked.clear();save();renderChec
 renderCheck();
 
 /* cost */
+function costRange(per){
+  const lo=COST.reduce((a,r)=>a+r[3],0),hi=COST.reduce((a,r)=>a+r[4],0),f=x=>Math.round(per?x/per:x);
+  return f(lo)+'~'+f(hi);
+}
 document.getElementById('costtable').innerHTML=
  `<thead><tr><th>항목</th><th class="r">금액</th><th>비고</th></tr></thead><tbody>
   ${COST.map(([k,v,m])=>`<tr><td>${k}</td><td class="r">${v}</td><td class="m">${m}</td></tr>`).join('')}
-  <tr class="tot"><td>합계 (숙소 제외)</td><td class="r">약 95~135만</td><td class="m">1인 약 48~68만</td></tr>
+  <tr class="tot"><td>합계 (숙소 제외)</td><td class="r">약 ${costRange(0)}만</td><td class="m">1인 약 ${costRange(2)}만</td></tr>
   </tbody>`;
 document.getElementById('wishtable').innerHTML=
  `<thead><tr><th>요청</th><th>어디에</th><th>메모</th></tr></thead><tbody>
@@ -879,6 +1112,77 @@ document.getElementById('wishtable').innerHTML=
     <td class="t" style="color:var(--ink-1)">${w}</td><td class="m">${m}</td></tr>`).join('')}
   </tbody>`;
 document.getElementById('prepcards').innerHTML=PREP.map(c=>`<div class="tipcard"><h4>${c.h}</h4><p>${c.p}</p></div>`).join('');
+
+/* 출발 전 확인 */
+const AKEY='mokpo.alert.v1';let aok=new Set();
+try{aok=new Set(JSON.parse(localStorage.getItem(AKEY)||'[]'));}catch(e){}
+const alertEl=document.querySelector('.alert'),alertLis=[...alertEl.querySelectorAll('li[data-k]')];
+function renderAlert(){
+  alertLis.forEach(li=>{const ok=aok.has(li.dataset.k),b=li.querySelector('.alert-chk');
+    li.classList.toggle('ok',ok);b.textContent=ok?'확인함':'확인';b.setAttribute('aria-pressed',String(ok));});
+  const n=alertLis.filter(li=>aok.has(li.dataset.k)).length,all=n===alertLis.length;
+  alertEl.querySelector('.alert-count').textContent=`${n} / ${alertLis.length}`;
+  alertEl.querySelector('.alert-title').textContent=all?'출발 전 확인 완료':'출발 전 전화 확인';
+  alertEl.classList.toggle('all-ok',all);
+  alertEl.querySelector('.alert-toggle').textContent=alertEl.classList.contains('open')?'접기':'펼치기';
+}
+alertLis.forEach(li=>li.querySelector('.alert-chk').onclick=()=>{const k=li.dataset.k;
+  aok.has(k)?aok.delete(k):aok.add(k);try{localStorage.setItem(AKEY,JSON.stringify([...aok]));}catch(e){}renderAlert();});
+alertEl.querySelector('.alert-toggle').onclick=()=>{alertEl.classList.toggle('open');renderAlert();};
+renderAlert();
+
+/* 실제 지출 · 1/N */
+const SKEY='mokpo.spend.v1',PEOPLE=['진영','방짱꾸'];let spend=[],payer=PEOPLE[0],armed=null;
+try{spend=JSON.parse(localStorage.getItem(SKEY)||'[]');if(!Array.isArray(spend))spend=[];}catch(e){spend=[];}
+const saveSpend=()=>{try{localStorage.setItem(SKEY,JSON.stringify(spend));}catch(e){}};
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const segs=[...document.querySelectorAll('.seg-b')];
+segs.forEach(b=>b.onclick=()=>{payer=b.dataset.who;segs.forEach(o=>o.setAttribute('aria-pressed',String(o===b)));});
+function settleCalc(){
+  const tot=spend.reduce((a,e)=>a+e.amt,0),per=tot/PEOPLE.length;
+  const paid=Object.fromEntries(PEOPLE.map(p=>[p,spend.filter(e=>e.who===p).reduce((a,e)=>a+e.amt,0)]));
+  const diff=paid[PEOPLE[0]]-per; /* +면 방짱꾸가 진영에게 */
+  const line=Math.abs(diff)<1?'정산할 금액이 없습니다':
+    diff>0?`${PEOPLE[1]} → ${PEOPLE[0]}에게 ${won(diff)}`:`${PEOPLE[0]} → ${PEOPLE[1]}에게 ${won(-diff)}`;
+  return {tot,per,paid,line};
+}
+function renderSpend(){
+  const sum=document.getElementById('spendsum'),ul=document.getElementById('spendlist');
+  if(!spend.length){sum.innerHTML='';ul.innerHTML='<li style="color:var(--ink-3)">아직 적은 지출이 없습니다.</li>';return;}
+  const c=settleCalc();
+  sum.innerHTML=`<dl class="spend-sum">
+      <div class="ss"><dt>총 지출</dt><dd>${won(c.tot)}</dd></div>
+      <div class="ss"><dt>1인 부담</dt><dd>${won(c.per)}</dd></div>
+      ${PEOPLE.map(p=>`<div class="ss"><dt>${p} 낸 돈</dt><dd>${won(c.paid[p])}</dd></div>`).join('')}
+    </dl>
+    <div class="settle"><span>정산 <b>${c.line}</b></span><button class="btn-ink sm" type="button" id="spcopy">정산 복사</button></div>`;
+  document.getElementById('spcopy').onclick=()=>{
+    const f=ts=>{const d=new Date(ts);return (d.getMonth()+1)+'/'+d.getDate();};
+    const txt=`[목포 2박 3일 정산]\n총 ${won(c.tot)} · 1인 ${won(c.per)}\n`+
+      PEOPLE.map(p=>`${p} 낸 돈 ${won(c.paid[p])}`).join(' · ')+`\n→ ${c.line}\n\n`+
+      spend.map(e=>`${f(e.at)} ${e.item} ${won(e.amt)} (${e.who})`).join('\n');
+    copyText(txt).then(ok=>toast(ok?'정산 내역을 복사했습니다':'복사하지 못했습니다'));
+  };
+  ul.innerHTML=spend.slice().reverse().map(e=>`<li><span class="si">${esc(e.item)}<span class="sw">${e.who} · ${new Date(e.at).toLocaleString('ko-KR',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'})}</span></span>
+      <span class="sa">${won(e.amt)}</span><button class="sx${armed===e.id?' arm':''}" type="button" data-id="${e.id}" aria-label="삭제">${armed===e.id?'삭제?':'✕'}</button></li>`).join('')+
+    `<li style="justify-content:flex-end;border-top:none"><button class="reset" type="button" id="spclear">${armed==='all'?'정말 모두 지울까요? 한 번 더 누르세요':'지출 모두 지우기'}</button></li>`;
+  ul.querySelectorAll('.sx').forEach(b=>b.onclick=()=>{const id=b.dataset.id;
+    if(armed===id){spend=spend.filter(e=>e.id!==id);armed=null;saveSpend();}else armed=id;renderSpend();});
+  document.getElementById('spclear').onclick=()=>{if(armed==='all'){spend=[];armed=null;saveSpend();}else armed='all';renderSpend();};
+}
+document.getElementById('spendform').onsubmit=e=>{
+  e.preventDefault();
+  const it=document.getElementById('sp-item'),am=document.getElementById('sp-amt'),amt=Math.round(+am.value);
+  if(!it.value.trim()||!(amt>0)) return;
+  spend.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),item:it.value.trim(),amt,who:payer,at:Date.now()});
+  saveSpend();armed=null;it.value='';am.value='';renderSpend();toast('추가했습니다');
+};
+renderSpend();
+
+/* 오프라인 (GitHub Pages에서만) */
+if('serviceWorker' in navigator&&/github\.io$|^localhost$/.test(location.hostname))
+  navigator.serviceWorker.register('mokpo-sw.js',{scope:'./mokpo'}).catch(()=>{});
 </script>
 
 </body>

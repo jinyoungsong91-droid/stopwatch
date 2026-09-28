@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="목포 2박 3일 여행 일정 — 일별 타임라인, 항목별 메모와 카카오맵 링크, 플랜 B, 맛집·카페·명소 목록, 비용과 체크리스트.">
+<meta name="description" content="목포 2박 3일 여행 일정 — 일별 타임라인, 항목별 메모와 지도·정보 링크, 플랜 B, 맛집·카페·명소 목록, 비용과 체크리스트.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="목포 2박 3일 — 원도심과 노을">
-<meta property="og:description" content="10/8~10/10 목포 일정. 항목을 누르면 메모·대안·카카오맵 링크가 열립니다.">
+<meta property="og:description" content="10/8~10/10 목포 일정. 항목을 누르면 메모·대안과 카카오맵·네이버 지도·영업시간·블로그 후기 링크가 열립니다.">
 <meta property="og:locale" content="ko_KR">
 <title>목포 2박 3일</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,13 +118,28 @@ ul.bul li::before{content:"";position:absolute;left:2px;top:11px;width:5px;heigh
 .warnbox{margin-top:18px;border:1px solid var(--warn-line);background:var(--warn-bg);border-radius:9px;padding:14px 16px;
          font-size:14.5px;color:var(--warn-ink);line-height:1.7}
 .warnbox b{color:var(--warn);font-weight:700}
-.links{display:flex;flex-direction:column;gap:8px;margin-top:22px}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:2px}
+.lnk.wide{grid-column:1/-1}
+@media(max-width:400px){.links{grid-template-columns:1fr}}
 .lnk{display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;
      border:1px solid var(--line);border-radius:9px;padding:12px 16px;font-size:14.5px;font-weight:500;color:var(--ink-1)}
 .lnk:hover{border-color:var(--cc);background:var(--bg);color:var(--cc)}
 .lnk .arw{color:var(--ink-3);font-size:13px}
 .lnk:hover .arw{color:var(--cc)}
 .d-close{display:none}
+.detail.modal{position:fixed;z-index:70}
+.detail.modal.idle{display:none}
+.mscrim{position:fixed;inset:0;background:rgba(25,25,25,.38);z-index:65;opacity:0;pointer-events:none;transition:opacity .2s}
+.mscrim.open{opacity:1;pointer-events:auto}
+@media(min-width:960px){
+  .detail.modal{top:50%;left:50%;width:min(560px,92vw);max-height:84vh;overflow:auto;
+    transform:translate(-50%,-48%);opacity:0;box-shadow:0 24px 64px rgba(25,25,25,.22);
+    transition:opacity .18s ease,transform .18s ease}
+  .detail.modal.open{opacity:1;transform:translate(-50%,-50%)}
+  .detail.modal .d-close{display:block;position:absolute;top:20px;right:20px;appearance:none;
+    background:var(--tint-2);border:none;border-radius:8px;width:32px;height:32px;font-size:17px;
+    line-height:1;color:var(--ink-2);cursor:pointer}
+}
 @media(max-width:959px){
   .detail{position:fixed;left:0;right:0;bottom:0;z-index:60;border-radius:16px 16px 0 0;border-bottom:none;
     max-height:82vh;overflow:auto;box-shadow:0 -8px 40px rgba(25,25,25,.16);
@@ -155,8 +170,13 @@ h3.sec:first-child{margin-top:0}
 
 /* place rows */
 .plist{display:flex;flex-direction:column}
-.prow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:15px 4px;border-top:1px solid var(--line)}
+.prow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:15px 8px;border-top:1px solid var(--line);
+      width:100%;text-align:left;background:none;border-left:none;border-right:none;border-bottom:none;
+      font:inherit;color:var(--ink-1);cursor:pointer;border-radius:8px}
 .prow:first-child{border-top:none}
+.prow:hover{background:var(--tint)}
+.prow .pmore{flex:none;margin-left:auto;font-size:12.5px;font-weight:500;color:var(--ink-3)}
+.prow:hover .pmore{color:var(--ink)}
 .prow .pnm{font-weight:700;font-size:16px;flex:none;letter-spacing:-.015em;color:var(--ink)}
 .prow .pmn{font-size:14.5px;color:var(--ink-2);flex:none}
 .prow .pmm{font-size:14px;color:var(--ink-3);flex:1 1 180px;min-width:0}
@@ -208,7 +228,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <header class="top">
     <p class="eyebrow">MOKPO · 2026.10.08 – 10.10</p>
     <h1>목포 2박 3일<br><span class="hl">원도심</span>과 <span class="hl">노을</span></h1>
-    <p class="lede">항목을 누르면 메모·대안·확인 사항과 카카오맵 링크가 열립니다. 일몰 두 번과 술 마시는 저녁 두 번을 축으로 짠 일정입니다.</p>
+    <p class="lede">항목을 누르면 메모·대안·확인 사항과 함께 카카오맵, 네이버 지도, 영업시간, 블로그 후기 링크가 열립니다. 일몰 두 번과 술 마시는 저녁 두 번을 축으로 짠 일정입니다.</p>
     <div class="facts">
       <span class="fact">인원 <b>2명</b></span>
       <span class="fact">KTX <b>10.08 10:00 / 10.10 15:30</b></span>
@@ -234,11 +254,13 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
       <div class="tl" id="tl"></div>
       <aside class="detail idle" id="detail" style="--cc:var(--ink-2);--bg:var(--tint)">
         <button class="d-close" aria-label="닫기">✕</button>
-        <p class="d-hint">항목을 선택하면 메모·대안·지도 링크가 여기에 열립니다.</p>
+        <p class="d-hint">항목을 선택하면 메모·대안과 지도·정보 링크가 여기에 열립니다.</p>
       </aside>
     </div>
   </section>
   <div class="scrim" id="scrim"></div>
+  <div class="mscrim" id="mscrim"></div>
+  <aside class="detail modal idle" id="modal" style="--cc:var(--ink-2);--bg:var(--tint)"></aside>
 
   <section id="p-b" class="panel" hidden>
     <h2>플랜 B</h2>
@@ -248,13 +270,13 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
 
   <section id="p-eat" class="panel" hidden>
     <h2>맛집 · 카페</h2>
-    <p class="h2sub">권역별로 묶었습니다. 이름 옆 버튼을 누르면 카카오맵으로 바로 넘어갑니다.</p>
+    <p class="h2sub">권역별로 묶었습니다. 항목을 누르면 카카오맵·네이버 지도·영업시간·블로그 후기 링크가 열립니다.</p>
     <div id="eatbody"></div>
   </section>
 
   <section id="p-see" class="panel" hidden>
     <h2>명소</h2>
-    <p class="h2sub">일정에 넣은 곳과 넣지 않은 곳을 함께 두었습니다.</p>
+    <p class="h2sub">일정에 넣은 곳과 넣지 않은 곳을 함께 두었습니다. 항목을 누르면 지도와 정보 링크가 열립니다.</p>
     <div id="seebody"></div>
   </section>
 
@@ -288,7 +310,19 @@ const CATS={
   buy:{label:"먹거리",cc:"--c-buy",bg:"--c-buy-bg"},
   purple:{label:"명소",cc:"--c-purple",bg:"--c-purple-bg"}
 };
-const K=q=>"https://map.kakao.com/?q="+encodeURIComponent(q);
+const enc=encodeURIComponent;
+const K=q=>"https://map.kakao.com/?q="+enc(q);
+const NMAP=q=>"https://map.naver.com/p/search/"+enc(q);
+const NALL=q=>"https://search.naver.com/search.naver?query="+enc(q);
+const NBLOG=q=>"https://search.naver.com/search.naver?where=blog&query="+enc(q+" 후기");
+function buildLinks(it){
+  const q=it.map; if(!q&&!it.refs) return null;
+  const out=[];
+  if(q) out.push({l:"카카오맵",u:K(q)},{l:"네이버 지도",u:NMAP(q)},
+                 {l:"영업시간 · 메뉴",u:NALL(q)},{l:"블로그 후기",u:NBLOG(q)});
+  (it.refs||[]).forEach(r=>out.push({...r,wide:true}));
+  return out;
+}
 
 const DAYS=[
 {n:"1일차",date:"10.8 (목)",title:"원도심 + 케이블카 + 북항",
@@ -307,7 +341,8 @@ const DAYS=[
  {t:"14:30",c:"sight",name:"목포해상케이블카",memo:"북항 → 유달산 → 고하도 3.23km, 왕복 40분",
   info:{"일반 왕복":"성인 22,000원 (2인 44,000원)","크리스탈 왕복":"성인 27,000원 (2인 54,000원)","운영":"일~목 09:00~19:00 / 금~토 09:00~20:00"},
   tip:"크리스탈 캐빈은 55대 중 15대뿐이라 대기가 깁니다. 바닥이 투명한 값이 1인 5,000원인데, 대기 시간까지 감안하면 일반으로 타고 고하도에서 시간을 더 쓰는 쪽이 나을 수 있습니다.",
-  links:[{l:"목포해상케이블카 공식 요금",u:"http://www.mmcablecar.com/utilize/fee.html"},{l:"카카오맵에서 찾기",u:K("목포해상케이블카 북항승강장")}]},
+  map:"목포해상케이블카 북항승강장",
+  refs:[{l:"목포해상케이블카 공식 요금표",u:"http://www.mmcablecar.com/utilize/fee.html"}]},
  {t:"15:30",c:"sight",name:"고하도 해안데크, 고하도전망대",memo:"고하도에서 하차 후 산책",
   alt:["고하도 용머리"],map:"고하도전망대"},
  {t:"17:00",c:"stay",name:"목포오션호텔 체크인",memo:"차는 호텔에 두기",
@@ -329,9 +364,10 @@ const DAYS=[
  {t:"08:00",c:"move",name:"체크아웃, 퍼플섬 출발",memo:"압해도, 천사대교 경유 1시간 안팎",
   tip:"천사대교를 건너는 구간이라 드라이브 자체가 볼거리입니다. 09:00 도착이면 개장 직후라 한산합니다.",map:"천사대교"},
  {t:"09:00",c:"purple",name:"신안 퍼플섬",memo:"퍼플교 1.5km, 박지도·반월도, 10월 아스타국화",
-  info:{"입장료":"성인 5,000원","무료 조건":"보라색 아이템 착용 시 무료"},
-  tip:"보라색은 옷이 아니어도 됩니다. 모자, 우산, 스카프 하나면 2인 10,000원이 굳습니다. 출발 전날 밤에 개화 상황을 한 번 확인하세요.",
-  alt:["비가 오거나 생략할 경우 → 플랜 B1"],map:"신안 퍼플섬"},
+  info:{"입장료":"어른 5,000원 · 청소년 3,000원 · 어린이 1,000원","무료 조건":"보라색 착용 시 면제","인정 품목":"상의 · 하의 · 신발 · 모자 · 우산 · 스카프 · 양말 · 손수건 · 장갑","매표소":"반월 · 박지 두 곳"},
+  tip:"보라색은 옷이 아니어도 됩니다. 모자, 우산, 스카프 하나면 2인 10,000원이 굳습니다. 보통 반월도로 들어가 박지도를 거쳐 나오는 순서로 돕니다. 출발 전날 밤에 개화 상황을 한 번 확인하세요.",
+  alt:["비가 오거나 생략할 경우 → 플랜 B1"],map:"신안 퍼플섬",
+  refs:[{l:"대한민국 구석구석 — 신안 퍼플섬",u:"https://korean.visitkorea.or.kr/detail/rem_detail.do?cotid=ddc82528-0629-4e64-8385-0fb65f3b463a"}]},
  {t:"11:15",c:"move",name:"목포 복귀"},
  {t:"12:30",c:"food",name:"장터식당",memo:"목포 5미 꽃게무침, 전남 별미집 1호, 유달산 근처",
   alt:["영란횟집 — 민어 (제철은 여름)","덕인집 — 홍어삼합","독천식당 — 낙지"],map:"목포 장터식당"},
@@ -342,7 +378,10 @@ const DAYS=[
   info:{"영업":"08:00~19:00"},
   alt:["오거리숭커피 — 100년 목조건물, 화요일 휴무","무가보 — 대형, 스카이라인 뷰"],map:"목포 행복이가득한집"},
  {t:"15:00",c:"sight",name:"목포근대역사관 1관 + 골목",memo:"구 일본영사관, 영산로29번길 6",
-  alt:["목포진지"],map:"목포근대역사관 1관"},
+  info:{"관람":"09:00~18:00 (입장 마감 17:00)","휴관":"매주 월요일","요금":"어른 2,000원 · 청소년 1,000원","해설":"10:30 / 11:30 / 13:30 / 15:00 (각 30분)","문의":"061-242-0340"},
+  tip:"1897년 개항 직후인 1898년에 지은 목포 최고(最古) 건물입니다. 15:00 해설 시작 시간과 딱 맞으니, 도착하자마자 해설에 붙으면 골목까지 이해가 훨씬 낫습니다. 입장 마감이 17:00이라 시간은 넉넉합니다.",
+  alt:["목포진지"],map:"목포근대역사관 1관",
+  refs:[{l:"목포문화관광 공식 안내",u:"https://www.mokpo.go.kr/tour/attraction/area?mode=view&idx=7449"}]},
  {t:"16:00",c:"stay",name:"ZARA HOTEL 평화광장점 체크인",memo:"욕조 휴식",
   info:{"위치":"평화광장 도보 1분","객실":"오션뷰, 욕조"},map:"자라호텔 평화광장점"},
  {t:"17:40",c:"move",name:"걸어서 갓바위 해상보행교",nodrive:true,map:"목포 갓바위 해상보행교"},
@@ -356,7 +395,8 @@ const DAYS=[
  {t:"21:30",c:"sight",name:"평화광장 밤 산책",memo:"춤추는 바다분수",
   info:{"운영 기간":"2026년 4월 1일 ~ 11월 30일","금·토 공연":"20:00 / 20:30 / 21:00 (3회)","휴무":"매주 월요일"},
   warn:"10월 9일은 금요일이라 20:00, 20:30, 21:00 세 번 공연하고 끝납니다. 계획한 21:30에 가면 이미 끝난 뒤입니다. 20:30이나 21:00 회차에 맞춰 광장으로 나가세요.",
-  links:[{l:"춤추는 바다분수 공연시간 (목포시)",u:"https://youth.mokpo.go.kr/seafountain/perform"},{l:"카카오맵에서 찾기",u:K("목포 평화광장")}]}
+  map:"목포 평화광장",
+  refs:[{l:"춤추는 바다분수 공연시간 (목포시)",u:"https://youth.mokpo.go.kr/seafountain/perform"}]}
 ]},
 
 {n:"3일차",date:"10.10 (토)",title:"원도심 서쪽 + 오션뷰 + 귀가",
@@ -517,6 +557,7 @@ const tabs=[...document.querySelectorAll('.tab')];
 tabs.forEach(t=>t.addEventListener('click',()=>{
   tabs.forEach(o=>{o.setAttribute('aria-selected',String(o===t));
     document.getElementById(o.dataset.panel).hidden=o!==t;});
+  closeDetail();closeModal();
   window.scrollTo({top:0,behavior:'smooth'});
 }));
 
@@ -558,32 +599,44 @@ function renderDay(){
   });
 }
 
-const detail=document.getElementById('detail'),scrim=document.getElementById('scrim');
-function showDetail(it){
+const detail=document.getElementById('detail'),scrim=document.getElementById('scrim'),
+      modal=document.getElementById('modal'),mscrim=document.getElementById('mscrim');
+function detailHTML(it,when){
   const cat=CATS[it.c];
-  detail.style.setProperty('--cc',`var(${cat.cc})`);
-  detail.style.setProperty('--bg',`var(${cat.bg})`);
   let h=`<button class="d-close" aria-label="닫기">✕</button>
     <span class="d-badge">${cat.label}</span>
     <h3 class="d-title">${it.name}</h3>
-    <p class="d-when">${DAYS[dayIdx].n} ${DAYS[dayIdx].date} · ${it.t}${it.sunset?' · 일몰':''}${it.nodrive?' · 운전 없음':''}</p>`;
+    <p class="d-when">${when||(DAYS[dayIdx].n+' '+DAYS[dayIdx].date+' · '+it.t+(it.sunset?' · 일몰':'')+(it.nodrive?' · 운전 없음':''))}</p>`;
   if(it.memo) h+=`<p class="d-h">메모</p><p class="d-p">${it.memo}</p>`;
   if(it.info) h+=`<p class="d-h">확인한 정보</p><dl class="kv">${Object.entries(it.info).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join('')}</dl>`;
   if(it.warn) h+=`<div class="warnbox"><b>확인 필요 —</b> ${it.warn}</div>`;
   if(it.tip) h+=`<p class="d-h">참고</p><p class="d-p">${it.tip}</p>`;
   if(it.alt) h+=`<p class="d-h">대안</p><ul class="bul">${it.alt.map(a=>`<li>${a}</li>`).join('')}</ul>`;
-  const links=it.links||(it.map?[{l:"카카오맵에서 찾기",u:K(it.map)}]:null);
-  if(links) h+=`<div class="links">${links.map(l=>`<a class="lnk" href="${l.u}" target="_blank" rel="noopener">${l.l}<span class="arw">↗</span></a>`).join('')}</div>`;
   if(!it.info&&!it.tip&&!it.warn&&!it.alt&&!it.memo) h+=`<p class="d-h">참고</p><p class="d-p" style="color:var(--ink-3)">계획에 적힌 것 외에 따로 붙인 정보가 없습니다.</p>`;
-  detail.innerHTML=h;
-  detail.classList.remove('idle');detail.classList.add('open');scrim.classList.add('open');
-  detail.querySelector('.d-close').onclick=closeDetail;
-  if(window.innerWidth>=960) detail.scrollTop=0;
+  const links=buildLinks(it);
+  if(links) h+=`<p class="d-h">더 알아보기</p><div class="links">${links.map(l=>
+    `<a class="lnk${l.wide?' wide':''}" href="${l.u}" target="_blank" rel="noopener">${l.l}<span class="arw">↗</span></a>`).join('')}</div>`;
+  return h;
 }
-function closeDetail(){detail.classList.remove('open');scrim.classList.remove('open');
-  setTimeout(()=>{if(!detail.classList.contains('open'))detail.classList.add('idle');},250);}
-scrim.onclick=closeDetail;
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail();});
+function paint(el,it,when){
+  const cat=CATS[it.c];
+  el.style.setProperty('--cc',`var(${cat.cc})`);
+  el.style.setProperty('--bg',`var(${cat.bg})`);
+  el.innerHTML=detailHTML(it,when);
+  el.classList.remove('idle');
+  requestAnimationFrame(()=>el.classList.add('open'));
+  el.scrollTop=0;
+}
+function showDetail(it,when){paint(detail,it,when);scrim.classList.add('open');
+  detail.querySelector('.d-close').onclick=closeDetail;}
+function showModal(it,when){paint(modal,it,when);mscrim.classList.add('open');
+  modal.querySelector('.d-close').onclick=closeModal;}
+function hide(el,sc){el.classList.remove('open');sc.classList.remove('open');
+  setTimeout(()=>{if(!el.classList.contains('open'))el.classList.add('idle');},250);}
+function closeDetail(){hide(detail,scrim);}
+function closeModal(){hide(modal,mscrim);}
+scrim.onclick=closeDetail;mscrim.onclick=closeModal;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDetail();closeModal();}});
 renderDay();
 
 /* plan B */
@@ -595,12 +648,30 @@ document.getElementById('planb').innerHTML=PLANB.map(b=>{
 }).join('');
 
 /* lists */
-const listHTML=groups=>groups.map(g=>`<h3 class="sec">${g.h}</h3><div class="plist">${
-  g.items.map(([nm,mn,mm,q])=>`<div class="prow"><span class="pnm">${nm}</span>
-    ${mn?`<span class="pmn">${mn}</span>`:''}${mm?`<span class="pmm">${mm}</span>`:'<span class="pmm"></span>'}
-    <a class="pmap" href="${K(q)}" target="_blank" rel="noopener">지도 ↗</a></div>`).join('')}</div>`).join('');
-document.getElementById('eatbody').innerHTML=listHTML(EAT);
-document.getElementById('seebody').innerHTML=listHTML(SEE);
+function groupCat(h,fallback){
+  if(/카페|오션뷰|레트로/.test(h)) return 'cafe';
+  if(/베이커리|디저트|브런치/.test(h)) return 'buy';
+  return fallback;
+}
+function renderList(hostId,groups,fallbackCat){
+  const host=document.getElementById(hostId);host.innerHTML='';
+  groups.forEach(g=>{
+    const c=groupCat(g.h,fallbackCat);
+    const hd=document.createElement('h3');hd.className='sec';hd.textContent=g.h;host.appendChild(hd);
+    const wrap=document.createElement('div');wrap.className='plist';
+    g.items.forEach(([nm,mn,mm,q,extra])=>{
+      const b=document.createElement('button');
+      b.className='prow';
+      b.innerHTML=`<span class="pnm">${nm}</span>${mn?`<span class="pmn">${mn}</span>`:''}
+        <span class="pmm">${mm||''}</span><span class="pmore">정보 ↗</span>`;
+      b.onclick=()=>showModal(Object.assign({c:c,name:nm,memo:[mn,mm].filter(Boolean).join(' · ')||null,map:q},extra||{}),g.h);
+      wrap.appendChild(b);
+    });
+    host.appendChild(wrap);
+  });
+}
+renderList('eatbody',EAT,'food');
+renderList('seebody',SEE,'sight');
 
 /* checklist */
 const KEY='mokpo.check.v1';let checked=new Set();

@@ -450,7 +450,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <footer>
     일정·메모·대안·비용은 원본 계획 그대로이고, 케이블카 요금과 바다분수 공연 시간, 포미아구찜 영업 정보는 따로 확인해 붙였습니다.<br>
     식당 휴무와 영업시간은 자주 바뀌니 방문 직전에 지도 링크로 한 번 더 확인하세요. 확인하지 못한 항목은 상세에 그렇게 적어 두었습니다.<br>
-    <span style="color:var(--line-2)">빌드 v15 · 2026-10-04 · 회·낙지 가격 점검</span>
+    <span style="color:var(--line-2)">빌드 v16 · 2026-10-04 · 이음 연락처</span>
   </footer>
 </div>
 
@@ -588,7 +588,7 @@ const DAYS=[
   alt:["목포자연사박물관 — 바로 옆 · 어른 3,000원 · 월 휴관"],map:"국립해양유물전시관",
   refs:[{l:"목포해양유물전시관 공식",u:"https://seamuse.go.kr/mokpo"}]},
  {t:"16:50",c:"stay",name:"호텔 이음 목포평화광장점 체크인",memo:"차는 호텔에 두기",
-  info:{"예약":"확정 · 10/9 1박","위치":"평화광장 도보 15분 · 호텔 앞이 하당 먹자골목","편의":"발렛 파킹 · 24시간 무료 세탁실 · 조식","객실":"씰리 침대, 사틴 린넨"},
+  info:{"예약":"확정 · 10/9 1박","주소":"장미로 79","체크인":"15:00 · 체크아웃 12:00","문의":"0507-0381-8366 (야놀자 안심번호)","위치":"평화광장 도보 15분 · 호텔 앞이 하당 먹자골목","편의":"발렛 파킹 · 24시간 무료 세탁실 · 조식","객실":"씰리 침대, 사틴 린넨"},
   tip:"여기서부터 다음 날 아침까지 운전 없음. 갓바위, 독천골, 평화광장이 전부 택시 10분 안쪽이라 마음 놓고 한잔해도 됩니다. 일몰까지 한 시간 남으니 씻고 쉬었다 나가세요.",
   nodrive:true,map:"호텔 이음 목포평화광장점"},
  {t:"18:00",c:"move",name:"갓바위로 이동",memo:"택시 5분",nodrive:true,map:"목포 갓바위 해상보행교"},
@@ -942,7 +942,7 @@ function renderNowbar(){
   const its=DAYS[st.day].items,c=its[st.cur],n=st.nxt>=0?its[st.nxt]:null;
   const main=c?`지금 <b>${c.name}</b>`:`오늘 첫 일정 전입니다`;
   const sub=n?`다음 ${n.t} ${n.name} · ${fmtGap(toMin(n.t)-st.m)}`:'오늘 일정은 여기까지입니다';
-  const go=n&&n.map?n:(c&&c.map?c:null);
+  const go=n&&n.map?n:(c&&c.map&&!(c.c==='move'&&!n)?c:null);
   const hm=String(Math.floor(st.m/60)).padStart(2,'0')+':'+String(st.m%60).padStart(2,'0');
   nowbar.innerHTML=`<span class="nb-tag">${DAYS[st.day].n} · ${hm}</span>
     <span class="nb-main">${main}<span class="nb-sub">${sub}</span></span>

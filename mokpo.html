@@ -313,7 +313,28 @@ h3.sec:first-child{margin-top:0}
 }
 .pill{display:inline-block;font-size:11.5px;font-weight:600;border-radius:5px;padding:2px 9px;white-space:nowrap}
 .pill.ok{color:var(--c-sight);background:var(--c-sight-bg)}
-.pill.swap{color:var(--warn);background:var(--warn-bg)}
+.pill.swap,.pill.alt{color:var(--warn);background:var(--warn-bg)}
+.pill.in{color:#fff;background:var(--c-sight)}
+.pill.skip{color:var(--ink-3);background:var(--tint)}
+.rec-slots{display:grid;gap:6px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:0 0 22px}
+.rec-slot{border:1px solid var(--line);border-radius:9px;padding:9px 12px;font-size:13.5px;line-height:1.5;color:var(--ink-2)}
+.rec-slot b{display:block;font-size:12.5px;font-weight:700;color:var(--ink-3);letter-spacing:.02em;margin-bottom:2px}
+.rec-slot.fixed{background:var(--tint)}
+.rec-filter{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 6px}
+.rec-filter button{appearance:none;font:inherit;font-size:13.5px;font-weight:500;padding:7px 13px;border-radius:999px;
+  border:1px solid var(--line);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.rec-filter button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:600}
+.rec-card{appearance:none;font:inherit;text-align:left;cursor:pointer;width:100%;color:var(--ink-1);background:var(--paper);
+  border:1px solid var(--line);border-radius:11px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.rec-card:hover{background:var(--tint);border-color:var(--line-2)}
+.rec-card.in{border-left:3px solid var(--c-sight)}
+.rec-card.alt{border-left:3px solid var(--warn)}
+.rec-card .rt{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rec-card .rn{font-weight:700;font-size:16.5px;letter-spacing:-.015em;color:var(--ink)}
+.rec-card .rd{font-size:14.5px;color:var(--ink-1)}
+.rec-card .rp{font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.rec-card .rh{font-size:13.5px;color:var(--ink-3);line-height:1.6}
+.rec-card .rw{font-size:13.5px;line-height:1.6;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:8px;margin-top:2px}
 .ctable th.r,.ctable td.r{text-align:right}
 .ctable td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line)}
 .ctable td.r{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink)}
@@ -374,6 +395,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <nav class="tabs">
     <div class="tabrow" role="tablist">
       <button class="tab" role="tab" aria-selected="true" data-panel="p-sched">일정</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="p-rec">추천 맛집</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="p-b">플랜 B</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="p-eat">맛집 · 카페</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="p-see">명소</button>
@@ -397,6 +419,15 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <div class="mscrim" id="mscrim"></div>
   <aside class="detail modal idle" id="modal" style="--cc:var(--ink-2);--bg:var(--tint)"></aside>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <section id="p-rec" class="panel" hidden>
+    <h2>추천 맛집</h2>
+    <p class="h2sub">목포에서 이름난 집을 목포 9미(낙지·홍어·민어·꽃게·준치·병어·갈치·아귀·우럭) 중심으로 모았습니다. 2박 3일에 제대로 된 끼니는 다섯 번뿐이라 다 갈 수는 없고, 그중 바꿔 넣을 수 있는 자리는 세 번입니다. 카드를 누르면 지도와 후기 링크가 열립니다.</p>
+    <div class="rec-slots" id="recslots"></div>
+    <div class="rec-filter" id="recfilter" role="group" aria-label="보기"></div>
+    <div id="recbody"></div>
+    <p class="note">가격과 영업시간은 다이닝코드·식신·목포문화관광 등에 올라온 정보를 옮긴 것이라 바뀌었을 수 있습니다. 바꿔 넣기 전에 카드의 지도 링크로 한 번 더 확인하세요.</p>
+  </section>
 
   <section id="p-b" class="panel" hidden>
     <h2>플랜 B</h2>
@@ -450,7 +481,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <footer>
     일정·메모·대안·비용은 원본 계획 그대로이고, 케이블카 요금과 바다분수 공연 시간, 포미아구찜 영업 정보는 따로 확인해 붙였습니다.<br>
     식당 휴무와 영업시간은 자주 바뀌니 방문 직전에 지도 링크로 한 번 더 확인하세요. 확인하지 못한 항목은 상세에 그렇게 적어 두었습니다.<br>
-    <span style="color:var(--line-2)">빌드 v20 · 2026-10-04 · 동선 자체점검</span>
+    <span style="color:var(--line-2)">빌드 v21 · 2026-10-04 · 추천 맛집 탭</span>
   </footer>
 </div>
 
@@ -875,6 +906,47 @@ const WISH=[
  ["(요청에 없던) 퍼플섬","일정에서 뺐습니다","목포가 아니라 신안군이라 제외했습니다. 그 시간에 근대역사관 2관과 국립해양유물전시관이 들어갔습니다","swap"]
 ];
 
+/* 추천 맛집 — st: in(일정에 있음) · alt(바꿔 넣기 좋음) · skip(이번엔 패스) */
+const REC_SLOTS=[
+ {d:"1일차 점심",n:"초원음식점 · 원도심",f:false},
+ {d:"1일차 저녁",n:"북항회센타 · 노을공원 옆",f:false},
+ {d:"2일차 점심",n:"소래기냉면 · 요청한 곳",f:true},
+ {d:"2일차 저녁",n:"독천골 · 요청한 곳",f:true},
+ {d:"3일차 점심",n:"중화루 · 원도심",f:false}
+];
+const REC=[
+ {g:"낙지 — 세발낙지",items:[
+  {nm:"독천골",dish:"낙지호롱구이, 낙지탕탕이",price:"탕탕이 중 45,000 · 호롱구이 소 36,000",hours:"10:40~21:40 · 미항로 197",st:"in",where:"2일차 19:10 저녁 (요청)",map:"목포 독천골",
+   info:{"낙지탕탕이":"중 45,000원 · 대 60,000원","낙지호롱구이":"소 36,000원 · 중 48,000원 · 대 60,000원","문의":"061-283-9991"}},
+  {nm:"독천식당",dish:"낙지비빔밥, 연포탕, 갈낙탕",price:"낙지비빔밥 15,000 · 연포탕 23,000 · 갈낙탕 27,000",hours:"11:00~20:50 · 원도심",st:"alt",where:"3일차 점심 중화루 대신. 남도음식명가로 지정된 낙지 전문점이라 혼자 먹기 좋은 메뉴가 많습니다. 다만 2일차 저녁 독천골과 낙지가 겹칩니다.",map:"목포 독천식당"}]},
+ {g:"꽃게",items:[
+  {nm:"초원음식점",dish:"꽃게살비빔밥, 갈치찜",price:"1인 15,000",hours:"09:30~19:30 · 목포역 도보 7분",st:"in",where:"1일차 13:00 점심",map:"목포 초원음식점"},
+  {nm:"장터식당",dish:"꽃게무침, 꽃게살비빔밥",price:"꽃게무침 2인 30,000",hours:"11:30~21:00 · 브레이크 15:00~17:30 · 1·3주 일, 2·4·5주 월 휴무",st:"alt",where:"1일차 점심이나 3일차 점심 대신. 전남 지정 별미집 1호로, 꽃게 양념 요리로는 목포에서 가장 이름난 집입니다. 10/8(목)·10/10(토) 모두 영업일입니다.",map:"목포 장터식당",
+   info:{"선정":"전라남도 지정 별미집 1호"}}]},
+ {g:"준치 · 병어",items:[
+  {nm:"선경준치회집",dish:"준치회무침, 병어회, 갈치조림",price:"준치회무침 15,000 · 송어사스미 대 30,000",hours:"10:30~21:00 · 월 휴무 · 해안로57번길 2 (온금동)",st:"alt",where:"3일차 점심 중화루 대신으로 가장 잘 맞습니다. 온금동이라 바로 앞 일정인 서산동 시화골목과 붙어 있어 이동이 거의 없고, 주차할 공터도 있습니다. 블루리본에 오른 집입니다.",map:"목포 선경준치회집",
+   info:{"문의":"061-242-5653","선정":"블루리본서베이","주차":"공터 무료 주차"}},
+  {nm:"선창횟집",dish:"병어찜, 갈치찜, 준치회무침",price:"병어찜 중 60,000 · 갈치찜 중 60,000",hours:"11:00~20:00 · 브레이크 14:30~17:00",st:"skip",where:"찜 한 접시가 6만원대라 저녁 메뉴입니다. 저녁 두 번이 이미 회와 낙지라 이번에는 넣기 어렵습니다.",map:"목포 선창횟집"}]},
+ {g:"갈치",items:[
+  {nm:"선미식당",dish:"갈치찜, 갈치구이, 병어찜",price:"갈치찜·구이 1인 27,000",hours:"11:00~20:00 · 브레이크 14:00~17:00",st:"skip",where:"1일차 점심 초원음식점의 갈치찜과 메뉴가 겹칩니다. 갈치를 제대로 먹고 싶으면 초원 대신 여기로 바꾸는 정도입니다.",map:"목포 선미식당"},
+  {nm:"명인집",dish:"먹갈치조림, 병어조림 한정식",price:"먹갈치조림 70,000 · 병어조림 소 70,000",hours:"11:00~21:00 · 브레이크 15:00~17:00",st:"skip",where:"한 상 7만원대 한정식이라 저녁 자리인데, 1일차 저녁은 노을공원과 붙은 북항이 동선상 낫습니다.",map:"목포 명인집"}]},
+ {g:"홍어",items:[
+  {nm:"덕인집",dish:"홍어삼합, 홍어애탕",price:"홍어삼합 90,000",hours:"12:00~21:00 · 월 휴무",st:"alt",where:"1일차 저녁 북항회센타 대신. 목포 홍어집 중 가장 오래 이름난 곳입니다. 홍어는 호불호가 아주 강해서 둘 다 좋아할 때만 바꾸세요. 노을은 북항에서 보고 택시로 넘어오면 됩니다.",map:"목포 덕인집"},
+  {nm:"금메달식당",dish:"흑산도 홍어삼합 + 홍어탕",price:"삼합+탕 2인상 150,000 · 삼합+탕+찜 2인상 200,000",hours:"10:00~22:00",st:"skip",where:"흑산도 홍어라 값이 덕인집보다 한참 높습니다. 홍어를 먹는다면 덕인집 쪽이 부담이 적습니다.",map:"목포 금메달식당"}]},
+ {g:"민어",items:[
+  {nm:"영란횟집",dish:"민어 코스, 민어회, 민어전",price:"코스 2인 100,000 · 민어회 한 접시 50,000",hours:"10:00~22:00 · 번화로 42-1 (민어의 거리)",st:"skip",where:"1969년 문을 연 민어 전문점이라 목포의 상징 같은 집이지만, 민어 제철은 여름입니다. 10월에 2인 10만원을 내기엔 아깝고, 전국 택배가 되니 여름에 시켜 먹는 쪽을 권합니다.",map:"목포 영란횟집",
+   info:{"문의":"061-243-7311","제철":"7~8월"}}]},
+ {g:"아귀",items:[
+  {nm:"포미아구찜",dish:"아귀찜",price:"가격 확인 필요",hours:"10:30~21:30 · 브레이크 14:50~16:00 · 수 휴무",st:"alt",where:"요청 목록에 있었지만 끼니가 모자라 대안으로 남겨 둔 곳입니다. 평화광장점·하당점이 2일차 숙소 근처라 2일차 점심이나 저녁과 맞바꾸면 들어갑니다. 아귀 제철은 12~2월입니다.",map:"목포 포미아구찜"}]},
+ {g:"우럭",items:[
+  {nm:"만선식당",dish:"우럭간국",price:"가격 확인 필요",hours:"10:30~21:00",st:"skip",where:"말린 우럭을 푹 끓인 맑은 국이라 해장용으로 좋습니다. 일정에 아침 끼니가 없어서 넣을 자리가 마땅치 않습니다. 위치는 지도 링크로 확인하세요.",map:"목포 만선식당"}]},
+ {g:"9미 밖의 목포 명물",items:[
+  {nm:"중화루",dish:"중깐, 삼선짬뽕",price:"중깐 9,000 · 삼선짬뽕 16,000",hours:"11:00~19:00 · 월 휴무",st:"in",where:"3일차 11:00 점심",map:"목포 중화루"},
+  {nm:"소래기냉면",dish:"수육무침, 냉면",price:"수육무침 28,000",hours:"11:00~17:00",st:"in",where:"2일차 14:10 점심 (요청)",map:"목포 소래기냉면"},
+  {nm:"유달콩물",dish:"콩물, 콩국수",price:"가격 확인 필요",hours:"매일 07:00~20:30 · 호남로58번길 23-1",st:"skip",where:"아침을 먹게 되면 가는 곳입니다. 일정에서는 아침을 건너뛰었습니다.",map:"목포 유달콩물 본점"}]}
+];
+const REC_LABEL={in:"일정에 있음",alt:"바꿔 넣기 좋음",skip:"이번엔 패스"};
+
 /* tabs */
 const tabs=[...document.querySelectorAll('.tab')];
 tabs.forEach(t=>t.addEventListener('click',()=>{
@@ -1104,6 +1176,36 @@ function renderList(hostId,groups,fallbackCat){
   });
 }
 renderList('eatbody',EAT,'food');
+
+/* 추천 맛집 */
+document.getElementById('recslots').innerHTML=REC_SLOTS.map(x=>`<div class="rec-slot${x.f?' fixed':''}"><b>${x.d}${x.f?' · 고정':''}</b>${x.n}</div>`).join('');
+let recF='all';
+function renderRec(){
+  const host=document.getElementById('recbody');host.innerHTML='';
+  REC.forEach(g=>{
+    const items=g.items.filter(it=>recF==='all'||it.st===recF);
+    if(!items.length) return;
+    const hd=document.createElement('h3');hd.className='sec';hd.textContent=g.g;host.appendChild(hd);
+    const wrap=document.createElement('div');wrap.className='cards';
+    items.forEach(it=>{
+      const b=document.createElement('button');b.type='button';b.className='rec-card '+it.st;
+      b.innerHTML=`<span class="rt"><span class="rn">${it.nm}</span><span class="pill ${it.st}">${REC_LABEL[it.st]}</span></span>
+        <span class="rd">${it.dish}</span><span class="rp">${it.price}</span><span class="rh">${it.hours}</span>
+        <span class="rw">${it.st==='in'?'일정 · ':''}${it.where}</span>`;
+      b.onclick=()=>showModal({c:'food',name:it.nm,memo:it.dish,map:it.map,
+        info:Object.assign({"가격":it.price,"영업":it.hours},it.info||{}),tip:it.where},REC_LABEL[it.st]+' · '+g.g);
+      wrap.appendChild(b);
+    });
+    host.appendChild(wrap);
+  });
+}
+const recFil=document.getElementById('recfilter');
+[['all','전체'],['in','일정에 있음'],['alt','바꿔 넣기 좋음'],['skip','이번엔 패스']].forEach(([k,l])=>{
+  const b=document.createElement('button');b.type='button';b.textContent=l;b.setAttribute('aria-pressed',String(k==='all'));
+  b.onclick=()=>{recF=k;[...recFil.children].forEach(o=>o.setAttribute('aria-pressed',String(o===b)));renderRec();};
+  recFil.appendChild(b);
+});
+renderRec();
 renderList('seebody',SEE,'sight');
 
 /* checklist */

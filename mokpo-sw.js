@@ -1,5 +1,5 @@
 /* 목포 일정 페이지 오프라인 캐시 — 항상 네트워크 먼저, 끊겼을 때만 캐시 */
-const CACHE = 'mokpo-v22';
+const CACHE = 'mokpo-v23';
 const PRE = ['mokpo.html', 'mokpo.webmanifest', 'mokpo-icon-192.png'];
 
 self.addEventListener('install', e => {

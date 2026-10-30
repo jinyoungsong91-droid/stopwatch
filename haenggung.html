@@ -14,8 +14,6 @@
 <meta name="theme-color" content="#FFFFFF">
 <meta name="apple-mobile-web-app-title" content="행궁동">
 <title>행궁동 토요일</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 /* 단일 라이트 테마 — 뷰어 테마와 무관하게 흰 배경으로 렌더 */
@@ -373,7 +371,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
 .rmap svg{display:block;width:100%;height:auto}
 .rmap p{margin:8px 2px 0;font-size:12.5px;color:var(--ink-3);line-height:1.6}
 
-/* 구글 지도식 장소 카드 */
+/* 장소 카드 (네이버 · 카카오 지도 중심) */
 .gcards{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
 .gcard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;min-width:0}
 .gcard.in{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
@@ -395,14 +393,17 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
 .gsc{color:var(--ink-3)} .gsc.strong{color:var(--ink);font-weight:700}
 .gmeta{font-size:13.5px;color:var(--ink-2)} .gmeta b{color:var(--c-sight);font-weight:600}
 .gq{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
-.gq li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.55;color:var(--ink-1);background:var(--tint);border-radius:10px;padding:9px 11px}
-.gav{flex:none;width:22px;height:22px;border-radius:50%;background:var(--c-move);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center}
+.gq li{display:block;font-size:13.5px;line-height:1.55;color:var(--ink-1);background:var(--tint);border-radius:10px;padding:9px 11px}
+.gql{margin:4px 0 0;font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--ink-3)}
+.grsv{font-size:13.5px;color:var(--ink-2)} .grsv b{font-weight:700}
+.grsv.ok b{color:var(--c-sight)} .grsv.chk b{color:var(--warn)} .grsv.none b{color:var(--ink-3)}
+.gfew{font-size:11px;font-weight:700;color:var(--warn);background:var(--warn-bg);border-radius:4px;padding:1px 6px}
+.gact a.nv{color:#03A94F;border-color:#BFE8D0} .gact a.nv:hover{background:#EAF8F0}
+.gact a.kk{color:#3A2E00;background:#FEE500;border-color:#FEE500} .gact a.kk:hover{background:#F5DC00}
 .gwhere{font-size:13px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:8px;margin-top:2px}
 .gact{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto;padding-top:6px}
-.gact a{text-align:center;font-size:12.5px;font-weight:600;color:#1A73E8;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 4px;white-space:nowrap}
-.gact a:hover{background:#E8F0FE;border-color:#C6DAFC}
-.gemb{border:1px solid var(--line);border-radius:10px;overflow:hidden;aspect-ratio:16/10;max-width:100%}
-.gemb iframe{display:block;width:100%;height:100%;border:0}
+.gact a{text-align:center;font-size:12.5px;font-weight:600;color:var(--ink-1);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 4px;white-space:nowrap}
+.gact a:hover{background:var(--tint)}
 </style>
 </head>
 <body>
@@ -410,12 +411,12 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <header class="top">
     <p class="eyebrow">SUWON HAENGGUNG-DONG · 2026.10.31 SAT</p>
     <h1>행궁동 토요일<br><span class="hl">장안문 카페</span>와 <span class="hl">성곽 노을</span></h1>
-    <p class="lede">11:30 (구)한국은행 정류장에서 만나 화서문부터 걷는 하루 코스입니다. 점심과 저녁은 예약되는 집만 골라 선택지로 두었고, 장소마다 평점과 후기 요약, 구글 지도 사진·리뷰와 네이버 블로그 후기 버튼을 붙였습니다.</p>
+    <p class="lede">11:30 (구)한국은행 정류장에서 만나 화서문부터 걷는 하루 코스입니다. 점심과 저녁은 예약되는 집만 골라 선택지로 두었고, 장소마다 평점과 후기 요약, 네이버 지도 사진·리뷰, 카카오맵 길찾기, 네이버 블로그 후기 버튼을 붙였습니다.</p>
     <section class="alert" aria-label="출발 전 확인">
       <p class="alert-h"><span><span class="alert-title">출발 전 확인</span><span class="alert-count"></span></span><button class="alert-toggle" type="button">펼치기</button></p>
       <ul class="alert-l">
-        <li data-k="lunch2"><b>점심 예약</b> — 운멜로 1호점 캐치테이블 11:50~12:00. 못 잡으면 운멜로키친 3호점(예약 11:40 오픈) → 테이스팅뮤지엄 순.<button class="alert-chk" type="button">확인</button></li>
-        <li data-k="dinner2"><b>저녁 예약</b> — 태리주택 18:15 (예약금 1만원). 대안은 운멜로랩 전화 예약.<button class="alert-chk" type="button">확인</button></li>
+        <li data-k="lunch3"><b>점심 예약</b> — 운멜로 1호점 캐치테이블에 예약 탭이 있는지 확인(줄서기만 될 수 있음). 안 되면 운멜로키친 3호점 → 테이스팅뮤지엄 순.<button class="alert-chk" type="button">확인</button></li>
+        <li data-k="dinner3"><b>저녁 예약</b> — 태리주택 18:15. 예약금 예약이라는 글과 현장 대기라는 후기가 엇갈립니다. 안 되면 운멜로랩 전화 예약.<button class="alert-chk" type="button">확인</button></li>
         <li data-k="night"><b>화성행궁 야간개장</b> — 11/1까지 금~일 운영. 행사로 바뀔 수 있어 한 번 확인.
           <a class="alert-tel" href="tel:0312903600">031-290-3600</a><button class="alert-chk" type="button">확인</button></li>
       </ul>
@@ -499,7 +500,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
 
   <section id="p-rec" class="panel" hidden>
     <h2>밥집 · 카페 고르기</h2>
-    <p class="h2sub">점심과 저녁은 예약 가능한 집만, 카페는 밝고 창이 크며 장안문 앞이라 성곽길로 바로 이어지는 곳만 남겼습니다. 별점과 점수는 다이닝코드 기준이고, 사진과 최신 리뷰는 카드의 구글 지도·사진 버튼으로 보세요.</p>
+    <p class="h2sub">점심과 저녁은 예약 가능한 집만, 카페는 밝고 창이 크며 장안문 앞이라 성곽길로 바로 이어지는 곳만 남겼습니다. 별점과 점수는 다이닝코드 기준이고, 사진과 최신 리뷰는 카드의 네이버 지도 버튼으로, 길찾기는 카카오맵 버튼으로 보세요. 예약 근거가 약한 곳은 주황색 '예약 확인 필요'로 표시했습니다.</p>
     <div class="rec-slots" id="recslots"></div>
     <div class="rec-filter" id="recfilter" role="group" aria-label="보기"></div>
     <div id="recbody"></div>
@@ -558,7 +559,7 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <footer>
     평점은 다이닝코드, 날씨는 기상청·언론 예보(10/30 기준), 후기 요약은 다이닝코드·식신·핫플헌터·트립닷컴·블라인드·당근, 행궁과 성곽 정보는 수원시와 서울시 미디어허브 안내를 옮겼습니다. 네이버 블로그 본문은 직접 수집하지 못해 장소마다 블로그 검색 링크로 연결했습니다.<br>
     식당 휴무와 영업시간은 자주 바뀌니 방문 직전에 지도 링크로 한 번 더 확인하세요. 확인하지 못한 항목은 상세에 그렇게 적어 두었습니다.<br>
-    <span style="color:var(--line-2)">빌드 v3 · 2026-10-30 · 만남 장소 반영, 예약 가능 밥집만, 장안문 카페, 구글식 카드</span>
+    <span style="color:var(--line-2)">빌드 v4 · 2026-10-30 · 네이버·카카오 지도 중심, 예약 근거 표시, 후기 요약 출처 표시</span>
   </footer>
 </div>
 
@@ -573,20 +574,19 @@ const CATS={
   purple:{label:"명소",cc:"--c-purple",bg:"--c-purple-bg"}
 };
 const enc=encodeURIComponent;
-const K=q=>"https://map.kakao.com/?q="+enc(q);
-const NMAP=q=>"https://map.naver.com/p/search/"+enc(q);
+const SW=q=>q.includes("수원")?q:"수원 "+q;
+const K=q=>"https://map.kakao.com/?q="+enc(SW(q));
+const NMAP=q=>"https://map.naver.com/p/search/"+enc(SW(q));
 const NALL=q=>"https://search.naver.com/search.naver?query="+enc(q);
 const NBLOG=q=>"https://search.naver.com/search.naver?where=blog&query="+enc(q+" 후기");
 const PH=/(?<!\d)0\d{1,3}-\d{3,4}-\d{4}/g;
 const telify=v=>String(v).replace(PH,m=>`<a class="tel" href="tel:${m.replace(/-/g,'')}">${m}</a>`);
-const GMAP=q=>"https://www.google.com/maps/search/?api=1&query="+enc(q.includes("수원")?q:"수원 "+q);
 const NIMG=q=>"https://search.naver.com/search.naver?where=image&query="+enc(q);
-const GEMB=q=>"https://maps.google.com/maps?q="+enc(q.includes("수원")?q:"수원 "+q)+"&hl=ko&z=16&output=embed";
 function buildLinks(it){
   const q=it.map,out=[];
-  if(q) out.push({l:"구글 지도 · 사진 · 리뷰",u:GMAP(q)},{l:"사진 보기",u:NIMG(q)},
-                 {l:"카카오맵",u:K(q)},{l:"네이버 지도",u:NMAP(q)},
-                 {l:"영업시간 · 메뉴",u:NALL(q)},{l:"블로그 후기",u:NBLOG(q)});
+  if(q) out.push({l:"네이버 지도 · 사진 · 리뷰",u:NMAP(q)},{l:"카카오맵 · 길찾기",u:K(q)},
+                 {l:"블로그 후기",u:NBLOG(q)},{l:"사진 보기",u:NIMG(q)},
+                 {l:"영업시간 · 메뉴",u:NALL(q),wide:true});
   (it.refs||[]).forEach(r=>out.push({...r,wide:true}));
   const ph=it.info&&Object.values(it.info).join(' ').match(PH);
   if(ph) out.push({l:'전화 걸기 '+ph[0],u:'tel:'+ph[0].replace(/-/g,''),wide:true,tel:true});
@@ -714,8 +714,9 @@ const SEE=[
 ];
 
 const CHECK=[
- "오늘 밤 — 점심 캐치테이블 예약 (운멜로 1호점 11:50~12:00)",
- "오늘 밤 — 저녁 예약 (태리주택, 예약금 1만원)",
+ "오늘 밤 — 일정에 넣은 곳 영업 여부를 네이버 지도·카카오맵에서 확인 (폐업·휴무)",
+ "오늘 밤 — 점심 캐치테이블: 운멜로 1호점에 '예약' 탭이 있는지, 줄서기만 되는지 확인",
+ "오늘 밤 — 태리주택 예약 가능 여부 확인 (안 되면 운멜로랩 전화 예약)",
  "수원문화재단 031-290-3600 — 10/31 야간개장 운영 확인",
  "겉옷 — 낮 14도, 밤 8도 안팎",
  "편한 신발 — 하루 1시간 반 걷기",
@@ -737,7 +738,7 @@ const COST=[ /* [항목, 표시 금액, 비고, 최소(만원), 최대(만원)] 
 const PREP=[
  {h:"예약이 반입니다",p:"토요일 행궁동은 점심과 저녁 모두 줄이 섭니다. 그래서 이번 선택지는 예약이 되는 집만 남겼습니다. 오늘 밤 캐치테이블과 전화로 두 끼를 잡아 두면 내일은 걷기만 하면 됩니다."},
  {h:"내일 날씨",p:"대체로 맑다가 밤부터 흐려지고, 수원은 8~14도입니다. 오후 성곽길은 맑아서 좋지만 해가 지면 빠르게 추워집니다. 다음 날(11/1)은 비 소식이 있습니다."},
- {h:"후기와 사진 보는 법",p:"장소 카드의 '구글 지도' 버튼은 구글 지도의 사진과 리뷰로, '사진' 버튼은 네이버 이미지 검색으로, '블로그 후기'는 네이버 블로그 검색으로 연결됩니다. 블로그는 최신순으로 바꿔 최근 글부터 보세요."},
+ {h:"지도와 후기 보는 법",p:"지도는 네이버 지도와 카카오맵 두 가지만 씁니다. 네이버 지도 버튼은 장소 사진과 방문자 리뷰를, 카카오맵 버튼은 위치와 길찾기를, 블로그 후기 버튼은 네이버 블로그 검색을 엽니다. 블로그는 최신순으로 바꿔 최근 3개월 글이 있는지 먼저 보세요."},
  {h:"평점 기준",p:"카드의 별점과 점수는 다이닝코드 기준입니다(5점 만점 별점, 100점 환산 점수). 리뷰 수가 적은 곳은 괄호 안 숫자를 같이 보세요."}
 ];
 
@@ -747,7 +748,8 @@ const WISH=[
  ["밝고 창 있고 큰 카페, 동선","14:30 장안문 앞","행궁81.2, 팔레센트, 정지영 장안문점이 모두 성곽길 출발점이라 동선 손해가 없습니다","ok"],
  ["야간개장","19:40 화성행궁 달빛화담","11/1까지 금~일 운영, 20:00 무료 해설","ok"],
  ["날씨 보고 산책 경로","16:10~17:50 · 플랜 B1","맑음 예보라 성벽 위 구간으로 잡고, 바람·흐림·비일 때 경로를 따로 두었습니다","ok"],
- ["깔끔한 글씨, 사진, 구글 리뷰처럼","전체","Pretendard 글꼴, 구글 지도식 장소 카드, 구글 사진·리뷰 바로가기로 바꿨습니다","ok"]
+ ["깔끔한 글씨, 사진·리뷰, 네이버·카카오 지도","전체","Pretendard 글꼴, 장소 카드, 네이버 지도 사진·리뷰와 카카오맵 길찾기 바로가기","ok"],
+ ["예약 가능 여부 확인","카드의 초록·주황 표시","근거가 확실한 곳은 '예약 가능', 글이 엇갈리거나 원격 줄서기일 수 있는 곳은 '예약 확인 필요'로 나눴습니다","swap"]
 ];
 
 /* 장소 카드 — st: in(일정에 있음) · alt(바꿔 넣기 좋음) */
@@ -759,33 +761,33 @@ const REC_SLOTS=[
 ];
 const REC=[
  {g:"점심 · 예약 가능",k:"food",items:[
-  {nm:"운멜로 1호점",cat:"이탈리안 · 파스타",score:84,rsv:"캐치테이블 · 예약필수",hours:"주차 불가",st:"in",where:"11:50 점심 1순위",tags:["데이트","깔끔한","예약필수"],
+  {nm:"운멜로 1호점",rv:"chk",addr:"화서문로32번길 4 (소품샵 골목 바로 옆)",src:"다이닝코드 태그·방문 후기",cat:"이탈리안 · 파스타",score:84,rsv:"캐치테이블 · '예약필수' 태그가 있지만 원격 줄서기일 수 있음",hours:"주차 불가",st:"in",where:"11:50 점심 1순위",tags:["데이트","깔끔한","예약필수"],
    q:["뇨끼와 크림 파스타 칭찬이 많은 집","예약 없이 갔다가 캐치테이블 등록 후 25분쯤 기다렸다는 후기"],map:"운멜로 1호점 행궁동"},
-  {nm:"운멜로키친 3호점",cat:"이탈리안 · 뇨끼",score:82,rsv:"캐치테이블",hours:"예약이 11:40에 열린다는 후기",st:"alt",where:"1호점을 못 잡으면 같은 계열로",tags:["예약 가능"],
+  {nm:"운멜로키친 3호점",rv:"ok",src:"다이닝코드 태그·방문 후기",cat:"이탈리안 · 뇨끼",score:82,rsv:"캐치테이블",hours:"예약이 11:40에 열린다는 후기",st:"alt",where:"1호점을 못 잡으면 같은 계열로",tags:["예약 가능"],
    q:["캐치테이블 예약이 11:40에 열리니 미리 잡아 두라는 조언"],map:"운멜로키친 3호점 행궁동"},
-  {nm:"테이스팅뮤지엄",cat:"양식 · 한옥",rsv:"캐치테이블",hours:"전용 주차장 없음",st:"alt",where:"낮에 한옥 마당 사진을 원할 때",tags:["100년 한옥","마당"],
+  {nm:"테이스팅뮤지엄",rv:"ok",src:"예약 안내 페이지·방문 후기",cat:"양식 · 한옥",rsv:"캐치테이블",hours:"전용 주차장 없음",st:"alt",where:"낮에 한옥 마당 사진을 원할 때",tags:["100년 한옥","마당"],
    q:["100년 된 한옥을 고친 공간, 마당이 사진 명소","토마호크와 리조또가 대표, 메뉴 평은 엇갈림"],map:"테이스팅뮤지엄 행궁동"},
-  {nm:"미카사",cat:"파스타 · 양식",star:4.2,cnt:27,score:75,rsv:"예약 권장",hours:"",st:"alt",where:"한옥 인테리어의 차분한 데이트 분위기",tags:["한옥 인테리어","고급스러운"],
+  {nm:"미카사",rv:"chk",src:"다이닝코드",cat:"파스타 · 양식",star:4.2,cnt:27,score:75,rsv:"예약하고 갔다는 후기는 있으나 방식 미확인",hours:"",st:"alt",where:"한옥 인테리어의 차분한 데이트 분위기",tags:["한옥 인테리어","고급스러운"],
    q:["한옥 인테리어에 고급스러운 데이트 분위기","예약까지 해서 방문했다는 후기, 평가는 엇갈림"],map:"미카사 행궁동"},
-  {nm:"운멜로랩",cat:"이탈리안",rsv:"매장 전화 11:00~21:00",hours:"11:30~21:30 · 브레이크 15:00~16:30",st:"alt",where:"언덕 주택가의 조용한 자리",tags:["주말 웨이팅","전화 예약"],
+  {nm:"운멜로랩",rv:"ok",src:"맛집 소개 기사",cat:"이탈리안",rsv:"매장 전화 11:00~21:00",hours:"11:30~21:30 · 브레이크 15:00~16:30",st:"alt",where:"언덕 주택가의 조용한 자리",tags:["주말 웨이팅","전화 예약"],
    q:["주말엔 항상 웨이팅이 있어 예약 필수라는 안내","주차가 불편한 언덕 주택가"],map:"운멜로랩 행궁동"}]},
  {g:"카페 · 밝고 창 큰 곳, 장안문 앞",k:"cafe",items:[
-  {nm:"행궁81.2",cat:"카페 · 루프탑",rsv:"예약 없이",hours:"장안문 바로 앞",st:"in",where:"14:30 카페 1순위",tags:["넓은 실내","깔끔","장안문 뷰"],
+  {nm:"행궁81.2",rv:"none",cat:"카페 · 루프탑",rsv:"카페라 줄 서서 입장",hours:"장안문 바로 앞",st:"in",where:"14:30 카페 1순위",tags:["넓은 실내","깔끔","장안문 뷰"],
    q:["카페도 엄청 넓고 인테리어도 깔끔하다는 후기","장안문 바로 앞이라 한눈에 보이는 게 포인트","주말엔 관광객이 많아 북적인다는 후기"],map:"행궁81.2"},
-  {nm:"팔레센트",cat:"카페 · 루프탑",rsv:"예약 없이",hours:"2층 실내 + 3층 루프탑",st:"alt",where:"행궁81.2가 붐비면 바로 옆으로",tags:["루프탑","장안문 뷰"],
+  {nm:"팔레센트",rv:"none",cat:"카페 · 루프탑",rsv:"카페라 줄 서서 입장",hours:"2층 실내 + 3층 루프탑",st:"alt",where:"행궁81.2가 붐비면 바로 옆으로",tags:["루프탑","장안문 뷰"],
    q:["장안문 뷰가 좋은 루프탑 카페","주차는 화홍문·장안문 공영주차장 이용"],map:"팔레센트 행궁동"},
-  {nm:"정지영커피로스터즈 장안문점",cat:"카페 · 로스터리",star:4.3,cnt:50,score:77,rsv:"예약 없이",hours:"4층 테라스",st:"alt",where:"커피 맛 우선이면 이쪽",tags:["4층 테라스","코코넛 음료"],
+  {nm:"정지영커피로스터즈 장안문점",rv:"none",cat:"카페 · 로스터리",star:4.3,cnt:50,score:77,rsv:"카페라 줄 서서 입장",hours:"4층 테라스",st:"alt",where:"커피 맛 우선이면 이쪽",tags:["4층 테라스","코코넛 음료"],
    q:["4층 테라스에서 성곽과 장안문을 조망","코코넛 음료가 시그니처"],map:"정지영커피로스터즈 장안문점"},
-  {nm:"헤올커피로스터즈",cat:"카페 · 루프탑",rsv:"예약 없이",hours:"실내 + 루프탑",st:"alt",where:"조용한 쪽을 원하면",tags:["루프탑","장안문 뷰"],
+  {nm:"헤올커피로스터즈",rv:"none",cat:"카페 · 루프탑",rsv:"카페라 줄 서서 입장",hours:"실내 + 루프탑",st:"alt",where:"조용한 쪽을 원하면",tags:["루프탑","장안문 뷰"],
    q:["어느 층에서도 장안문이 잘 보인다는 블로그 후기"],map:"헤올커피로스터즈"}]},
  {g:"저녁 · 예약 가능",k:"food",items:[
-  {nm:"태리주택 행궁",cat:"스페인 요리 · 스테이크",score:78,rsv:"예약금 1만원",hours:"좌석 좁고 계단 가파름",st:"in",where:"18:15 저녁 1순위",tags:["유럽 골목 무드","예약 권장"],
+  {nm:"태리주택 행궁",rv:"chk",src:"맛집 소개 기사·다이닝코드",cat:"스페인 요리 · 스테이크",score:78,rsv:"예약금 1만원 예약이라는 글과 문 앞 대기 등록이라는 후기가 엇갈림",hours:"좌석 좁고 계단 가파름",st:"in",where:"18:15 저녁 1순위",tags:["유럽 골목 무드","예약 권장"],
    q:["파리 골목을 걷는 듯한 유럽 무드","꾸덕한 파스타와 리조또가 주력","예약으로 자리가 거의 없었다는 후기"],map:"태리주택 행궁"},
-  {nm:"칠링더데이",cat:"와인 레스토랑 · 한옥",star:4.8,cnt:5,score:73,rsv:"예약 방법 확인 필요",hours:"",st:"alt",where:"와인 한잔하며 길게 앉고 싶을 때",tags:["한옥 골조","와인"],
+  {nm:"칠링더데이",rv:"chk",src:"다이닝코드 (리뷰 5명)",cat:"와인 레스토랑 · 한옥",star:4.8,cnt:5,score:73,rsv:"예약 방법 확인 필요",hours:"",st:"alt",where:"와인 한잔하며 길게 앉고 싶을 때",tags:["한옥 골조","와인"],
    q:["한옥 골조의 넓은 공간에서 와인을 즐길 수 있다는 평","한옥 스타일 양식집, 아주 예쁘게 꾸며져 있다는 후기"],map:"칠링더데이 행궁동"},
-  {nm:"운멜로랩",cat:"이탈리안",rsv:"매장 전화",hours:"21:30까지",st:"alt",where:"점심을 운멜로로 안 갔다면",tags:["파스타"],
+  {nm:"운멜로랩",rv:"ok",src:"맛집 소개 기사",cat:"이탈리안",rsv:"매장 전화",hours:"21:30까지",st:"alt",where:"점심을 운멜로로 안 갔다면",tags:["파스타"],
    q:["주말 웨이팅이 있어 전화 예약 권장"],map:"운멜로랩 행궁동"},
-  {nm:"미카사",cat:"파스타 · 한옥",star:4.2,cnt:27,score:75,rsv:"예약 권장",hours:"",st:"alt",where:"차분한 한옥 분위기의 저녁",tags:["한옥 인테리어"],
+  {nm:"미카사",rv:"chk",src:"다이닝코드",cat:"파스타 · 한옥",star:4.2,cnt:27,score:75,rsv:"예약하고 갔다는 후기는 있으나 방식 미확인",hours:"",st:"alt",where:"차분한 한옥 분위기의 저녁",tags:["한옥 인테리어"],
    q:["한옥 인테리어의 고급스러운 데이트 분위기"],map:"미카사 행궁동"}]}
 ];
 const REC_LABEL={in:"일정에 있음",alt:"바꿔 넣기 좋음",skip:"이번엔 패스"};
@@ -949,7 +951,6 @@ function detailHTML(it,when){
   if(it.tip) h+=`<p class="d-h">참고</p><p class="d-p">${it.tip}</p>`;
   if(it.alt) h+=`<p class="d-h">대안</p><ul class="bul">${it.alt.map(a=>`<li>${a}</li>`).join('')}</ul>`;
   if(!it.info&&!it.tip&&!it.warn&&!it.alt&&!it.memo) h+=`<p class="d-h">참고</p><p class="d-p" style="color:var(--ink-3)">계획에 적힌 것 외에 따로 붙인 정보가 없습니다.</p>`;
-  if(it.map) h+=`<p class="d-h">위치</p><div class="gemb"><iframe loading="lazy" title="${it.name} 지도" src="${GEMB(it.map)}"></iframe></div>`;
   const links=buildLinks(it);
   if(links) h+=`<p class="d-h">더 알아보기</p><div class="links">${links.map(l=>
     `<a class="lnk${l.wide?' wide':''}" href="${l.u}"${l.tel?'':' target="_blank" rel="noopener"'}>${l.l}<span class="arw">${l.tel?'☎':'↗'}</span></a>`).join('')}</div>`;
@@ -1040,14 +1041,14 @@ function renderList(hostId,groups,fallbackCat){
 }
 renderList('eatbody',EAT,'food');
 
-/* 밥집 · 카페 고르기 — 구글 지도식 장소 카드 */
+/* 밥집 · 카페 고르기 — 장소 카드 */
 document.getElementById('recslots').innerHTML=REC_SLOTS.map(x=>`<div class="rec-slot${x.f?' fixed':''}"><b>${x.d}${x.f?' · 고정':''}</b>${x.n}</div>`).join('');
 let recF='all';
 const starRow=v=>{const f=Math.round(v*2)/2;let s='';for(let i=1;i<=5;i++)s+=i<=f?'★':(i-.5===f?'⯪':'☆');return s;};
 function rating(it){
-  if(it.star) return `<span class="gr"><b>${it.star.toFixed(1)}</b><span class="gs">${starRow(it.star)}</span><span class="gc">(${it.cnt})</span>${it.score?`<span class="gsc">· ${it.score}점</span>`:''}</span>`;
+  if(it.star) return `<span class="gr"><b>${it.star.toFixed(1)}</b><span class="gs">${starRow(it.star)}</span><span class="gc">(${it.cnt})</span>${it.cnt<10?'<span class="gfew">표본 적음</span>':''}${it.score?`<span class="gsc">· ${it.score}점</span>`:''}</span>`;
   if(it.score) return `<span class="gr"><span class="gsc strong">다이닝코드 ${it.score}점</span></span>`;
-  return `<span class="gr"><span class="gc">평점 정보 없음 · 구글 리뷰로 확인</span></span>`;
+  return `<span class="gr"><span class="gc">평점 정보 없음 · 네이버 지도 리뷰로 확인</span></span>`;
 }
 function renderRec(){
   const host=document.getElementById('recbody');host.innerHTML='';
@@ -1061,20 +1062,22 @@ function renderRec(){
       a.innerHTML=`<div class="gcover">
           <span class="gco-name">${it.nm}</span>
           <span class="gco-tags">${(it.tags||[]).map(t=>`<span>${t}</span>`).join('')}</span>
-          <a class="gco-photo" href="${GMAP(it.map)}" target="_blank" rel="noopener">사진 · 리뷰 보기 ↗</a>
+          <a class="gco-photo" href="${NMAP(it.map)}" target="_blank" rel="noopener">네이버 사진 · 리뷰 ↗</a>
         </div>
         <div class="gbody">
           <div class="gtop"><button type="button" class="gname">${it.nm}</button><span class="pill ${it.st}">${REC_LABEL[it.st]}</span></div>
           ${rating(it)}
-          <span class="gmeta">${it.cat} · <b>${it.rsv}</b></span>
+          <span class="gmeta">${it.cat}</span>
+          <span class="grsv ${it.rv||'ok'}"><b>${it.rv==='chk'?'예약 확인 필요':it.rv==='none'?'예약 없이':'예약 가능'}</b> · ${it.rsv}</span>
+          <span class="gmeta">${it.addr?'📍 '+it.addr:'📍 주소는 네이버 지도·카카오맵에서 확인'}</span>
           ${it.hours?`<span class="gmeta">${it.hours}</span>`:''}
-          <ul class="gq">${(it.q||[]).map(q=>`<li><span class="gav">후</span><span>${q}</span></li>`).join('')}</ul>
+          <p class="gql">후기 요약 · ${it.src||'다이닝코드·블로그 검색'}</p><ul class="gq">${(it.q||[]).map(q=>`<li>${q}</li>`).join('')}</ul>
           <span class="gwhere">${it.st==='in'?'일정 · ':''}${it.where}</span>
           <div class="gact">
-            <a href="${GMAP(it.map)}" target="_blank" rel="noopener">구글 지도</a>
-            <a href="${NIMG(it.map)}" target="_blank" rel="noopener">사진</a>
+            <a class="nv" href="${NMAP(it.map)}" target="_blank" rel="noopener">네이버 지도</a>
+            <a class="kk" href="${K(it.map)}" target="_blank" rel="noopener">카카오맵</a>
             <a href="${NBLOG(it.map)}" target="_blank" rel="noopener">블로그 후기</a>
-            <a href="${K(it.map)}" target="_blank" rel="noopener">카카오맵</a>
+            <a href="${NIMG(it.map)}" target="_blank" rel="noopener">사진</a>
           </div>
         </div>`;
       a.querySelector('.gname').onclick=()=>showModal({c:g.k==='cafe'?'cafe':'food',name:it.nm,memo:it.cat,map:it.map,

@@ -16,7 +16,7 @@
 <title>행궁동 토요일</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
 /* 단일 라이트 테마 — 뷰어 테마와 무관하게 흰 배경으로 렌더 */
 :root{
@@ -43,7 +43,7 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink-1);
-  font-family:"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI","Malgun Gothic",sans-serif;
+  font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI","Malgun Gothic",sans-serif;
   font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;
   font-feature-settings:"tnum" 0}
 .wrap{max-width:1160px;margin:0 auto;padding:0 24px 120px}
@@ -54,7 +54,7 @@ a{color:inherit}
 /* header */
 header.top{padding:56px 0 28px}
 .eyebrow{margin:0;font-size:12.5px;font-weight:600;letter-spacing:.14em;color:var(--ink-3)}
-h1{font-weight:900;font-size:clamp(38px,7.4vw,60px);line-height:1.1;color:var(--ink);
+h1{font-weight:800;font-size:clamp(38px,7.4vw,60px);line-height:1.1;color:var(--ink);
    margin:14px 0 0;letter-spacing:-.035em;text-wrap:balance}
 .lede{margin:18px 0 0;font-size:16.5px;color:var(--ink-2);max-width:60ch;line-height:1.75}
 .facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
@@ -206,7 +206,7 @@ nav.tabs{position:sticky;top:0;z-index:40;background:var(--paper);padding:14px 0
 @media(min-width:960px){.detail{position:sticky;top:88px;max-height:calc(100vh - 112px);overflow:auto}}
 .d-hint{color:var(--ink-3);font-size:14.5px;margin:0}
 .d-badge{display:inline-block;font-size:12px;font-weight:600;color:var(--cc);background:var(--bg);border-radius:6px;padding:4px 11px}
-.d-title{font-weight:900;font-size:24px;line-height:1.3;margin:14px 0 0;letter-spacing:-.03em;color:var(--ink)}
+.d-title{font-weight:800;font-size:24px;line-height:1.3;margin:14px 0 0;letter-spacing:-.03em;color:var(--ink)}
 .d-when{margin:16px 0 0;padding:13px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
         font-size:14px;font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
 .d-h{margin:22px 0 9px;font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--ink-3)}
@@ -257,7 +257,7 @@ ul.bul li::before{content:"";position:absolute;left:2px;top:11px;width:5px;heigh
 
 /* panels */
 .panel{padding-top:34px}
-h2{font-weight:900;font-size:30px;letter-spacing:-.035em;margin:0 0 8px;color:var(--ink);line-height:1.2}
+h2{font-weight:800;font-size:30px;letter-spacing:-.035em;margin:0 0 8px;color:var(--ink);line-height:1.2}
 .h2sub{margin:0 0 28px;font-size:15.5px;color:var(--ink-2);max-width:64ch;line-height:1.75}
 h3.sec{font-weight:700;font-size:18px;margin:40px 0 16px;letter-spacing:-.02em;color:var(--ink);
        padding-bottom:10px;border-bottom:1px solid var(--line-2)}
@@ -332,7 +332,7 @@ h3.sec:first-child{margin-top:0}
 .ctable td:first-child,.ctable th:first-child{width:34%}
 .ctable .r{width:130px;padding-right:28px}
 .ctable tr.tot td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;padding-top:15px;color:var(--ink)}
-.money{display:flex;align-items:baseline;gap:5px;font-weight:900;
+.money{display:flex;align-items:baseline;gap:5px;font-weight:800;
        font-size:40px;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--ink)}
 .money small{font-size:19px;font-weight:700}
 
@@ -372,37 +372,68 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
 .rmap{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--tint)}
 .rmap svg{display:block;width:100%;height:auto}
 .rmap p{margin:8px 2px 0;font-size:12.5px;color:var(--ink-3);line-height:1.6}
+
+/* 구글 지도식 장소 카드 */
+.gcards{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.gcard{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;min-width:0}
+.gcard.in{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.gcover{position:relative;height:128px;padding:14px 16px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;color:#fff;
+  background:linear-gradient(135deg,#7A3A2C,#C27A4E 60%,#E9B98A)}
+.gcard.cafe .gcover{background:linear-gradient(135deg,#3E6E8E,#7FB1C9 55%,#EADBB8)}
+.gco-name{font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.2;text-shadow:0 1px 8px rgba(0,0,0,.18)}
+.gco-tags{display:flex;flex-wrap:wrap;gap:5px}
+.gco-tags span{font-size:11.5px;font-weight:600;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:2px 9px}
+.gco-photo{position:absolute;top:12px;right:12px;font-size:12px;font-weight:600;color:#191919;background:rgba(255,255,255,.92);border-radius:999px;padding:5px 11px;text-decoration:none}
+.gbody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:7px;flex:1}
+.gtop{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.gname{appearance:none;border:none;background:none;padding:0;font:inherit;font-size:17px;font-weight:700;color:var(--ink);cursor:pointer;text-align:left;letter-spacing:-.02em}
+.gname:hover{text-decoration:underline;text-underline-offset:3px}
+.gr{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.gr b{color:var(--ink);font-weight:700}
+.gs{color:#F4B400;letter-spacing:1px;font-size:14px}
+.gc{color:var(--ink-3)}
+.gsc{color:var(--ink-3)} .gsc.strong{color:var(--ink);font-weight:700}
+.gmeta{font-size:13.5px;color:var(--ink-2)} .gmeta b{color:var(--c-sight);font-weight:600}
+.gq{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:7px}
+.gq li{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.55;color:var(--ink-1);background:var(--tint);border-radius:10px;padding:9px 11px}
+.gav{flex:none;width:22px;height:22px;border-radius:50%;background:var(--c-move);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center}
+.gwhere{font-size:13px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:8px;margin-top:2px}
+.gact{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:auto;padding-top:6px}
+.gact a{text-align:center;font-size:12.5px;font-weight:600;color:#1A73E8;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 4px;white-space:nowrap}
+.gact a:hover{background:#E8F0FE;border-color:#C6DAFC}
+.gemb{border:1px solid var(--line);border-radius:10px;overflow:hidden;aspect-ratio:16/10;max-width:100%}
+.gemb iframe{display:block;width:100%;height:100%;border:0}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <p class="eyebrow">SUWON HAENGGUNG-DONG · 2026.10.31 SAT</p>
-    <h1>행궁동 토요일<br><span class="hl">골목</span>과 <span class="hl">성곽 노을</span></h1>
-    <p class="lede">11시 30분에 도착해 밤 행궁까지 보는 하루 코스입니다. 항목을 누르면 영업시간·평점·주의사항과 카카오맵·네이버 지도·블로그 후기 링크가 열리고, 당일에는 지금 할 일과 다음 일정이 맨 위에 뜹니다.</p>
+    <h1>행궁동 토요일<br><span class="hl">장안문 카페</span>와 <span class="hl">성곽 노을</span></h1>
+    <p class="lede">11:30 (구)한국은행 정류장에서 만나 화서문부터 걷는 하루 코스입니다. 점심과 저녁은 예약되는 집만 골라 선택지로 두었고, 장소마다 평점과 후기 요약, 구글 지도 사진·리뷰와 네이버 블로그 후기 버튼을 붙였습니다.</p>
     <section class="alert" aria-label="출발 전 확인">
       <p class="alert-h"><span><span class="alert-title">출발 전 확인</span><span class="alert-count"></span></span><button class="alert-toggle" type="button">펼치기</button></p>
       <ul class="alert-l">
-        <li data-k="lunch"><b>테이스팅뮤지엄 점심 예약</b> — 캐치테이블로 11:30~12:00 자리. 못 잡으면 11:30 오픈인 호우집으로 바로 갑니다.<button class="alert-chk" type="button">확인</button></li>
-        <li data-k="dinner"><b>저녁 자리</b> — 더판은 예약 방법을 확인하지 못했습니다. 확실히 하려면 태리주택(예약금 1만원)을 걸어 두세요.<button class="alert-chk" type="button">확인</button></li>
+        <li data-k="lunch2"><b>점심 예약</b> — 운멜로 1호점 캐치테이블 11:50~12:00. 못 잡으면 운멜로키친 3호점(예약 11:40 오픈) → 테이스팅뮤지엄 순.<button class="alert-chk" type="button">확인</button></li>
+        <li data-k="dinner2"><b>저녁 예약</b> — 태리주택 18:15 (예약금 1만원). 대안은 운멜로랩 전화 예약.<button class="alert-chk" type="button">확인</button></li>
         <li data-k="night"><b>화성행궁 야간개장</b> — 11/1까지 금~일 운영. 행사로 바뀔 수 있어 한 번 확인.
           <a class="alert-tel" href="tel:0312903600">031-290-3600</a><button class="alert-chk" type="button">확인</button></li>
       </ul>
     </section>
     <div class="facts">
-      <span class="fact">도착 <b>11:30</b></span>
-      <span class="fact">걷기 <b>약 1시간 30분</b></span>
+      <span class="fact">만남 <b>11:30 (구)한국은행 정류장</b></span>
+      <span class="fact">날씨 <b>맑음 · 8~14℃</b></span>
       <span class="fact">일몰 <b>17:30 전후</b></span>
+      <span class="fact">걷기 <b>약 1시간 30분</b></span>
       <span class="fact">야간개장 <b>마지막 주말</b></span>
-      <span class="fact">주차 <b>수원시립미술관</b></span>
-      <a class="fact fact-link" href="https://search.naver.com/search.naver?query=%EC%88%98%EC%9B%90+%ED%8C%94%EB%8B%AC%EA%B5%AC+%EB%82%A0%EC%94%A8" target="_blank" rel="noopener">날씨 <b>수원 ↗</b></a>
+      <a class="fact fact-link" href="https://search.naver.com/search.naver?query=%EC%88%98%EC%9B%90+%ED%8C%94%EB%8B%AC%EA%B5%AC+%EB%82%B4%EC%9D%BC+%EB%82%A0%EC%94%A8" target="_blank" rel="noopener">내일 날씨 <b>수원 ↗</b></a>
     </div>
   </header>
 
   <nav class="tabs">
     <div class="tabrow" role="tablist">
       <button class="tab" role="tab" aria-selected="true" data-panel="p-sched">일정</button>
-      <button class="tab" role="tab" aria-selected="false" data-panel="p-rec">평점 · 추천</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="p-rec">밥집 · 카페 고르기</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="p-b">플랜 B</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="p-eat">식당 · 카페</button>
       <button class="tab" role="tab" aria-selected="false" data-panel="p-see">소품샵 · 산책</button>
@@ -416,41 +447,37 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
       <div class="rgrid">
         <div class="bands" id="bands"></div>
         <div class="rmap">
-          <svg viewBox="0 0 400 330" role="img" aria-label="행궁동 하루 동선 개략도" font-family="Noto Sans KR, sans-serif">
+          <svg viewBox="0 0 400 330" role="img" aria-label="행궁동 하루 동선 개략도" font-family="Pretendard Variable, Pretendard, sans-serif">
             <path d="M70 128 Q120 40 215 42 Q300 48 330 95 Q372 190 330 285 L95 292 Q45 210 70 128Z" fill="none" stroke="#D6D5D1" stroke-width="9" stroke-linejoin="round"/>
             <path d="M300 10 Q296 150 268 320" fill="none" stroke="#9CC3DA" stroke-width="5" stroke-linecap="round"/>
             <text x="276" y="316" font-size="11" fill="#36627E">수원천</text>
-            <path d="M225 258 L170 210 L150 196 L118 160 L138 182" fill="none" stroke="#A03B2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M138 182 L76 128 L210 46 L300 70 L316 82" fill="none" stroke="#B8601F" stroke-width="3" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M34 92 L76 128 L150 196 L170 150 L214 58" fill="none" stroke="#A03B2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M214 58 L300 70 L330 92" fill="none" stroke="#B8601F" stroke-width="3" stroke-dasharray="7 5" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M300 70 Q292 160 250 205 L195 262" fill="none" stroke="#63459B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             <g font-size="12" font-weight="700" text-anchor="middle" fill="#fff">
-              <circle cx="225" cy="258" r="11" fill="#5B5F6B"/><text x="225" y="262">P</text>
-              <circle cx="170" cy="210" r="11" fill="#A03B2E"/><text x="170" y="214">1</text>
-              <circle cx="150" cy="196" r="11" fill="#83396A"/><text x="150" y="200">2</text>
-              <circle cx="118" cy="160" r="11" fill="#83396A"/><text x="118" y="164">3</text>
-              <circle cx="138" cy="182" r="11" fill="#80601F"/><text x="138" y="186">4</text>
-              <circle cx="76" cy="128" r="11" fill="#2F6E57"/><text x="76" y="132">5</text>
-              <circle cx="210" cy="46" r="11" fill="#2F6E57"/><text x="210" y="50">6</text>
-              <circle cx="300" cy="70" r="11" fill="#80601F"/><text x="300" y="74">7</text>
-              <circle cx="330" cy="92" r="11" fill="#B8601F"/><text x="330" y="96">8</text>
-              <circle cx="250" cy="205" r="11" fill="#A03B2E"/><text x="250" y="209">9</text>
-              <circle cx="195" cy="262" r="11" fill="#63459B"/><text x="195" y="266">10</text>
+              <circle cx="34" cy="92" r="11" fill="#191919"/><text x="34" y="96">M</text>
+              <circle cx="76" cy="128" r="11" fill="#2F6E57"/><text x="76" y="132">1</text>
+              <circle cx="150" cy="196" r="11" fill="#A03B2E"/><text x="150" y="200">2</text>
+              <circle cx="170" cy="150" r="11" fill="#83396A"/><text x="170" y="154">3</text>
+              <circle cx="214" cy="58" r="11" fill="#80601F"/><text x="214" y="62">4</text>
+              <circle cx="300" cy="70" r="11" fill="#2F6E57"/><text x="300" y="74">5</text>
+              <circle cx="330" cy="92" r="11" fill="#B8601F"/><text x="330" y="96">6</text>
+              <circle cx="250" cy="205" r="11" fill="#A03B2E"/><text x="250" y="209">7</text>
+              <circle cx="195" cy="262" r="11" fill="#63459B"/><text x="195" y="266">8</text>
             </g>
             <g font-size="11" fill="#37352F">
-              <text x="240" y="282">P 시립미술관 주차</text>
-              <text x="182" y="228">1 점심</text>
-              <text x="166" y="193" text-anchor="start">2 소품샵 ①</text>
-              <text x="104" y="166" text-anchor="end">3 소품샵 ②</text>
-              <text x="124" y="204" text-anchor="end">4 카페</text>
-              <text x="62" y="112" text-anchor="middle">5 화서문</text>
-              <text x="210" y="28" text-anchor="middle">6 장안문</text>
-              <text x="296" y="52" text-anchor="end">7 화홍문</text>
-              <text x="342" y="118" text-anchor="middle">8 방화수류정</text>
-              <text x="264" y="198" text-anchor="start">9 저녁</text>
-              <text x="160" y="300" text-anchor="middle">10 화성행궁 야경</text>
+              <text x="50" y="78" text-anchor="start">M (구)한국은행 정류장</text>
+              <text x="64" y="152" text-anchor="middle">1 화서문</text>
+              <text x="136" y="218" text-anchor="middle">2 점심</text>
+              <text x="184" y="164" text-anchor="start">3 소품샵</text>
+              <text x="214" y="36" text-anchor="middle">4 장안문 카페</text>
+              <text x="294" y="52" text-anchor="end">5 화홍문</text>
+              <text x="342" y="118" text-anchor="middle">6 방화수류정</text>
+              <text x="264" y="198" text-anchor="start">7 저녁</text>
+              <text x="195" y="290" text-anchor="middle">8 화성행궁 야경</text>
             </g>
           </svg>
-          <p>위치 관계만 보여 주는 개략도입니다. 실선은 골목, 점선은 성곽길, 보라색은 밤 동선입니다. 실제 길찾기는 시간대 카드의 구간 버튼(카카오맵)을 쓰세요.</p>
+          <p>위치 관계만 보여 주는 개략도입니다. 실선은 골목, 점선은 성곽길, 보라색은 밤 동선입니다. M은 만나는 곳입니다. 실제 길찾기는 시간대 카드의 구간 버튼(카카오맵)을 쓰세요.</p>
         </div>
       </div>
     </div>
@@ -471,8 +498,8 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <section id="p-rec" class="panel" hidden>
-    <h2>평점 · 추천</h2>
-    <p class="h2sub">점심, 카페, 저녁 자리마다 일정에 넣은 곳과 바꿔 넣기 좋은 곳, 이번엔 뺀 곳을 이유와 함께 모았습니다. 점수는 다이닝코드 기준입니다. 카드를 누르면 지도와 후기 링크가 열립니다.</p>
+    <h2>밥집 · 카페 고르기</h2>
+    <p class="h2sub">점심과 저녁은 예약 가능한 집만, 카페는 밝고 창이 크며 장안문 앞이라 성곽길로 바로 이어지는 곳만 남겼습니다. 별점과 점수는 다이닝코드 기준이고, 사진과 최신 리뷰는 카드의 구글 지도·사진 버튼으로 보세요.</p>
     <div class="rec-slots" id="recslots"></div>
     <div class="rec-filter" id="recfilter" role="group" aria-label="보기"></div>
     <div id="recbody"></div>
@@ -481,13 +508,13 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
 
   <section id="p-b" class="panel" hidden>
     <h2>플랜 B</h2>
-    <p class="h2sub">비, 웨이팅, 체력 — 세 가지로 갈라지는 경우의 수입니다.</p>
+    <p class="h2sub">날씨, 예약, 체력 — 세 가지로 갈라지는 경우의 수입니다.</p>
     <div id="planb"></div>
   </section>
 
   <section id="p-eat" class="panel" hidden>
     <h2>식당 · 카페</h2>
-    <p class="h2sub">점심, 저녁, 카페로 묶었습니다. 항목을 누르면 카카오맵·네이버 지도·영업시간·블로그 후기 링크가 열립니다.</p>
+    <p class="h2sub">예약 가능한 밥집과 밝은 카페로 묶었습니다. 항목을 누르면 카카오맵·네이버 지도·영업시간·블로그 후기 링크가 열립니다.</p>
     <div id="eatbody"></div>
   </section>
 
@@ -529,9 +556,9 @@ footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-si
   </section>
 
   <footer>
-    평점은 다이닝코드, 후기 요약은 다이닝코드·식신·핫플헌터·트립닷컴·블라인드·당근, 행궁과 성곽 정보는 수원시와 서울시 미디어허브 안내를 옮겼습니다. 네이버 블로그 본문은 직접 수집하지 못해 장소마다 블로그 검색 링크로 연결했습니다.<br>
+    평점은 다이닝코드, 날씨는 기상청·언론 예보(10/30 기준), 후기 요약은 다이닝코드·식신·핫플헌터·트립닷컴·블라인드·당근, 행궁과 성곽 정보는 수원시와 서울시 미디어허브 안내를 옮겼습니다. 네이버 블로그 본문은 직접 수집하지 못해 장소마다 블로그 검색 링크로 연결했습니다.<br>
     식당 휴무와 영업시간은 자주 바뀌니 방문 직전에 지도 링크로 한 번 더 확인하세요. 확인하지 못한 항목은 상세에 그렇게 적어 두었습니다.<br>
-    <span style="color:var(--line-2)">빌드 v2 · 2026-10-30 · 동선과 시간대별 코스 추가</span>
+    <span style="color:var(--line-2)">빌드 v3 · 2026-10-30 · 만남 장소 반영, 예약 가능 밥집만, 장안문 카페, 구글식 카드</span>
   </footer>
 </div>
 
@@ -552,9 +579,13 @@ const NALL=q=>"https://search.naver.com/search.naver?query="+enc(q);
 const NBLOG=q=>"https://search.naver.com/search.naver?where=blog&query="+enc(q+" 후기");
 const PH=/(?<!\d)0\d{1,3}-\d{3,4}-\d{4}/g;
 const telify=v=>String(v).replace(PH,m=>`<a class="tel" href="tel:${m.replace(/-/g,'')}">${m}</a>`);
+const GMAP=q=>"https://www.google.com/maps/search/?api=1&query="+enc(q.includes("수원")?q:"수원 "+q);
+const NIMG=q=>"https://search.naver.com/search.naver?where=image&query="+enc(q);
+const GEMB=q=>"https://maps.google.com/maps?q="+enc(q.includes("수원")?q:"수원 "+q)+"&hl=ko&z=16&output=embed";
 function buildLinks(it){
   const q=it.map,out=[];
-  if(q) out.push({l:"카카오맵",u:K(q)},{l:"네이버 지도",u:NMAP(q)},
+  if(q) out.push({l:"구글 지도 · 사진 · 리뷰",u:GMAP(q)},{l:"사진 보기",u:NIMG(q)},
+                 {l:"카카오맵",u:K(q)},{l:"네이버 지도",u:NMAP(q)},
                  {l:"영업시간 · 메뉴",u:NALL(q)},{l:"블로그 후기",u:NBLOG(q)});
   (it.refs||[]).forEach(r=>out.push({...r,wide:true}));
   const ph=it.info&&Object.values(it.info).join(' ').match(PH);
@@ -563,218 +594,199 @@ function buildLinks(it){
 }
 
 const DAYS=[
-{n:"토요일",date:"10.31 (토)",title:"행리단길 + 성곽길 노을 + 행궁 야경",
- note:"점심은 도착하자마자, 오후는 골목 소품샵과 카페, 해 질 무렵엔 성곽을 따라 방화수류정까지 걷고, 저녁 먹고 화성행궁 야간개장으로 끝냅니다. 야간개장이 11/1에 끝나서 올해 마지막 주말입니다. 토요일 행궁동은 거의 모든 집에 줄이 서니, 점심과 저녁 두 끼는 예약을 걸어 두는 게 가장 큰 차이를 만듭니다.",
+{n:"토요일",date:"10.31 (토)",title:"화서문에서 만나 장안문 카페, 성곽 노을, 행궁 야경까지",
+ note:"11:30 (구)한국은행 정류장에서 만나 화서문부터 시작합니다. 점심과 저녁은 예약 가능한 집만 골라 선택지로 두었고, 오후 카페는 장안문 앞 통창·루프탑 카페로 잡아 그대로 성곽길 노을 산책으로 이어집니다. 내일은 맑다가 밤부터 흐려지고 8~14도라 해가 지면 꽤 쌀쌀합니다. 야간개장은 11/1에 끝나 올해 마지막 주말입니다.",
  items:[
- {t:"11:30",c:"move",name:"행궁동 도착",memo:"차라면 수원시립미술관 주차장 · 행궁 공영주차장은 주말 점심에 만차 대기",
-  info:{"추천 주차":"수원시립미술관 주차장 (행궁 바로 앞)","요금":"최초 30분 600원 · 10분당 300원 · 1일 6,000원 (블로그 기준)","미술관 관람 시":"2시간 무료","행궁 공영주차장":"주말 만차면 진입 자체를 막아 대기가 김"},
-  warn:"주차 요금은 블로그에 적힌 값이라 바뀌었을 수 있습니다. 하루 종일 둘 거면 1일 주차권이 되는지 현장에서 확인하세요.",
-  tip:"일정이 전부 걸어서 이어지고 저녁에 행궁으로 돌아오니, 차는 한 곳에 세워 두고 끝까지 걷습니다. 대중교통이면 수원역에서 버스로 팔달문이나 화성행궁 정류장에 내립니다.",
-  map:"수원시립미술관",
-  refs:[{l:"화성행궁 주차장 대신 시립미술관 (블로그)",u:"https://baby.tali.kr/236"}]},
- {t:"11:40",c:"food",name:"테이스팅뮤지엄",memo:"100년 된 한옥을 고친 파스타·리조또집 · 마당이 사진 명소",
-  info:{"메뉴":"홍게장리조또, 만조머쉬룸파스타, 토마토감베리파스타","예약":"캐치테이블 예약 가능","주차":"전용 주차장 없음","특징":"행리단길 '미식가의 주방' 2호점"},
-  warn:"영업시간과 브레이크타임은 확인하지 못했습니다. 오늘 밤 캐치테이블에서 11:30~12:00 자리를 잡아 두세요. 못 잡으면 오픈 시간에 맞춰 호우집으로.",
-  tip:"분위기 좋은 식당 1순위로 넣었습니다. 한옥 마당이 있어 낮에 가야 사진이 잘 나옵니다. 주말 점심은 12시를 넘기면 줄이 길어지니 도착 직후가 가장 좋은 시간입니다.",
-  alt:["호우집 — 퓨전 한식, 흑임자 메뉴 · 11:30 오픈 · 다이닝코드 77점","뜸 행궁 본점 — 솥밥, 누룽지 · 주말 점심 웨이팅이 꽤 있다는 후기","팜투하녹 — 브런치 · 78점 · 2층까지 있어 주말에도 여유로웠다는 후기"],
-  map:"테이스팅뮤지엄 행궁동",
-  refs:[{l:"식신 — 행궁동 점심 TOP 7",u:"https://www.siksinhot.com/theme/magazine/17104"}]},
- {t:"13:00",c:"buy",name:"행리단길 소품샵 ① 신풍로",memo:"럭희 → 탭(TAB) → 사소한오예 · 40분",
-  info:{"럭희":"그릇, 리빙 · 신풍로39번길 2, 1층 102호","탭(TAB)":"리빙과 굿즈 셀렉숍","사소한오예":"문구, 소품 · 통창 뷰"},
-  tip:"행리단길 메인 거리라 점심 먹고 그대로 걸어 들어가면 됩니다. 럭희는 외관부터 눈에 띄어 찾기 쉽습니다. 그릇이나 리빙 소품을 사면 들고 다니기 무거우니, 마음에 드는 건 사진만 찍어 두고 마지막에 다시 들르는 것도 방법입니다.",
-  warn:"소품샵 후기 상당수가 1~2년 전 글입니다. 블로그 후기 버튼으로 최근 글 날짜부터 보세요.",
-  alt:["봉주르 — 감성 소품","뾰로리잡화점 — 잡화","굿버디 큐트 스토어 — 흔하지 않은 소품이 많다는 후기"],
-  map:"럭희 행궁동점",
-  refs:[{l:"럭희 행궁동점 방문기",u:"https://www.trvlogue.com/ko/suwon-haengnidan-gil-lucky-hee"},{l:"행리단길 소품샵·독립서점 후기",u:"https://newsletter.wuhye.co.kr/20"}]},
- {t:"13:45",c:"buy",name:"행리단길 소품샵 ② 화서문로32번길",memo:"미니로 → 브로콜리숲(독립서점) · 35분",
-  info:{"미니로 행궁점":"미니어처 · 화서문로32번길 13-8, 2층","브로콜리숲":"독립서점 · 화서문로32번길 21-10, 2층","근처":"플랜비 스튜디오 (미니어처)"},
-  tip:"같은 골목 안에 붙어 있어서 한 번에 돕니다. 두 곳 다 2층이라 간판을 위로 보면서 걸으세요. 브로콜리숲은 주택가 사이의 조용한 서점이라 쉬어 가는 느낌으로 들르기 좋습니다.",
-  alt:["비옥 행궁점 — 대형 인테리어 소품샵 · 시립미술관 근처 3층 · 주차한 곳으로 돌아갈 때 들르기 좋음","오니오니 — 캐릭터 굿즈 (짱구)","스모어팩토리 — 디즈니 굿즈 + 디저트"],
-  map:"미니로 행궁점"},
- {t:"14:20",c:"cafe",name:"정지영커피로스터즈 행궁본점",memo:"플랫화이트 · 디저트 · 다이닝코드 4.4점 · 1시간",
-  info:{"영업":"11:00~22:00 (라스트오더 21:50)","주차":"불가","평점":"다이닝코드 4.4 (38명) · 84점","대표":"플랫화이트"},
-  tip:"행궁동 커피집 중 평점이 가장 높습니다. 디저트 비주얼과 구성이 좋다는 후기가 많아, 점심을 가볍게 했다면 여기서 디저트를 하나 더하세요. 다음 일정이 걷기라 한 시간 앉아서 쉬어 갑니다.",
-  alt:["평지담 — 말차, 디저트 · 78점","경안당 — 한옥, 야외석 · 3.8점 · 늦게까지 열어 밤에 다시 와도 됨","아우토그라프커피 행궁본점, 골디스 행궁점, 위크리브 — 커뮤니티 추천"],
-  map:"정지영커피로스터즈 행궁본점",
-  refs:[{l:"다이닝코드 — 정지영커피로스터즈 행궁본점",u:"https://www.diningcode.com/profile.php?rid=iTOXZ2XLel5f"}]},
- {t:"15:30",c:"sight",name:"화서문 · 서북공심돈",memo:"성곽길 걷기 시작 · 카페에서 걸어서 10분 남짓",
-  info:{"요금":"성곽길 무료","구간":"화서문 → 장안문 → 화홍문 → 방화수류정","난이도":"경사 완만"},
-  tip:"성곽 안쪽 길을 따라 북쪽으로 걷습니다. 서북공심돈은 화서문 바로 옆 망루라 사진 한 장 찍고 출발하세요.",
-  map:"수원 화서문",
-  refs:[{l:"수원시 — 성곽길 코스",u:"https://www.suwon.go.kr/sw-www/sw-visitsuwon/sw-visitsuwon-02/sw-visitsuwon-02-02/sw-visitsuwon-02-02-03/sw-visitsuwon-02-02-03-02.jsp"}]},
- {t:"15:50",c:"sight",name:"성곽길 → 장안문",memo:"화서문에서 성곽 따라 15분 남짓",
-  tip:"수원화성의 북문입니다. 성벽 위로 걷는 구간이 있어 행궁동 지붕들이 내려다보입니다. 걷다가 힘들면 장안문 앞 정지영 장안문점(코코넛 음료가 시그니처)에서 쉬어 가도 됩니다.",
-  alt:["정지영커피로스터즈 장안문점 — 4.3점 · 77점"],map:"수원 장안문"},
- {t:"16:20",c:"cafe",name:"정지영커피로스터즈 화홍문점",memo:"장안문에서 7분 · 테이크아웃해서 방화수류정으로",
-  info:{"평점":"다이닝코드 4.3 (22명) · 76점","좌석":"실내가 좁다는 평"},
-  tip:"앉을 자리가 넉넉하지 않아서, 음료만 사서 바로 옆 방화수류정 언덕에서 해 지는 걸 보며 마시는 동선입니다.",
-  map:"정지영커피로스터즈 화홍문점",
-  refs:[{l:"다이닝코드 — 정지영 화홍문점",u:"https://www.diningcode.com/profile.php?rid=sFo0sWq267FN"}]},
- {t:"16:50",c:"sight",name:"방화수류정 · 용연 노을",memo:"일몰 17:30 전후 · 해 지고 조명 들어올 때까지",sunset:true,
-  info:{"요금":"무료","정체":"수원화성 동북각루","용연":"정자 아래 연못"},
-  tip:"이 코스에서 가장 좋은 시간입니다. 정자 위와 용연 주변 잔디에 사람들이 돗자리를 펴고 앉아 있습니다. 해가 지면 연못에 조명이 비쳐 분위기가 한 번 더 바뀌니 17:50까지 머무르세요. 해가 지면 성곽 위는 금방 쌀쌀해집니다.",
+ {t:"11:30",c:"move",name:"(구)한국은행 정류장에서 만남",memo:"팔달로 · 화서문까지 도보 206m, 3분",
+  info:{"정류장":"(구)한국은행","화서문까지":"도보 206m · 약 3분","내일 날씨":"대체로 맑음 · 8~14도 · 밤부터 흐려짐"},
+  tip:"정류장에서 길을 건너 서북공심돈 쪽으로 내려가면 바로 화서문입니다. 낮 기온이 14도 안팎이고 저녁엔 8도까지 떨어지니 겉옷을 챙기세요.",
+  map:"(구)한국은행 정류장 수원"},
+ {t:"11:35",c:"sight",name:"화서문 · 서북공심돈",memo:"만나자마자 사진 한 장 · 행리단길 입구",
+  info:{"요금":"무료","특징":"수원화성 서문과 망루","맑은 날":"오전 햇빛이 성문 정면에 듦"},
+  tip:"하루를 성문 앞에서 시작합니다. 화서문로를 따라 남동쪽으로 내려가면 바로 행리단길 골목입니다.",
+  map:"수원 화서문"},
+ {t:"11:50",c:"food",name:"점심 · 예약한 곳으로",memo:"1순위 운멜로 1호점 · 선택지 5곳은 '밥집·카페 고르기' 탭",
+  info:{"1순위":"운멜로 1호점 · 다이닝코드 84점 · 예약필수 태그","한옥 마당":"테이스팅뮤지엄 · 캐치테이블 예약","한옥 인테리어":"미카사 · 4.2점(27명) · 예약 권장"},
+  warn:"토요일 점심은 예약이 없으면 30분 이상 기다릴 수 있습니다. 오늘 밤 캐치테이블에서 11:50~12:00 자리를 잡아 두세요.",
+  tip:"예약이 안 되는 집(행주집, 뜸 등)은 뺐습니다. 분위기와 후기를 같이 보고 고르려면 '밥집·카페 고르기' 탭에서 카드로 비교하세요.",
+  alt:["운멜로키친 3호점 — 82점 · 캐치테이블 예약이 11:40에 열린다는 후기","테이스팅뮤지엄 — 100년 된 한옥, 토마호크·리조또","미카사 — 한옥 인테리어 파스타, 데이트 분위기","운멜로랩 — 전화 예약(11~21시) · 브레이크 15:00~16:30"],
+  map:"운멜로 1호점 행궁동",
+  refs:[{l:"다이닝코드 — 운멜로 1호점",u:"https://www.diningcode.com/profile.php?rid=UrTc17HqycrN"}]},
+ {t:"13:10",c:"buy",name:"행리단길 소품샵",memo:"화서문로32번길 → 신풍로 · 미니로, 브로콜리숲, 럭희, 탭, 사소한오예",
+  info:{"화서문로32번길":"미니로(미니어처) · 브로콜리숲(독립서점)","신풍로":"럭희(그릇·리빙) · 탭(셀렉숍) · 사소한오예(문구)"},
+  tip:"점심 먹은 골목에서 그대로 이어집니다. 2층 가게가 많아 간판을 위로 보며 걸으세요. 무거운 그릇은 사진만 찍어 두고 돌아가는 길에 사도 됩니다.",
+  warn:"소품샵 후기 상당수가 1~2년 전 글입니다. 블로그 후기 버튼에서 최신순으로 바꿔 최근 글이 있는지 먼저 보세요.",
+  alt:["봉주르, 뾰로리잡화점, 굿버디 — 아기자기한 소품","오니오니, 스모어팩토리 — 캐릭터 굿즈"],
+  map:"브로콜리숲 서점 수원"},
+ {t:"14:30",c:"cafe",name:"장안문 앞 통창 · 루프탑 카페",memo:"1순위 행궁81.2 · 넓고 깔끔, 장안문이 한눈에",
+  info:{"1순위":"행궁81.2 · 넓은 실내 + 루프탑 · 장안문 바로 앞","대안 1":"팔레센트 · 2층 실내 + 3층 루프탑 · 장안문 뷰","대안 2":"정지영 장안문점 · 4층 테라스 · 4.3점(50명)"},
+  tip:"밝고 창이 크고 넓은 곳이라는 조건과, 다음 일정인 성곽길 출발점이라는 동선을 둘 다 맞춘 자리입니다. 맑은 날 오후 햇빛이 들 때 루프탑에서 장안문을 보는 게 이 코스의 포인트입니다.",
+  warn:"주말엔 관광객이 많아 붐빈다는 후기가 있습니다. 자리가 없으면 바로 옆 팔레센트나 정지영 장안문점으로 옮기세요.",
+  alt:["헤올커피로스터즈 — 실내와 루프탑, 어느 층에서도 장안문이 보임","토오즈 — 좌석 여유, 테라스 · 영업시간 정보가 엇갈림"],
+  map:"행궁81.2",
+  refs:[{l:"다이닝코드 — 행궁81.2",u:"https://www.diningcode.com/profile.php?rid=naSihE7AjHna"},{l:"다이닝코드 — 팔레센트",u:"https://www.diningcode.com/profile.php?rid=lBB2oH8M5ZZ4"}]},
+ {t:"16:10",c:"sight",name:"장안문 → 화홍문 성곽길",memo:"성곽 따라 동쪽으로 7~10분 · 맑은 날 성벽 위 구간",
+  info:{"구간":"장안문 → 북동포루 → 화홍문","거리":"약 600m","경사":"완만"},
+  tip:"카페에서 나와 장안문을 지나 성곽을 따라 동쪽으로 걷습니다. 내일은 맑아서 성벽 위로 걸어도 시야가 좋습니다. 바람이 차면 성곽 안쪽 길로 내려와 걸어도 됩니다.",
+  map:"화홍문"},
+ {t:"16:40",c:"sight",name:"방화수류정 · 용연 노을",memo:"일몰 17:30 전후 · 조명 들어올 때까지",sunset:true,
+  info:{"요금":"무료","정체":"수원화성 동북각루","용연":"정자 아래 연못","날씨":"맑음 · 해 진 뒤 10도 아래로"},
+  tip:"이 코스에서 가장 좋은 시간입니다. 해가 지면 연못에 조명이 비쳐 분위기가 한 번 더 바뀌니 17:50까지 머무르세요. 화홍문 옆 정지영 화홍문점에서 따뜻한 음료를 사 들고 올라가면 좋습니다.",
   map:"방화수류정",
   refs:[{l:"서울시 미디어허브 — 수원 화성 가을 산책",u:"https://mediahub.seoul.go.kr/archives/1185865"}]},
- {t:"17:50",c:"move",name:"수원천 따라 행궁 방향으로",memo:"화홍문에서 남쪽 산책로 · 15~20분",
+ {t:"17:50",c:"move",name:"수원천 따라 행궁 방향으로",memo:"화홍문 아래 산책로 · 15~20분",
   tip:"화홍문 아래로 내려가 수원천 산책로를 따라 남쪽으로 걸으면 행궁동 저녁 먹을 곳까지 이어집니다. 성곽 조명이 켜진 뒤라 걷는 길이 예쁩니다.",
   map:"화홍문"},
- {t:"18:15",c:"food",name:"더판",memo:"덮밥 · 이자카야 · 성곽이 보이는 루프탑",
-  info:{"분위기":"루프탑에서 성곽 야경","메뉴":"덮밥, 이자카야 안주"},
-  warn:"영업시간과 예약 방법을 확인하지 못했습니다. 루프탑 자리를 원하면 낮에 지나가면서 대기 걸어 두세요.",
-  tip:"야경을 보며 먹는 자리로 골랐습니다. 직원이 친절해서 다시 가고 싶다는 후기가 있습니다. 행궁 야간개장이 21:00 입장 마감이라 19:30에는 일어나세요.",
-  alt:["태리주택 행궁 — 유럽풍 · 주말 웨이팅이 잦아 예약 권장 · 예약금 1만원","셰프스위트 — 스테이크, 파스타, 와인 · 11:00~22:00","위드마이호미스 — 74점 · 4인 이상은 예약 없이 어렵다는 후기"],
-  map:"더판 행궁동",
-  refs:[{l:"더판 — 당근 업체 프로필",u:"https://daangn.com/kr/local-profile/%EB%8D%94%ED%8C%90-kx1wiucgxo8a/"},{l:"핫플헌터 — 행궁동 맛집",u:"https://hotplacehunter.co.kr/?p=73212"}]},
- {t:"19:50",c:"sight",name:"화성행궁 야간개장 · 달빛화담",memo:"18:00~21:30 · 입장 마감 21:00 · 20:00 무료 해설",
+ {t:"18:15",c:"food",name:"저녁 · 예약한 곳으로",memo:"1순위 태리주택 · 유럽 골목 분위기 · 예약금 1만원",
+  info:{"1순위":"태리주택 행궁 · 스페인 요리, 스테이크 · 예약금 1만원","와인":"칠링더데이 · 한옥 골조 와인 레스토랑 · 4.8점(5명)","파스타":"운멜로랩 · 전화 예약 · 21:30까지"},
+  warn:"태리주택은 좌석이 좁고 계단이 가파르다는 후기가 있습니다. 칠링더데이는 예약 방법을 확인하지 못해 전화로 먼저 물어보세요.",
+  tip:"행궁 야간개장이 21:00 입장 마감이라 19:30에는 일어나세요. 루프탑 이자카야 더판은 예약 가능 여부를 확인하지 못해 이번 선택지에서 뺐습니다.",
+  alt:["미카사 — 한옥 인테리어 파스타 · 예약 권장","테이스팅뮤지엄 — 저녁에도 한옥 분위기 · 캐치테이블"],
+  map:"태리주택 행궁",
+  refs:[{l:"다이닝코드 — 태리주택",u:"https://www.diningcode.com/profile.php?rid=7ZSD03ow78tn"}]},
+ {t:"19:40",c:"sight",name:"화성행궁 야간개장 · 달빛화담",memo:"18:00~21:30 · 입장 마감 21:00 · 20:00 무료 해설",
   info:{"운영":"5/1~11/1 금·토·일, 공휴일","시간":"18:00~21:30 (입장 마감 21:00)","요금":"성인 2,000원 · 청소년 1,500원","무료":"한복 착용, 만 6세 이하, 만 65세 이상","해설":"18:00 / 20:00 (무료)","문의":"수원문화재단 031-290-3600"},
-  warn:"올해 운영이 11/1에 끝납니다. 수원화성문화제 같은 행사 기간엔 운영이 바뀔 수 있으니 출발 전에 한 번 전화로 확인하세요.",
-  tip:"20:00 해설 회차에 맞춰 들어가면 정조와 행궁 이야기를 들으며 돌 수 있습니다. 조명이 들어온 행궁은 낮과 완전히 다른 곳처럼 보입니다.",
+  warn:"올해 운영이 11/1에 끝납니다. 행사로 바뀔 수 있으니 출발 전에 한 번 전화로 확인하세요.",
+  tip:"20:00 해설 회차에 맞춰 들어가면 정조와 행궁 이야기를 들으며 돌 수 있습니다. 밤에는 8도 안팎이라 겉옷이 필요합니다.",
   map:"화성행궁",
   refs:[{l:"수원시 — 화성행궁 관람 안내",u:"https://www.suwon.go.kr/sw-www/sw-visitsuwon/sw-visitsuwon-01/sw-visitsuwon-01-02/sw-visitsuwon-01-02-01.jsp"},{l:"달빛화담 기간·입장료 후기",u:"https://www.trvlogue.com/ko/suwon-haenggung-night-opening"}]},
- {t:"21:00",c:"cafe",name:"경안당 (선택)",memo:"한옥 카페 · 늦게까지 영업 · 마지막 한 잔",
-  info:{"평점":"다이닝코드 3.8 (15명) · 72점","특징":"한옥, 야외 좌석"},
-  tip:"주변에 늦게까지 여는 카페가 드물어서 밤 마무리 자리로 넣었습니다. 피곤하면 건너뛰고 바로 돌아가세요.",
-  map:"경안당 행궁동",
-  refs:[{l:"다이닝코드 — 경안당",u:"https://www.diningcode.com/profile.php?rid=NrybvXTnawOd"}]},
- {t:"21:45",c:"move",name:"귀가",memo:"수원시립미술관 주차장에서 차 빼기",map:"수원시립미술관"}
+ {t:"21:15",c:"move",name:"귀가",memo:"화성행궁 · 팔달문 정류장",map:"화성행궁 정류장"}
 ]}];
 
 const PLANB=[
-{h:"B1. 비 오는 날",d:"성곽길을 빼고 실내 비중을 올립니다. 방화수류정은 화홍문점 창가에서 보는 것으로 대신합니다.",
- rows:[["11:40","테이스팅뮤지엄 또는 호우집","본 일정과 같음"],
-       ["13:00","소품샵 ①②","실내 위주라 그대로"],
-       ["14:20","정지영 행궁본점에서 길게","1시간 반까지 써도 됨"],
-       ["15:50","비옥 행궁점 + 수원시립미술관","미술관 관람하면 주차 2시간 무료"],
-       ["17:00","정지영 화홍문점 창가","방화수류정은 비 그치면 잠깐만"],
-       ["18:15","태리주택이나 셰프스위트","루프탑(더판)은 비 오면 빼기"]]},
-{h:"B2. 웨이팅이 너무 길 때",d:"같은 골목 안에서 갈아탑니다.",
+{h:"B1. 날씨에 따라 산책 경로 바꾸기",d:"내일 예보는 대체로 맑음, 8~14도, 밤부터 흐려짐입니다. 다음 날(11/1)은 비 소식이 있습니다.",
+ head:["날씨","산책 경로","메모"],
+ rows:[["맑음 (예보)","장안문 → 성벽 위 → 화홍문 → 방화수류정","본 일정 그대로"],
+       ["바람 강하고 추움","장안문 → 성곽 안쪽 길 → 화홍문","성벽 위는 바람을 그대로 맞음"],
+       ["흐림","방화수류정은 짧게, 정지영 화홍문점 창가에서","노을 대신 조명 켜진 뒤 야경 위주"],
+       ["비","성곽길 빼고 카페 → 저녁 → 행궁","행궁 야간개장은 우천 시 운영 확인"]]},
+{h:"B2. 예약을 못 잡았을 때",d:"예약 가능한 집끼리 갈아탑니다. 예약이 안 되는 집은 넣지 않았습니다.",
  head:["원래","대체","메모"],
- rows:[["테이스팅뮤지엄","호우집 → 팜투하녹","호우집 11:30 오픈 · 팜투하녹은 2층까지 좌석"],
-       ["정지영 행궁본점","평지담, 아우토그라프","평지담은 말차 디저트"],
-       ["더판","셰프스위트, 태리주택","태리주택은 예약금 1만원 예약"],
-       ["경안당","생략","밤에 여는 곳이 드뭄"]]},
-{h:"B3. 많이 걷기 싫을 때",d:"성곽 위 구간(화서문 → 장안문)을 빼고, 행궁동에서 수원천을 따라 화홍문까지만 걸어 올라갑니다. 왕복 30~40분이면 끝납니다.",
- rows:[["15:30","카페에서 더 쉬기",""],
-       ["16:30","수원천 따라 화홍문까지","15~20분"],
-       ["16:50","방화수류정 노을","본 일정과 같음"]]}
+ rows:[["운멜로 1호점","운멜로키친 3호점 → 테이스팅뮤지엄","3호점 캐치테이블은 11:40에 열린다는 후기"],
+       ["태리주택","운멜로랩 → 미카사","운멜로랩은 매장 전화 예약"],
+       ["행궁81.2","팔레센트 → 정지영 장안문점","셋 다 장안문 앞이라 동선 그대로"]]},
+{h:"B3. 많이 걷기 싫을 때",d:"카페에서 오래 쉬고, 화홍문까지만 걸어 방화수류정 노을을 봅니다.",
+ rows:[["14:30","장안문 카페에서 1시간 반",""],
+       ["16:20","장안문 → 화홍문 (평지 길)","7~10분"],
+       ["16:40","방화수류정 노을","본 일정과 같음"]]}
 ];
 
 const EAT=[
-{h:"점심 · 브런치",items:[
- ["테이스팅뮤지엄","한옥 파스타, 리조또","캐치테이블 예약 · 주차 없음","테이스팅뮤지엄 행궁동",{tip:"일정 11:40 점심입니다.",info:{"메뉴":"홍게장리조또, 만조머쉬룸파스타"}}],
- ["호우집","퓨전 한식, 흑임자","11:30~21:00 · 오후 브레이크 · 77점","호우집 행궁동",{refs:[{l:"다이닝코드 — 호우집",u:"https://www.diningcode.com/profile.php?rid=csDcDdodyTKC"}]}],
- ["뜸 행궁 본점","솥밥, 누룽지","주말 점심 웨이팅 김","뜸 행궁본점",{refs:[{l:"다이닝코드 — 뜸",u:"https://www.diningcode.com/profile.php?rid=VspGA0ym8U6E"}]}],
- ["팜투하녹","브런치","78점 · 2층까지 좌석","팜투하녹 행궁동"],
- ["쿠어드꾸뜨","브런치","74점 · 주말 예약 가능","쿠어드꾸뜨 행궁동"],
- ["슬로우써니사이드","브런치, 카페","72점 · 맛이 애매하다는 후기도 있음","슬로우써니사이드 행궁동",{refs:[{l:"다이닝코드 — 슬로우써니사이드",u:"https://www.diningcode.com/profile.php?rid=Pwvk37ce51C1"}]}]]},
-{h:"저녁 · 분위기",items:[
- ["더판","덮밥, 이자카야","성곽 루프탑 · 야경","더판 행궁동",{tip:"일정 18:15 저녁입니다."}],
- ["태리주택 행궁","유럽풍 레스토랑","주말 웨이팅 잦음 · 예약금 1만원","태리주택 행궁"],
- ["셰프스위트","스테이크, 파스타, 피자, 와인","11:00~22:00","셰프스위트 행궁동"],
- ["위드마이호미스","양식","74점 · 4인 이상은 예약 권장","위드마이호미스 행궁동"],
- ["논샬랑라운지","라운지 바","저녁 5시 전엔 웨이팅 없었다는 후기","논샬랑라운지 행궁동"],
- ["존앤진피자펍","뉴욕식 피자","","존앤진피자펍 행궁동"]]},
-{h:"카페 · 디저트",items:[
- ["정지영커피로스터즈 행궁본점","플랫화이트, 디저트","4.4 · 84점 · 11:00~22:00","정지영커피로스터즈 행궁본점",{tip:"일정 14:20 카페입니다."}],
- ["정지영커피로스터즈 장안문점","코코넛 음료","4.3 · 77점 · 성곽길 중간","정지영커피로스터즈 장안문점",{refs:[{l:"다이닝코드 — 장안문점",u:"https://www.diningcode.com/profile.php?rid=JFej0NQsgYYo"}]}],
- ["정지영커피로스터즈 화홍문점","커피","4.3 · 76점 · 실내 좁음","정지영커피로스터즈 화홍문점",{tip:"일정 16:20 테이크아웃입니다."}],
- ["평지담","말차, 디저트","78점","평지담 행궁동"],
- ["경안당","한옥 카페","3.8점 · 야외석 · 늦게까지 영업","경안당 행궁동"],
- ["아우토그라프커피 행궁본점","커피","커뮤니티 추천","아우토그라프커피 행궁본점"],
- ["골디스 행궁점","카페","커뮤니티 추천","골디스 행궁점"],
- ["위크리브","카페","커뮤니티 추천","위크리브 행궁동"],
- ["카페 감정선","카페","커뮤니티 추천","카페 감정선 수원"]]}
+{h:"점심 · 저녁 (예약 가능)",items:[
+ ["운멜로 1호점","뇨끼, 크림 파스타","84점 · 예약필수 · 캐치테이블 · 주차 불가","운멜로 1호점 행궁동"],
+ ["운멜로키친 3호점","파스타, 뇨끼","82점 · 캐치테이블 11:40 오픈","운멜로키친 3호점 행궁동"],
+ ["운멜로랩","이탈리안","11:30~21:30 · BT 15:00~16:30 · 전화 예약","운멜로랩 행궁동"],
+ ["테이스팅뮤지엄","토마호크, 리조또","한옥 · 캐치테이블 · 주차 없음","테이스팅뮤지엄 행궁동"],
+ ["미카사","파스타, 양식","4.2점(27명) · 75점 · 한옥 · 예약 권장","미카사 행궁동"],
+ ["태리주택 행궁","스페인 요리, 스테이크","70~80점 · 예약금 1만원","태리주택 행궁"],
+ ["칠링더데이","와인 레스토랑","4.8점(5명) · 73점 · 예약 방법 확인 필요","칠링더데이 행궁동"]]},
+{h:"카페 (밝고 창 큰 곳)",items:[
+ ["행궁81.2","루프탑, 넓은 실내","장안문 바로 앞","행궁81.2"],
+ ["팔레센트","루프탑","2층 실내 + 3층 루프탑 · 장안문 뷰","팔레센트 행궁동"],
+ ["정지영커피로스터즈 장안문점","코코넛 음료","4.3점(50명) · 4층 테라스","정지영커피로스터즈 장안문점"],
+ ["헤올커피로스터즈","실내 + 루프탑","어느 층에서도 장안문","헤올커피로스터즈"],
+ ["정지영커피로스터즈 화홍문점","테이크아웃","4.3점 · 방화수류정 옆","정지영커피로스터즈 화홍문점"],
+ ["정지영커피로스터즈 행궁본점","플랫화이트","4.4점 · 84점 · 행궁 쪽","정지영커피로스터즈 행궁본점"],
+ ["토오즈","테라스","좌석 여유 · 영업시간 정보 엇갈림","토오즈 행궁동"]]}
 ];
 
 const SEE=[
 {h:"소품샵 · 편집샵",items:[
- ["럭희","그릇, 리빙","신풍로39번길 2 · 행리단길 메인","럭희 행궁동점",{tip:"일정 13:00 소품샵 ①입니다."}],
+ ["럭희","그릇, 리빙","신풍로39번길 2","럭희 행궁동점"],
  ["탭(TAB)","리빙, 굿즈 셀렉숍","","탭 소품샵 행궁동"],
  ["사소한오예","문구, 소품","통창 뷰","사소한오예 행궁동"],
  ["미니로 행궁점","미니어처","화서문로32번길 13-8, 2층","미니로 행궁점"],
  ["플랜비 스튜디오","미니어처","","플랜비스튜디오 행궁동"],
- ["비옥 행궁점","대형 인테리어 소품샵","시립미술관 근처 3층","비옥 행궁점",{refs:[{l:"비옥 행궁점 방문기",u:"https://tourlivingkr.com/entry/%EC%88%98%EC%9B%90-%ED%96%89%EA%B6%81%EB%8F%99-%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%BD%94%EC%8A%A4-%EA%B5%AC%EA%B2%BD%ED%95%98%EA%B8%B0-%EC%A2%8B%EC%9D%80-%EB%8C%80%ED%98%95-%EC%86%8C%ED%92%88%EC%83%B5-%EB%B9%84%EC%98%A5-%ED%96%89%EA%B6%81%EC%A0%90"}]}],
- ["굿버디 큐트 스토어","아기자기한 소품","흔하지 않은 소품이 많다는 후기","굿버디 행궁동"],
+ ["비옥 행궁점","대형 인테리어 소품샵","시립미술관 근처 3층","비옥 행궁점"],
+ ["굿버디 큐트 스토어","아기자기한 소품","","굿버디 행궁동"],
  ["봉주르","감성 소품","","봉주르 소품샵 행궁동"],
  ["뾰로리잡화점","잡화","","뾰로리잡화점"],
- ["오니오니","캐릭터 굿즈","짱구가 많음","오니오니 행궁동"],
- ["스모어팩토리 행궁점","디즈니 굿즈 + 디저트","","스모어팩토리 행궁점"],
- ["하비온","피규어, 키덜트","화서문로 서점 근처","하비온 행궁동"]]},
+ ["오니오니","캐릭터 굿즈","짱구","오니오니 행궁동"],
+ ["스모어팩토리 행궁점","디즈니 굿즈 + 디저트","","스모어팩토리 행궁점"]]},
 {h:"서점",items:[
- ["브로콜리숲","독립서점","화서문로32번길 21-10, 2층","브로콜리숲 서점 수원",{tip:"일정 13:45 소품샵 ②에 넣었습니다."}]]},
+ ["브로콜리숲","독립서점","화서문로32번길 21-10, 2층","브로콜리숲 서점 수원"]]},
 {h:"성곽길 · 명소",items:[
- ["화서문 · 서북공심돈","성곽길 출발점","무료","수원 화서문"],
- ["장안문","수원화성 북문","화서문에서 15분","수원 장안문"],
- ["화홍문","수원천 위 수문","장안문에서 7분","화홍문"],
- ["방화수류정 · 용연","동북각루와 연못","노을, 야경 명소 · 무료","방화수류정"],
- ["화성행궁","야간개장 달빛화담","금~일 18:00~21:30 · 11/1까지","화성행궁"],
- ["수원시립미술관","행궁 바로 앞","주차 겸 비 올 때 실내 대안","수원시립미술관"]]}
+ ["화서문 · 서북공심돈","만나는 곳 바로 앞","무료","수원 화서문"],
+ ["장안문","수원화성 북문","카페 앞","수원 장안문"],
+ ["화홍문","수원천 위 수문","장안문에서 7~10분","화홍문"],
+ ["방화수류정 · 용연","노을, 야경 명소","무료","방화수류정"],
+ ["화성행궁","야간개장 달빛화담","금~일 18:00~21:30 · 11/1까지","화성행궁"]]}
 ];
 
 const CHECK=[
- "오늘 밤 — 테이스팅뮤지엄 캐치테이블 예약 (11:30~12:00)",
- "저녁 자리 정하기 — 더판 대기, 또는 태리주택 예약 (예약금 1만원)",
+ "오늘 밤 — 점심 캐치테이블 예약 (운멜로 1호점 11:50~12:00)",
+ "오늘 밤 — 저녁 예약 (태리주택, 예약금 1만원)",
  "수원문화재단 031-290-3600 — 10/31 야간개장 운영 확인",
- "차로 가면 수원시립미술관 주차장으로 내비 찍기",
- "편한 신발 — 성곽길 포함 하루 1시간 반 걷기",
- "얇은 겉옷 — 해 지면 성곽 위가 쌀쌀함",
- "소품샵은 블로그 후기 버튼으로 최근 글 날짜 먼저 보기",
- "보조 배터리 — 사진과 지도 앱을 하루 종일 씀",
- "방화수류정 노을은 16:50까지 도착",
+ "겉옷 — 낮 14도, 밤 8도 안팎",
+ "편한 신발 — 하루 1시간 반 걷기",
+ "보조 배터리",
+ "카페는 14:30 전에 도착해야 루프탑 자리 잡기 쉬움",
+ "방화수류정 노을은 16:40까지 도착",
  "야간개장 입장 마감 21:00 — 저녁은 19:30에 일어나기"
 ];
 
 const COST=[ /* [항목, 표시 금액, 비고, 최소(만원), 최대(만원)] */
- ["점심 테이스팅뮤지엄","5~7만","파스타·리조또 2개 + 음료 추정",5,7],
- ["카페 행궁본점","2~3만","음료 2 + 디저트",2,3],
- ["커피 화홍문점","1~1.5만","테이크아웃",1,1.5],
- ["저녁 더판","5~8만","덮밥·안주 + 술 추정",5,8],
+ ["점심","5~7만","파스타 2 + 음료 추정",5,7],
+ ["카페","2~3만","음료 2 + 디저트",2,3],
+ ["방화수류정 음료","1~1.5만","테이크아웃",1,1.5],
+ ["저녁","6~10만","스페인 요리·스테이크 + 술 추정",6,10],
  ["화성행궁 야간개장","0.4만","성인 2,000원 ×2",0.4,0.4],
- ["소품샵","3~10만","사는 만큼",3,10],
- ["주차","0.6만","시립미술관 1일권 기준 (확인 필요)",0.6,0.6],
- ["경안당 (선택)","0~2만","",0,2]
+ ["소품샵","3~10만","사는 만큼",3,10]
 ];
 
 const PREP=[
- {h:"예약이 반입니다",p:"토요일 행궁동은 점심과 저녁 모두 줄이 섭니다. 테이스팅뮤지엄은 캐치테이블, 태리주택은 예약금 1만원 예약이 됩니다. 오늘 밤 두 군데만 걸어 두면 내일 동선이 그대로 굴러갑니다."},
- {h:"주차",p:"행궁 공영주차장은 주말 점심에 만차면 진입을 막아 대기가 깁니다. 바로 앞 수원시립미술관 주차장이 대안이고, 미술관을 보면 2시간 무료입니다. 거주자 우선주차 구역은 표지판의 시간을 꼭 보세요."},
- {h:"후기 보는 법",p:"장소를 누르면 나오는 '블로그 후기' 버튼은 네이버 블로그 검색으로 연결됩니다. 정렬을 최신순으로 바꿔 최근 3개월 글이 있는지 먼저 보면 폐업이나 메뉴 변경을 걸러낼 수 있습니다."},
- {h:"평점 기준",p:"점수는 다이닝코드 기준입니다(별점 5점 만점과 100점 환산 점수). 네이버 지도 별점은 장소의 '네이버 지도' 버튼으로 바로 확인할 수 있습니다."}
+ {h:"예약이 반입니다",p:"토요일 행궁동은 점심과 저녁 모두 줄이 섭니다. 그래서 이번 선택지는 예약이 되는 집만 남겼습니다. 오늘 밤 캐치테이블과 전화로 두 끼를 잡아 두면 내일은 걷기만 하면 됩니다."},
+ {h:"내일 날씨",p:"대체로 맑다가 밤부터 흐려지고, 수원은 8~14도입니다. 오후 성곽길은 맑아서 좋지만 해가 지면 빠르게 추워집니다. 다음 날(11/1)은 비 소식이 있습니다."},
+ {h:"후기와 사진 보는 법",p:"장소 카드의 '구글 지도' 버튼은 구글 지도의 사진과 리뷰로, '사진' 버튼은 네이버 이미지 검색으로, '블로그 후기'는 네이버 블로그 검색으로 연결됩니다. 블로그는 최신순으로 바꿔 최근 글부터 보세요."},
+ {h:"평점 기준",p:"카드의 별점과 점수는 다이닝코드 기준입니다(5점 만점 별점, 100점 환산 점수). 리뷰 수가 적은 곳은 괄호 안 숫자를 같이 보세요."}
 ];
 
 const WISH=[
- ["카페","14:20 행궁본점 · 16:20 화홍문점 · 21:00 경안당","평점 가장 높은 정지영 행궁본점을 중심에 두고, 산책 중간과 밤에 한 곳씩 더 넣었습니다","ok"],
- ["분위기 좋은 식당","11:40 테이스팅뮤지엄 · 18:15 더판","낮엔 한옥 마당, 밤엔 성곽 루프탑으로 분위기를 다르게 잡았습니다","ok"],
- ["소품샵","13:00 신풍로 · 13:45 화서문로32번길","12곳 중 동선상 붙어 있는 곳만 일정에 넣고, 나머지는 소품샵 탭에 두었습니다","ok"],
- ["살짝 걷는 일정","15:30~17:50 성곽길","화서문 → 장안문 → 화홍문 → 방화수류정, 경사 완만한 북쪽 구간입니다","ok"],
- ["후기 · 평점","장소마다","다이닝코드 점수와 후기 요약을 붙였고, 네이버 블로그와 지도 버튼으로 바로 확인할 수 있습니다","ok"]
+ ["11:30 (구)한국은행 정류장 만남","11:30 → 화서문 3분","출발점을 화서문 쪽으로 옮겨 일정 전체를 북쪽에서 시작하도록 다시 짰습니다","ok"],
+ ["밥집은 옵션으로, 예약 가능한 곳만","점심 5곳 · 저녁 5곳","행주집처럼 예약이 안 되는 집과 예약 여부를 확인 못 한 집(더판, 호우집)은 뺐습니다","ok"],
+ ["밝고 창 있고 큰 카페, 동선","14:30 장안문 앞","행궁81.2, 팔레센트, 정지영 장안문점이 모두 성곽길 출발점이라 동선 손해가 없습니다","ok"],
+ ["야간개장","19:40 화성행궁 달빛화담","11/1까지 금~일 운영, 20:00 무료 해설","ok"],
+ ["날씨 보고 산책 경로","16:10~17:50 · 플랜 B1","맑음 예보라 성벽 위 구간으로 잡고, 바람·흐림·비일 때 경로를 따로 두었습니다","ok"],
+ ["깔끔한 글씨, 사진, 구글 리뷰처럼","전체","Pretendard 글꼴, 구글 지도식 장소 카드, 구글 사진·리뷰 바로가기로 바꿨습니다","ok"]
 ];
 
-/* 추천 — st: in(일정에 있음) · alt(바꿔 넣기 좋음) · skip(이번엔 패스) */
+/* 장소 카드 — st: in(일정에 있음) · alt(바꿔 넣기 좋음) */
 const REC_SLOTS=[
- {d:"점심 11:40",n:"테이스팅뮤지엄 · 한옥",f:false},
- {d:"카페 14:20",n:"정지영 행궁본점 · 4.4",f:false},
- {d:"저녁 18:15",n:"더판 · 성곽 루프탑",f:false},
- {d:"야경 19:50",n:"화성행궁 달빛화담",f:true}
+ {d:"점심 11:50",n:"운멜로 1호점 · 84점",f:false},
+ {d:"카페 14:30",n:"행궁81.2 · 장안문 뷰",f:false},
+ {d:"저녁 18:15",n:"태리주택 · 예약금 1만원",f:false},
+ {d:"야경 19:40",n:"화성행궁 달빛화담",f:true}
 ];
 const REC=[
- {g:"점심",items:[
-  {nm:"테이스팅뮤지엄",dish:"홍게장리조또, 파스타",price:"점수 없음 · 한옥 마당이 사진 명소",hours:"캐치테이블 예약 · 주차 없음",st:"in",where:"11:40 점심",map:"테이스팅뮤지엄 행궁동"},
-  {nm:"호우집",dish:"퓨전 한식, 흑임자",price:"다이닝코드 77점",hours:"11:30~21:00 · 오후 브레이크",st:"alt",where:"예약을 못 잡았을 때 1순위 대안. 오픈 시간이 도착 시간과 딱 맞습니다.",map:"호우집 행궁동"},
-  {nm:"팜투하녹",dish:"브런치",price:"다이닝코드 78점",hours:"2층까지 좌석",st:"alt",where:"주말 낮에도 여유로웠다는 후기라 웨이팅 피하기 좋습니다.",map:"팜투하녹 행궁동"},
-  {nm:"뜸 행궁 본점",dish:"솥밥, 누룽지",price:"점수 확인 필요",hours:"주말 점심 웨이팅 김",st:"skip",where:"맛은 좋다는 평이지만 토요일 점심 줄이 길어 이번엔 뺐습니다.",map:"뜸 행궁본점"},
-  {nm:"슬로우써니사이드",dish:"브런치",price:"다이닝코드 72점",hours:"",st:"skip",where:"맛이 애매하고 조개 비린내가 났다는 후기가 있어 뺐습니다.",map:"슬로우써니사이드 행궁동"}]},
- {g:"카페",items:[
-  {nm:"정지영커피로스터즈 행궁본점",dish:"플랫화이트, 디저트",price:"4.4 (38명) · 84점",hours:"11:00~22:00 · 주차 불가",st:"in",where:"14:20 카페",map:"정지영커피로스터즈 행궁본점"},
-  {nm:"정지영커피로스터즈 화홍문점",dish:"커피 테이크아웃",price:"4.3 (22명) · 76점",hours:"실내 좁음",st:"in",where:"16:20 산책 중",map:"정지영커피로스터즈 화홍문점"},
-  {nm:"평지담",dish:"말차, 디저트",price:"다이닝코드 78점",hours:"",st:"alt",where:"행궁본점 자리가 없을 때. 말차를 좋아하면 처음부터 이쪽도 좋습니다.",map:"평지담 행궁동"},
-  {nm:"정지영커피로스터즈 장안문점",dish:"코코넛 음료",price:"4.3 (50명) · 77점",hours:"",st:"alt",where:"성곽길 중간 장안문에서 쉬고 싶을 때.",map:"정지영커피로스터즈 장안문점"},
-  {nm:"경안당",dish:"한옥 카페",price:"3.8 (15명) · 72점",hours:"늦게까지 영업",st:"in",where:"21:00 선택 일정",map:"경안당 행궁동"}]},
- {g:"저녁",items:[
-  {nm:"더판",dish:"덮밥, 이자카야",price:"점수 없음 · 친절하다는 후기",hours:"성곽 루프탑",st:"in",where:"18:15 저녁",map:"더판 행궁동"},
-  {nm:"태리주택 행궁",dish:"유럽풍 양식",price:"점수 없음",hours:"예약금 1만원 · 주말 웨이팅 잦음",st:"alt",where:"예약을 미리 걸 수 있다면 가장 안전한 저녁입니다.",map:"태리주택 행궁"},
-  {nm:"셰프스위트",dish:"스테이크, 파스타, 와인",price:"점수 없음",hours:"11:00~22:00",st:"alt",where:"와인 한 잔 하며 길게 앉고 싶을 때.",map:"셰프스위트 행궁동"},
-  {nm:"위드마이호미스",dish:"양식",price:"다이닝코드 74점",hours:"",st:"skip",where:"2인이면 갈 만하지만 예약 없이는 자리 잡기가 어렵다는 후기입니다.",map:"위드마이호미스 행궁동"}]}
+ {g:"점심 · 예약 가능",k:"food",items:[
+  {nm:"운멜로 1호점",cat:"이탈리안 · 파스타",score:84,rsv:"캐치테이블 · 예약필수",hours:"주차 불가",st:"in",where:"11:50 점심 1순위",tags:["데이트","깔끔한","예약필수"],
+   q:["뇨끼와 크림 파스타 칭찬이 많은 집","예약 없이 갔다가 캐치테이블 등록 후 25분쯤 기다렸다는 후기"],map:"운멜로 1호점 행궁동"},
+  {nm:"운멜로키친 3호점",cat:"이탈리안 · 뇨끼",score:82,rsv:"캐치테이블",hours:"예약이 11:40에 열린다는 후기",st:"alt",where:"1호점을 못 잡으면 같은 계열로",tags:["예약 가능"],
+   q:["캐치테이블 예약이 11:40에 열리니 미리 잡아 두라는 조언"],map:"운멜로키친 3호점 행궁동"},
+  {nm:"테이스팅뮤지엄",cat:"양식 · 한옥",rsv:"캐치테이블",hours:"전용 주차장 없음",st:"alt",where:"낮에 한옥 마당 사진을 원할 때",tags:["100년 한옥","마당"],
+   q:["100년 된 한옥을 고친 공간, 마당이 사진 명소","토마호크와 리조또가 대표, 메뉴 평은 엇갈림"],map:"테이스팅뮤지엄 행궁동"},
+  {nm:"미카사",cat:"파스타 · 양식",star:4.2,cnt:27,score:75,rsv:"예약 권장",hours:"",st:"alt",where:"한옥 인테리어의 차분한 데이트 분위기",tags:["한옥 인테리어","고급스러운"],
+   q:["한옥 인테리어에 고급스러운 데이트 분위기","예약까지 해서 방문했다는 후기, 평가는 엇갈림"],map:"미카사 행궁동"},
+  {nm:"운멜로랩",cat:"이탈리안",rsv:"매장 전화 11:00~21:00",hours:"11:30~21:30 · 브레이크 15:00~16:30",st:"alt",where:"언덕 주택가의 조용한 자리",tags:["주말 웨이팅","전화 예약"],
+   q:["주말엔 항상 웨이팅이 있어 예약 필수라는 안내","주차가 불편한 언덕 주택가"],map:"운멜로랩 행궁동"}]},
+ {g:"카페 · 밝고 창 큰 곳, 장안문 앞",k:"cafe",items:[
+  {nm:"행궁81.2",cat:"카페 · 루프탑",rsv:"예약 없이",hours:"장안문 바로 앞",st:"in",where:"14:30 카페 1순위",tags:["넓은 실내","깔끔","장안문 뷰"],
+   q:["카페도 엄청 넓고 인테리어도 깔끔하다는 후기","장안문 바로 앞이라 한눈에 보이는 게 포인트","주말엔 관광객이 많아 북적인다는 후기"],map:"행궁81.2"},
+  {nm:"팔레센트",cat:"카페 · 루프탑",rsv:"예약 없이",hours:"2층 실내 + 3층 루프탑",st:"alt",where:"행궁81.2가 붐비면 바로 옆으로",tags:["루프탑","장안문 뷰"],
+   q:["장안문 뷰가 좋은 루프탑 카페","주차는 화홍문·장안문 공영주차장 이용"],map:"팔레센트 행궁동"},
+  {nm:"정지영커피로스터즈 장안문점",cat:"카페 · 로스터리",star:4.3,cnt:50,score:77,rsv:"예약 없이",hours:"4층 테라스",st:"alt",where:"커피 맛 우선이면 이쪽",tags:["4층 테라스","코코넛 음료"],
+   q:["4층 테라스에서 성곽과 장안문을 조망","코코넛 음료가 시그니처"],map:"정지영커피로스터즈 장안문점"},
+  {nm:"헤올커피로스터즈",cat:"카페 · 루프탑",rsv:"예약 없이",hours:"실내 + 루프탑",st:"alt",where:"조용한 쪽을 원하면",tags:["루프탑","장안문 뷰"],
+   q:["어느 층에서도 장안문이 잘 보인다는 블로그 후기"],map:"헤올커피로스터즈"}]},
+ {g:"저녁 · 예약 가능",k:"food",items:[
+  {nm:"태리주택 행궁",cat:"스페인 요리 · 스테이크",score:78,rsv:"예약금 1만원",hours:"좌석 좁고 계단 가파름",st:"in",where:"18:15 저녁 1순위",tags:["유럽 골목 무드","예약 권장"],
+   q:["파리 골목을 걷는 듯한 유럽 무드","꾸덕한 파스타와 리조또가 주력","예약으로 자리가 거의 없었다는 후기"],map:"태리주택 행궁"},
+  {nm:"칠링더데이",cat:"와인 레스토랑 · 한옥",star:4.8,cnt:5,score:73,rsv:"예약 방법 확인 필요",hours:"",st:"alt",where:"와인 한잔하며 길게 앉고 싶을 때",tags:["한옥 골조","와인"],
+   q:["한옥 골조의 넓은 공간에서 와인을 즐길 수 있다는 평","한옥 스타일 양식집, 아주 예쁘게 꾸며져 있다는 후기"],map:"칠링더데이 행궁동"},
+  {nm:"운멜로랩",cat:"이탈리안",rsv:"매장 전화",hours:"21:30까지",st:"alt",where:"점심을 운멜로로 안 갔다면",tags:["파스타"],
+   q:["주말 웨이팅이 있어 전화 예약 권장"],map:"운멜로랩 행궁동"},
+  {nm:"미카사",cat:"파스타 · 한옥",star:4.2,cnt:27,score:75,rsv:"예약 권장",hours:"",st:"alt",where:"차분한 한옥 분위기의 저녁",tags:["한옥 인테리어"],
+   q:["한옥 인테리어의 고급스러운 데이트 분위기"],map:"미카사 행궁동"}]}
 ];
 const REC_LABEL={in:"일정에 있음",alt:"바꿔 넣기 좋음",skip:"이번엔 패스"};
 
@@ -782,14 +794,16 @@ const REC_LABEL={in:"일정에 있음",alt:"바꿔 넣기 좋음",skip:"이번�
 /* 시간대별 코스 */
 const KR=(a,b)=>"https://map.kakao.com/?sName="+enc(a)+"&eName="+enc(b);
 const BANDS=[
- {n:"낮 · 점심",h:"11:30 – 13:00",c:"var(--c-food)",p:"P 시립미술관 주차 → 1 테이스팅뮤지엄",w:"도보 10분 안팎 · 예약 못 잡으면 호우집(11:30 오픈)",
-  legs:[["주차 → 점심","수원시립미술관","테이스팅뮤지엄 행궁동"]]},
- {n:"오후 · 골목",h:"13:00 – 15:30",c:"var(--c-buy)",p:"2 럭희·탭·사소한오예 → 3 미니로·브로콜리숲 → 4 정지영 행궁본점",w:"골목 걷기 40분 + 카페 1시간",
-  legs:[["점심 → 소품샵 ①","테이스팅뮤지엄 행궁동","럭희 행궁동점"],["① → ②","럭희 행궁동점","브로콜리숲 서점 수원"],["② → 카페","브로콜리숲 서점 수원","정지영커피로스터즈 행궁본점"]]},
- {n:"해 질 녘 · 성곽",h:"15:30 – 17:50",c:"var(--sun)",p:"5 화서문 → 6 장안문 → 7 화홍문(커피) → 8 방화수류정 노을",w:"성곽길 약 30분 · 일몰 17:30 전후 · 16:50까지 도착",
-  legs:[["카페 → 화서문","정지영커피로스터즈 행궁본점","수원 화서문"],["화서문 → 장안문","수원 화서문","수원 장안문"],["장안문 → 화홍문","수원 장안문","화홍문"]]},
- {n:"밤 · 야경",h:"17:50 – 21:45",c:"var(--c-purple)",p:"수원천 따라 → 9 더판 저녁 → 10 화성행궁 달빛화담 → (경안당)",w:"수원천 산책 15~20분 · 행궁 입장 마감 21:00",
-  legs:[["방화수류정 → 저녁","방화수류정","더판 행궁동"],["저녁 → 화성행궁","더판 행궁동","화성행궁"],["행궁 → 주차","화성행궁","수원시립미술관"]]}
+ {n:"만남 · 점심",h:"11:30 – 13:10",c:"var(--c-food)",p:"M (구)한국은행 정류장 → 1 화서문 → 2 점심 (예약한 곳)",w:"정류장에서 화서문 3분 · 화서문에서 행리단길 골목으로",
+  legs:[["정류장 → 화서문","(구)한국은행 정류장 수원","수원 화서문"],["화서문 → 점심","수원 화서문","운멜로 1호점 행궁동"]]},
+ {n:"오후 · 골목",h:"13:10 – 14:30",c:"var(--c-buy)",p:"3 소품샵 — 미니로·브로콜리숲 → 럭희·탭·사소한오예",w:"골목 걷기 1시간 남짓",
+  legs:[["점심 → 소품샵","운멜로 1호점 행궁동","브로콜리숲 서점 수원"],["소품샵 → 카페","럭희 행궁동점","행궁81.2"]]},
+ {n:"오후 · 카페",h:"14:30 – 16:10",c:"var(--c-cafe)",p:"4 장안문 앞 통창·루프탑 카페 — 행궁81.2 / 팔레센트 / 정지영 장안문점",w:"맑은 날 루프탑에서 장안문 · 1시간 반 쉬기",
+  legs:[["카페 → 장안문","행궁81.2","수원 장안문"]]},
+ {n:"해 질 녘 · 성곽",h:"16:10 – 17:50",c:"var(--sun)",p:"장안문 → 성벽 위 → 5 화홍문 → 6 방화수류정 노을",w:"맑음 예보 · 일몰 17:30 전후 · 16:40까지 도착 · 바람 강하면 성곽 안쪽 길",
+  legs:[["장안문 → 화홍문","수원 장안문","화홍문"],["화홍문 → 방화수류정","화홍문","방화수류정"]]},
+ {n:"밤 · 야경",h:"17:50 – 21:15",c:"var(--c-purple)",p:"수원천 따라 → 7 저녁 (예약한 곳) → 8 화성행궁 달빛화담",w:"수원천 산책 15~20분 · 행궁 입장 마감 21:00 · 밤 8℃ 안팎",
+  legs:[["방화수류정 → 저녁","방화수류정","태리주택 행궁"],["저녁 → 화성행궁","태리주택 행궁","화성행궁"]]}
 ];
 document.getElementById('bands').innerHTML=BANDS.map(b=>`<div class="band" style="--bc:${b.c}">
   <span class="bt"><span class="bn">${b.n}</span><span class="bh">${b.h}</span></span>
@@ -935,6 +949,7 @@ function detailHTML(it,when){
   if(it.tip) h+=`<p class="d-h">참고</p><p class="d-p">${it.tip}</p>`;
   if(it.alt) h+=`<p class="d-h">대안</p><ul class="bul">${it.alt.map(a=>`<li>${a}</li>`).join('')}</ul>`;
   if(!it.info&&!it.tip&&!it.warn&&!it.alt&&!it.memo) h+=`<p class="d-h">참고</p><p class="d-p" style="color:var(--ink-3)">계획에 적힌 것 외에 따로 붙인 정보가 없습니다.</p>`;
+  if(it.map) h+=`<p class="d-h">위치</p><div class="gemb"><iframe loading="lazy" title="${it.name} 지도" src="${GEMB(it.map)}"></iframe></div>`;
   const links=buildLinks(it);
   if(links) h+=`<p class="d-h">더 알아보기</p><div class="links">${links.map(l=>
     `<a class="lnk${l.wide?' wide':''}" href="${l.u}"${l.tel?'':' target="_blank" rel="noopener"'}>${l.l}<span class="arw">${l.tel?'☎':'↗'}</span></a>`).join('')}</div>`;
@@ -1025,30 +1040,53 @@ function renderList(hostId,groups,fallbackCat){
 }
 renderList('eatbody',EAT,'food');
 
-/* 추천 맛집 */
+/* 밥집 · 카페 고르기 — 구글 지도식 장소 카드 */
 document.getElementById('recslots').innerHTML=REC_SLOTS.map(x=>`<div class="rec-slot${x.f?' fixed':''}"><b>${x.d}${x.f?' · 고정':''}</b>${x.n}</div>`).join('');
 let recF='all';
+const starRow=v=>{const f=Math.round(v*2)/2;let s='';for(let i=1;i<=5;i++)s+=i<=f?'★':(i-.5===f?'⯪':'☆');return s;};
+function rating(it){
+  if(it.star) return `<span class="gr"><b>${it.star.toFixed(1)}</b><span class="gs">${starRow(it.star)}</span><span class="gc">(${it.cnt})</span>${it.score?`<span class="gsc">· ${it.score}점</span>`:''}</span>`;
+  if(it.score) return `<span class="gr"><span class="gsc strong">다이닝코드 ${it.score}점</span></span>`;
+  return `<span class="gr"><span class="gc">평점 정보 없음 · 구글 리뷰로 확인</span></span>`;
+}
 function renderRec(){
   const host=document.getElementById('recbody');host.innerHTML='';
   REC.forEach(g=>{
     const items=g.items.filter(it=>recF==='all'||it.st===recF);
     if(!items.length) return;
     const hd=document.createElement('h3');hd.className='sec';hd.textContent=g.g;host.appendChild(hd);
-    const wrap=document.createElement('div');wrap.className='cards';
+    const wrap=document.createElement('div');wrap.className='gcards';
     items.forEach(it=>{
-      const b=document.createElement('button');b.type='button';b.className='rec-card '+it.st;
-      b.innerHTML=`<span class="rt"><span class="rn">${it.nm}</span><span class="pill ${it.st}">${REC_LABEL[it.st]}</span></span>
-        <span class="rd">${it.dish}</span><span class="rp">${it.price}</span><span class="rh">${it.hours}</span>
-        <span class="rw">${it.st==='in'?'일정 · ':''}${it.where}</span>`;
-      b.onclick=()=>showModal({c:'food',name:it.nm,memo:it.dish,map:it.map,
-        info:Object.assign({"가격":it.price,"영업":it.hours},it.info||{}),tip:it.where},REC_LABEL[it.st]+' · '+g.g);
-      wrap.appendChild(b);
+      const a=document.createElement('article');a.className='gcard '+g.k+(it.st==='in'?' in':'');
+      a.innerHTML=`<div class="gcover">
+          <span class="gco-name">${it.nm}</span>
+          <span class="gco-tags">${(it.tags||[]).map(t=>`<span>${t}</span>`).join('')}</span>
+          <a class="gco-photo" href="${GMAP(it.map)}" target="_blank" rel="noopener">사진 · 리뷰 보기 ↗</a>
+        </div>
+        <div class="gbody">
+          <div class="gtop"><button type="button" class="gname">${it.nm}</button><span class="pill ${it.st}">${REC_LABEL[it.st]}</span></div>
+          ${rating(it)}
+          <span class="gmeta">${it.cat} · <b>${it.rsv}</b></span>
+          ${it.hours?`<span class="gmeta">${it.hours}</span>`:''}
+          <ul class="gq">${(it.q||[]).map(q=>`<li><span class="gav">후</span><span>${q}</span></li>`).join('')}</ul>
+          <span class="gwhere">${it.st==='in'?'일정 · ':''}${it.where}</span>
+          <div class="gact">
+            <a href="${GMAP(it.map)}" target="_blank" rel="noopener">구글 지도</a>
+            <a href="${NIMG(it.map)}" target="_blank" rel="noopener">사진</a>
+            <a href="${NBLOG(it.map)}" target="_blank" rel="noopener">블로그 후기</a>
+            <a href="${K(it.map)}" target="_blank" rel="noopener">카카오맵</a>
+          </div>
+        </div>`;
+      a.querySelector('.gname').onclick=()=>showModal({c:g.k==='cafe'?'cafe':'food',name:it.nm,memo:it.cat,map:it.map,
+        info:Object.assign({"평점":it.star?`${it.star} (${it.cnt}명)${it.score?' · '+it.score+'점':''}`:(it.score?it.score+'점':'정보 없음'),"예약":it.rsv},it.hours?{"참고":it.hours}:{}),
+        tip:(it.q||[]).join(' / ')+'. '+it.where},REC_LABEL[it.st]+' · '+g.g);
+      wrap.appendChild(a);
     });
     host.appendChild(wrap);
   });
 }
 const recFil=document.getElementById('recfilter');
-[['all','전체'],['in','일정에 있음'],['alt','바꿔 넣기 좋음'],['skip','이번엔 패스']].forEach(([k,l])=>{
+[['all','전체'],['in','일정에 있음'],['alt','바꿔 넣기 좋음']].forEach(([k,l])=>{
   const b=document.createElement('button');b.type='button';b.textContent=l;b.setAttribute('aria-pressed',String(k==='all'));
   b.onclick=()=>{recF=k;[...recFil.children].forEach(o=>o.setAttribute('aria-pressed',String(o===b)));renderRec();};
   recFil.appendChild(b);
